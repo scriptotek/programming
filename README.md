@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+# Programming with Python
 
-You can use the [editor on GitHub](https://github.com/scriptotek/programming-for-lawyers/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+There are many reasons to learn programming, for instance it is fun. Programming
+is also a good way to automate tedious or repetitive work, which can save you days or weeks of time.
+A good way to learn how to program is to learn how to do something useful.
+In this course, you will get started on doing empirical research on case law.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Computer programs are a bit like LEGO, they are made up of lots
+of tiny parts. First, we’ll look at some of the parts, and study
+how they work. Then we’ll put the parts together to make a larger
+program that actually does something useful. Some of the examples
+might be a bit silly and made up. However, when you first learned
+to read, you probably didn’t start out with Shakespeare. Today
+you are learning a new language.
 
-### Markdown
+We recommend using [Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html)
+at the University of Oslo [JupyterHub](https://jupyterhub.uio.no/).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Lessons
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/scriptotek/programming-for-lawyers/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[The basics: variables and printing](Python_01_basics.ipynb)
+[Lists and loops](Python_02_lists_loops.ipynb)
+[Functions and choices (if)](Python_03_functions.ipynb)
+[Getting user input](Python_04_user_input.ipynb)
+[JSON and case law](caselaw.ipynb)
+[Strings and dictionaries](Python_06_Dictionaries_Strings.ipynb)
+[Classes](Python_07_Classes.ipynb)
+[Object oriented programming and inheritance](Python_09_OOP.ipynb)
