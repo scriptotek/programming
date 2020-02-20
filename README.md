@@ -25,7 +25,7 @@ Some of the lessons are based on material kindly provided by the
 1. [Lists and loops](02_lists_loops.ipynb)
 1. [JSON and case law](03_caselaw.ipynb)
 1. [Functions and choices (if)](04_functions.ipynb)
-1. [Getting user input](05_user_input.ipynb)
+1. [Getting user input](10_user_input.ipynb)
 1. [Strings and dictionaries](06_Dictionaries_Strings.ipynb)
 1. [Classes](07_Classes.ipynb)
 1. [Object oriented programming and inheritance](09_OOP.ipynb)
