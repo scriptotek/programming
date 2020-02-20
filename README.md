@@ -18,11 +18,14 @@ at the University of Oslo [JupyterHub](https://jupyterhub.uio.no/).
 
 ## Lessons
 
+Some of the lessons are based on material kindly provided by the
+[IN1900]( https://www.uio.no/studier/emner/matnat/ifi/IN1900/h19/) team.
+
 1. [The basics: variables and printing](Python_01_basics.ipynb)
 1. [Lists and loops](Python_02_lists_loops.ipynb)
+1. [JSON and case law](caselaw.ipynb)
 1. [Functions and choices (if)](Python_03_functions.ipynb)
 1. [Getting user input](Python_04_user_input.ipynb)
-1. [JSON and case law](caselaw.ipynb)
 1. [Strings and dictionaries](Python_06_Dictionaries_Strings.ipynb)
 1. [Classes](Python_07_Classes.ipynb)
 1. [Object oriented programming and inheritance](Python_09_OOP.ipynb)
