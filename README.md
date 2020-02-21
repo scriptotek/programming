@@ -21,11 +21,11 @@ at the University of Oslo [JupyterHub](https://jupyterhub.uio.no/).
 Some of the lessons are based on material kindly provided by the
 [IN1900]( https://www.uio.no/studier/emner/matnat/ifi/IN1900/h19/) team.
 
-1. [The basics: variables and printing](01_basics.ipynb)
-1. [Lists and loops](02_lists_loops.ipynb)
-1. [JSON and case law](03_caselaw.ipynb)
-1. [Functions and choices (if)](04_functions.ipynb)
-1. [Getting user input](10_user_input.ipynb)
-1. [Strings and dictionaries](06_Dictionaries_Strings.ipynb)
-1. [Classes](07_Classes.ipynb)
-1. [Object oriented programming and inheritance](09_OOP.ipynb)
+1. [The basics: variables and printing](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/01_basics.ipynb)
+1. [Lists and loops](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/02_lists_loops.ipynb)
+1. [JSON and case law](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/03_caselaw.ipynb)
+1. [Functions and choices (if)](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/04_functions.ipynb)
+1. [Getting user input](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_user_input.ipynb)
+1. [Strings and dictionaries](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/06_Dictionaries_Strings.ipynb)
+1. [Classes](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Classes.ipynb)
+1. [Object oriented programming and inheritance](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/09_OOP.ipynb)
