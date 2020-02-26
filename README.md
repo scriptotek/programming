@@ -26,7 +26,7 @@ Some of the lessons are based on material kindly provided by the
 1. [JSON and case law](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/03_caselaw.ipynb)
 1. [Choices (if)](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/04_if.ipynb)
 1. [Functions](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/05_functions.ipynb)
-1. [Getting user input](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_user_input.ipynb)
 1. [Strings and dictionaries](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/06_Dictionaries_Strings.ipynb)
+1. [Getting user input](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_user_input.ipynb)
 1. [Classes](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Classes.ipynb)
 1. [Object oriented programming and inheritance](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/09_OOP.ipynb)
