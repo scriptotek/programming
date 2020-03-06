@@ -28,6 +28,8 @@ Some of the lessons are based on material kindly provided by the
 1. [Functions](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/05_functions.ipynb)
 1. [Strings](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/06_Strings.ipynb)
 1. [Dictionaries](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Dictionaries.ipynb)
+<!--
 1. [Getting user input](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_user_input.ipynb)
 1. [Classes](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/08_Classes.ipynb)
 1. [Object oriented programming and inheritance](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/09_OOP.ipynb)
+-->
