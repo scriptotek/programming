@@ -25,11 +25,11 @@ Some of the lessons are based on material kindly provided by the
 
 1. [The basics: variables and printing](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/01_basics.ipynb)
 1. [Lists and loops](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/02_lists_loops.ipynb)
+1. [Dictionaries](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Dictionaries.ipynb)
 1. [JSON and case law](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/03_caselaw.ipynb)
 1. [Choices (if)](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/04_if.ipynb)
 1. [Functions](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/05_functions.ipynb)
 1. [Strings](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/06_Strings.ipynb)
-1. [Dictionaries](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Dictionaries.ipynb)
 
 <!--
 1. [Getting user input](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_user_input.ipynb)
