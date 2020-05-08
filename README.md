@@ -16,7 +16,7 @@ you are learning a new language.
 We recommend using [Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html)
 at the University of Oslo [JupyterHub](https://jupyterhub.uio.no/).
 If you don't have access to JupyterHub, you can use Google's
-[Colab]( https://colab.research.google.com/).
+[Colab](https://colab.research.google.com/github/scriptotek/programming-for-lawyers/).
 
 ## Lessons
 
