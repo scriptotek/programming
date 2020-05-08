@@ -1,5 +1,3 @@
-# Programming with Python
-
 There are many reasons to learn programming, for instance it is fun. Programming
 is also a good way to automate tedious or repetitive work, which can save you days or weeks of time.
 A good way to learn how to program is to learn how to do something useful.
