@@ -87,14 +87,16 @@ void autoupdate() {
 void update() {
   activeID++;
   
-  if (activeID == 4) {
+  if (activeID >= 3 && activeID < 5) {
     word = list[output.size()];
+  }
+  
+  if (activeID == 4) {
     output.add(word);
   }
   
   if (activeID >= program.length -1 && output.size() < list.length) {
     activeID = 3;
-    word = list[output.size()];
   }
  
   if (activeID == 6) {
