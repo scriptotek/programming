@@ -113,3 +113,16 @@ void reset() {
   word = "";
   activeID = 0;
 }
+
+void mousePressed () {
+  doLoop = !doLoop;
+}
+
+void keyPressed () {
+  if (key == 'l') {
+    doLoop = !doLoop;
+  } else {
+    update();
+    redraw();
+  }
+}
