@@ -15,6 +15,7 @@ boolean doLoop = true;
 int delayFrame = 30;
 float lineSpacing = fontSize*1.3;
 String word = "";
+int count;
 
 void setup() {
   size(500, 500);
@@ -66,10 +67,22 @@ private void drawFigure() {
   int bottom = height;
   int distance = (bottom - top)/3;
   int listPos = top + distance;
+  int wordPos = bottom - distance;
   textbox("'a'", "sentence[0]", width/4, listPos);
   textbox("'short'", "sentence[1]", width/2, listPos);
   textbox("'list'", "sentence[2]", width-width/4, listPos);
-  textbox(word, "word", width/2, bottom - distance);
+  textbox(word, "word", width/2, wordPos);
+  switch (count) {
+    case 1:
+      arrow(width/2, wordPos, width/4+40, listPos+40);
+      break;
+    case 2:
+      arrow(width/2, wordPos, width/2, listPos+40);
+      break;
+    case 3:
+      arrow(width/2, wordPos, width-width/4-40, listPos+40);
+      break;
+  }
 }
 
 private void printText(String content) {
@@ -91,8 +104,9 @@ void update() {
     activeID = 3;
   }
   
-  if (activeID >= 3 && activeID < 5) {
+  if (activeID == 3) {
     word = list[output.size()];
+    count++;
   }
   
   if (activeID == 4) {
@@ -111,6 +125,7 @@ void update() {
 void reset() {
   output.clear();
   word = "";
+  count = 0;
   activeID = 0;
 }
 
@@ -125,4 +140,15 @@ void keyPressed () {
     update();
     redraw();
   }
+}
+
+void arrow(int x1, int y1, int x2, int y2) {
+  line(x1, y1, x2, y2);
+  pushMatrix();
+  translate(x2, y2);
+  float a = atan2(x1-x2, y2-y1);
+  rotate(a);
+  line(0, 0, -10, -10);
+  line(0, 0, 10, -10);
+  popMatrix();
 }
