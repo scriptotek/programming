@@ -1,5 +1,5 @@
 PFont font;
-int fontSize = 18;
+int fontSize = 16;
 String [] program =  {"sentence = ['a', 'short', 'list']",
   "print('Iterating over the sentence:')",
   "for word in sentence:",
@@ -17,7 +17,7 @@ float lineSpacing = fontSize*1.3;
 String word = "";
 
 void setup() {
-  size(600, 600);
+  size(500, 500);
   smooth();
   font = createFont("Courier", 18);
   frameRate(30);
@@ -87,6 +87,10 @@ void autoupdate() {
 void update() {
   activeID++;
   
+  if (activeID >= program.length -1 && output.size() < list.length) {
+    activeID = 3;
+  }
+  
   if (activeID >= 3 && activeID < 5) {
     word = list[output.size()];
   }
@@ -95,10 +99,6 @@ void update() {
     output.add(word);
   }
   
-  if (activeID >= program.length -1 && output.size() < list.length) {
-    activeID = 3;
-  }
- 
   if (activeID == 6) {
     output.add("Done");
   }
