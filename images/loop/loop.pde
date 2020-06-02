@@ -3,9 +3,9 @@ int fontSize = 16;
 String [] program =  {"sentence = ['a', 'short', 'list']",
   "print('Iterating over the sentence:')",
   "for word in sentence:",
-  "    //loop starts (indentation)",
+  "    # loop starts (indentation)",
   "    print(word)",
-  "    //loop/indentation ends",
+  "    # loop/indentation ends",
   "print('Done')"};
 String[] list =  {"a", "short", "list"};
 ArrayList<String> output= new ArrayList<String>();
@@ -100,12 +100,16 @@ void autoupdate() {
 void update() {
   activeID++;
   
-  if (activeID >= program.length -1 && output.size() < list.length) {
+  if (activeID >= program.length -1 && count < list.length) {
     activeID = 3;
   }
   
+  if (activeID == 1) {
+    output.add("Iterating over the sentence:");
+  }
+  
   if (activeID == 3) {
-    word = list[output.size()];
+    word = list[count];
     count++;
   }
   
