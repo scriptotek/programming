@@ -20,7 +20,7 @@ int count;
 void setup() {
   size(500, 500);
   smooth();
-  font = createFont("Courier", 18);
+  font = createFont("Courier", fontSize);
   frameRate(30);
   textFont(font, fontSize);
   textAlign(LEFT);
@@ -71,7 +71,7 @@ private void drawFigure() {
   textbox("'a'", "sentence[0]", width/4, listPos);
   textbox("'short'", "sentence[1]", width/2, listPos);
   textbox("'list'", "sentence[2]", width-width/4, listPos);
-  textbox(word, "word", width/2, wordPos);
+  textbox("'"+word+"'", "word", width/2, wordPos);
   switch (count) {
     case 1:
       arrow(width/2, wordPos, width/4+40, listPos+40);
