@@ -21,12 +21,12 @@ If you don't have access to JupyterHub, you can use Google's
 Some of the lessons are based on material kindly provided by the
 [IN1900]( https://www.uio.no/studier/emner/matnat/ifi/IN1900/h19/) team.
 
-1. [The basics: variables and printing](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/01_basics.ipynb)
-1. [Lists and loops](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/02_lists_loops.ipynb)
+1. [The Basics: Variables and Printing](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/01_basics.ipynb)
+1. [Lists and Loops](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/02_lists_loops.ipynb)
 1. [Dictionaries](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/03_Dictionaries.ipynb)
 1. JSON introduction, in two variants:
-   1. [JSON and case law](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/04_caselaw.ipynb)
-   1. [JSON for librarians](https://nbviewer.jupyter.org/github/uio-library/JSON-tutorial/blob/master/01_intro.ipynb)
+   1. [JSON and Case Law](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/04_caselaw.ipynb)
+   1. [JSON for Librarians](https://nbviewer.jupyter.org/github/uio-library/JSON-tutorial/blob/master/01_intro.ipynb)
 1. [Choices (if)](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/05_if.ipynb)
 1. [Functions](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/06_functions.ipynb)
 1. [Strings](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Strings.ipynb)
