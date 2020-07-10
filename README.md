@@ -30,6 +30,7 @@ Some of the lessons are based on material kindly provided by the
 1. [Choices (if)](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/05_if.ipynb)
 1. [Functions](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/06_functions.ipynb)
 1. [Strings](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Strings.ipynb)
+1. [Final Library Data Exercises](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/09_library_data_exercises.ipynb)
 1. [Final Case Law Exercises](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_case_law_exercises.ipynb)
 
 <!--
