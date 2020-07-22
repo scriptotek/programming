@@ -10,7 +10,6 @@ String [] program =  {"sentence = ['a', 'short', 'list']",
 String[] list =  {"a", "short", "list"};
 ArrayList<String> output= new ArrayList<String>();
 int activeID = 0;
-float position;
 boolean doLoop = true;
 int delayFrame = 30;
 float lineSpacing = fontSize*1.3;
@@ -31,15 +30,24 @@ void draw() {
   fill(0);
   noFill();
   stroke(0);
-  position = fontSize*2;
   
+  drawText();
+  drawFigure();
+
+  if (doLoop) autoupdate();
+}
+
+void drawText() {
+  pushMatrix();
+  //left+top margin
+  translate(15, fontSize*2);
+
   for (int i = 0; i < program.length; i++) {
     //highlight active program line
     if (i == activeID) {
-      rect(15, position+5, width-30, -fontSize-5);
+      rect(0, 5, width-30, -fontSize-5);
     }
     printText(program[i]);
-    position =fontSize*2 +(i + 1)*lineSpacing;
   }
   
   printText("");
@@ -48,9 +56,7 @@ void draw() {
   for (String line: output) {
     printText(line);
   }
-  drawFigure();
-  
-  if (doLoop) autoupdate();
+  popMatrix();
 }
 
 void textbox(String content, String label,int x,int y){
@@ -86,8 +92,8 @@ private void drawFigure() {
 }
 
 private void printText(String content) {
-  text(content, 20, position);
-  position += lineSpacing;
+  text(content, 20, 0);
+  translate(0, lineSpacing);
 }
     
 void autoupdate() {
