@@ -2,7 +2,8 @@ There are many reasons to learn programming, for instance it is fun.
 Programming is creative problem-solving.
 Programming is also a good way to automate tedious or repetitive work, which can save you days or weeks of time.
 A good way to learn how to program is to learn how to do something useful.
-In this course, you will get started on doing empirical research on case law.
+In this course, you will get started on doing empirical research on case law,
+or searching a library catalog.
 
 Computer programs are a bit like LEGO, they are made up of lots
 of tiny parts. First, we’ll look at some of the parts, and study
