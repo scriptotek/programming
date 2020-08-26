@@ -1,13 +1,21 @@
+import java.util.StringJoiner;
 PFont font;
 int fontSize = 16;
-String [] program =  {"sentence = ['a', 'short', 'list']",
+String[] list =  {"a", "short", "list"};
+
+//Components to build the python definition of the list
+String delimiter = "', '";
+String prefix = "sentence = ['";
+String postfix = "']";
+StringJoiner listPython = new StringJoiner(delimiter, prefix, postfix);
+
+String[] program =  {"", //we make the first program line in setup()
   "print('Iterating over the sentence:')",
   "for word in sentence:",
   "    # loop starts (indentation)",
   "    print(word)",
   "    # loop/indentation ends",
   "print('Done')"};
-String[] list =  {"a", "short", "list"};
 ArrayList<String> output= new ArrayList<String>();
 int activeID = 0;
 boolean doLoop = true;
@@ -17,6 +25,11 @@ String word = "";
 int count;
 
 void setup() {
+  for (String item: list) {
+    listPython.add(item);
+  }
+  //we make the first program line here
+  program[0] = listPython.toString();
   size(500, 500);
   smooth();
   font = createFont("Courier", fontSize);
