@@ -1,20 +1,13 @@
 PFont font;
 int fontSize = 16;
-String[] list =  {"a", "short", "list"};
-
-//Components to build the python definition of the list
-String delimiter = "', '";
-String prefix = "sentence = ['";
-String postfix = "']";
-String listPython = String.join(delimiter, list);
-
-String[] program =  {prefix + listPython + postfix, //we make the first program line
+String [] program =  {"sentence = ['a', 'short', 'list']",
   "print('Iterating over the sentence:')",
   "for word in sentence:",
   "    # loop starts (indentation)",
   "    print(word)",
   "    # loop/indentation ends",
   "print('Done')"};
+String[] list =  {"a", "short", "list"};
 ArrayList<String> output= new ArrayList<String>();
 int activeID = 0;
 boolean doLoop = true;
