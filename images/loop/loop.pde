@@ -7,9 +7,9 @@ String[] list =  {"a", "short", "list"};
 String delimiter = "', '";
 String prefix = "sentence = ['";
 String postfix = "']";
-StringJoiner listPython = new StringJoiner(delimiter, prefix, postfix);
+String listPython = String.join(delimiter, list);
 
-String[] program =  {"", //we make the first program line in setup()
+String[] program =  {prefix + listPython + postfix, //we make the first program line
   "print('Iterating over the sentence:')",
   "for word in sentence:",
   "    # loop starts (indentation)",
@@ -25,11 +25,6 @@ String word = "";
 int count;
 
 void setup() {
-  for (String item: list) {
-    listPython.add(item);
-  }
-  //we make the first program line here
-  program[0] = listPython.toString();
   size(500, 500);
   smooth();
   font = createFont("Courier", fontSize);
