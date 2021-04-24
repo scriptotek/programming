@@ -1,0 +1,15 @@
+# - file: README
+- file: README.md
+  sections:
+    - file: 01_basics
+    - file: 02_lists_loops
+    - file: 03_Dictionaries
+    - file: 04_caselaw
+    - file: 05_if
+    - file: 06_functions
+    - file: 07_Strings
+    - file: machine_learning
+    - file: 08_exercises
+    - file: 09_library_data_exercises
+    - file: 10_case_law_exercises
+

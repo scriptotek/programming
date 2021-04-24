@@ -1,2 +1,38 @@
-theme: jekyll-theme-slate
+#######################################################################################
+# Book settings
 title: Introduction to Programming
+author: University of Oslo, Erik Winge, Eirill Strand Hauge
+logo: images/uio_logo_small.svg
+
+# Short description about the book
+description: >-
+  Course material for "Introduction to Programming"
+
+#######################################################################################
+# Execution settings
+execute:
+  execute_notebooks           : cache
+
+#######################################################################################
+# HTML-specific settings
+html:
+  home_page_in_navbar         : false
+
+# #######################################################################################
+# Interact link settings
+notebook_interface            : "notebook"
+
+#######################################################################################
+# Launch button settings
+repository:
+  url                         : https://github.com/scriptotek/programming-for-lawyers
+  #path_to_book                : "mini_book"
+
+binder:
+  binderhub_url               : "https://mybinder.org"
+  text                        : "Launch binder"
+
+# latex:
+#   latex_engine                : "xelatex"
+#   latex_documents:
+#     targetname: book.tex
