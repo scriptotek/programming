@@ -18,27 +18,5 @@ at the University of Oslo [JupyterHub](https://jupyterhub.uio.no/).
 If you don't have access to JupyterHub, you can use Google's
 [Colab](https://colab.research.google.com/github/scriptotek/programming-for-lawyers/).
 
-## Lessons
-
 Some of the lessons are based on material kindly provided by the
 [IN1900]( https://www.uio.no/studier/emner/matnat/ifi/IN1900/h19/) team.
-
-1. [The Basics: Variables and Printing](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/01_basics.ipynb)
-1. [Lists and Loops](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/02_lists_loops.ipynb)
-1. [Dictionaries](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/03_Dictionaries.ipynb)
-1. JSON Introduction, in two variants:
-   1. [JSON and Case Law](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/04_caselaw.ipynb)
-   1. [JSON for Librarians](https://nbviewer.jupyter.org/github/uio-library/JSON-tutorial/blob/master/01_intro.ipynb)
-1. [Decisions](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/05_if.ipynb)
-1. [Functions](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/06_functions.ipynb)
-1. [Bonus Episode: Strings](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/07_Strings.ipynb)
-1. [Bonus Episode: A Short Introduction to Machine Learning (Draft)](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/machine_learning.ipynb)
-1. [Exercises](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/08_exercises.ipynb)
-1. [Library Data Exercises](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/09_library_data_exercises.ipynb)
-1. [Case Law Exercises](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_case_law_exercises.ipynb)
-
-<!--
-1. [Getting user input](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/10_user_input.ipynb)
-1. [Classes](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/08_Classes.ipynb)
-1. [Object oriented programming and inheritance](https://nbviewer.jupyter.org/github/scriptotek/programming-for-lawyers/blob/master/09_OOP.ipynb)
--->
