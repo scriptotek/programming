@@ -34,7 +34,8 @@ repository:
 launch_buttons:
   notebook_interface          : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url               : "https://mybinder.org"
-  jupyterhub_url              : "https://jupyterhub.uio.no/"
+  jupyterhub_url              : "https://jupyterhub.uio.no"
+  colab_url                   : "https://colab.research.google.com"
 
 # latex:
 #   latex_engine                : "xelatex"
