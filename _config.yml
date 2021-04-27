@@ -17,6 +17,9 @@ execute:
 # HTML-specific settings
 html:
   home_page_in_navbar         : false
+  use_repository_button       : true
+  use_repository_button       : true
+  use_edit_page_button        : true
 
 # #######################################################################################
 # Interact link settings
@@ -28,9 +31,10 @@ repository:
   url                         : https://github.com/scriptotek/programming-for-lawyers
   #path_to_book                : "mini_book"
 
-binder:
+launch_buttons:
+  notebook_interface          : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url               : "https://mybinder.org"
-  text                        : "Launch binder"
+  jupyterhub_url              : "https://jupyterhub.uio.no/"
 
 # latex:
 #   latex_engine                : "xelatex"
