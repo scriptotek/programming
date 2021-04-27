@@ -21,15 +21,13 @@ html:
   use_repository_button       : true
   use_edit_page_button        : true
 
-# #######################################################################################
-# Interact link settings
-notebook_interface            : "notebook"
 
 #######################################################################################
 # Launch button settings
 repository:
   url                         : https://github.com/scriptotek/programming-for-lawyers
   #path_to_book                : "mini_book"
+  branch                      : master  # Which branch of the repository should be used when creating links
 
 launch_buttons:
   notebook_interface          : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
