@@ -4,6 +4,7 @@
     - file: 01_basics
     - file: 02_lists_loops
     - file: 03_Dictionaries
+    - file: 04_library_catalogue
     - file: 04_caselaw
     - file: 05_if
     - file: 06_functions
