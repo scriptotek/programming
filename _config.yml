@@ -18,7 +18,7 @@ execute:
 html:
   home_page_in_navbar         : false
   use_repository_button       : true
-  use_repository_button       : true
+  use_issues_button           : true
   use_edit_page_button        : true
 
 
