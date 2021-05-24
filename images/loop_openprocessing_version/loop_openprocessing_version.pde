@@ -11,7 +11,7 @@ String[] list =  {"a", "short", "list"};
 ArrayList<String> output= new ArrayList<String>();
 int activeID = 0;
 boolean doLoop = true;
-int delayFrame = 30;
+int delayFrame = 60;
 float lineSpacing = fontSize*1.3;
 String word = "";
 int count;
@@ -144,7 +144,7 @@ void mousePressed () {
 }
 
 void keyPressed () {
-  if (key == 'l') {
+  if (key == ' ') {
     doLoop = !doLoop;
   } else {
     update();
