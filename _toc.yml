@@ -1,5 +1,5 @@
 format: jb-book
-root: README.md
+root: README
 chapters:
 - file: 01_basics
 - file: 02_lists_loops
