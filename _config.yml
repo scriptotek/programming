@@ -11,7 +11,7 @@ description: >-
 #######################################################################################
 # Execution settings
 execute:
-  execute_notebooks           : cache
+  execute_notebooks           : auto
 
 #######################################################################################
 # HTML-specific settings
