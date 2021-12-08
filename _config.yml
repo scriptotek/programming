@@ -25,7 +25,7 @@ html:
 #######################################################################################
 # Launch button settings
 repository:
-  url                         : https://github.com/scriptotek/programming-for-lawyers
+  url                         : https://github.com/scriptotek/programming-for-librarians
   #path_to_book                : "mini_book"
   branch                      : master  # Which branch of the repository should be used when creating links
 
