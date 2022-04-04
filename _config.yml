@@ -1,12 +1,12 @@
 #######################################################################################
 # Book settings
-title: Introduction to Programming
+title: Programming for Librarians
 author: University of Oslo, Erik Winge, Eirill Strand Hauge
 logo: images/uio_logo_small.svg
 
 # Short description about the book
 description: >-
-  Course material for "Introduction to Programming"
+  Course material for "Programming for Librarians"
 
 #######################################################################################
 # Execution settings
