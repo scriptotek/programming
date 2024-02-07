@@ -1,4 +1,4 @@
-# An Introduction to Programming
+# An Introduction to Programming in Python
 
 There are many reasons to learn programming, for instance it is fun.
 Programming is creative problem-solving.
