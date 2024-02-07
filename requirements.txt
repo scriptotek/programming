@@ -1,4 +1,4 @@
 sphinx
 matplotlib
 jupyter-book
-sklearn
+scikit-learn
