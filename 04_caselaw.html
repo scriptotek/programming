@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>JSON and Case Law &#8212; Introduction to Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_caselaw';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Decisions" href="05_if.html" />
+    <link rel="prev" title="JSON and Library Catalog Data" href="04_library_catalogue.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Programming - Home"/>
+    <script>document.write(`<img src="_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">The Basics: Variables and Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_lists_loops.html">Lists and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_library_catalogue.html">JSON and Library Catalog Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">JSON and Case Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_if.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Strings.html">Bonus Episode: Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">A short introduction to machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_exercises.html">More Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_library_data_exercises.html">Library Data Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_case_law_exercises.html">Case Law Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/scriptotek/programming/master?urlpath=tree/04_caselaw.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/scriptotek/programming&urlpath=tree/programming/04_caselaw.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/scriptotek/programming/blob/master/04_caselaw.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/edit/master/04_caselaw.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/issues/new?title=Issue%20on%20page%20%2F04_caselaw.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_caselaw.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>JSON and Case Law</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-data">Fetching Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data">Using the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-docket-number"><span style="color:green"> Exercise: Docket Number </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#following-the-path">Following the Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-attorneys-and-head-matter"><span style="color:green"> Exercise: Attorneys and Head Matter </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-lists">Working with Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><span style="color:blue">Key Points</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="json-and-case-law">
+<h1>JSON and Case Law<a class="headerlink" href="#json-and-case-law" title="Link to this heading">#</a></h1>
+<p>How can we extract data from APIs (machine-readable online data sources)?</p>
+<p>In this lesson, we look at how we can use data from the web.
+We will use real-world data from Harvard’s <a class="reference external" href="https://case.law/">Caselaw Access Project</a> (“CAP”).
+CAP aims to make all published US courts decisions freely available in a standard, machine-readable format.
+CAP and the data format is <a class="reference external" href="https://case.law/api/">documented here</a>.</p>
+<section id="json">
+<h2>JSON<a class="headerlink" href="#json" title="Link to this heading">#</a></h2>
+<p>JSON is a machine-readable data format.
+Machine-readable data makes it easy to read and process the information with a computer.
+JSON data is usually tree structured, with multiple levels containing information.
+This is kind of like a directory tree containing files.</p>
+</section>
+<section id="fetching-data">
+<h2>Fetching Data<a class="headerlink" href="#fetching-data" title="Link to this heading">#</a></h2>
+<p>To fetch data from the web, we can use a library called requests that makes this task quite easy. Since we are are fetching data in the JSON format, we will also import a library to decode JSON data. Libraries are collections of code written by others that we can utilize instead of writing everything from scratch ourselves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need to specify the URL to the data we want to fetch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.case.law/v1/cases/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We include some parameters that specifies which cases we want to load:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;jurisdiction&#39;</span><span class="p">:</span> <span class="s1">&#39;ill&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;full_case&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;decision_date_min&#39;</span><span class="p">:</span> <span class="s1">&#39;2011-01-01&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;page_size&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jurisdiction</span></code> is Illinois in this example</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full_case</span></code> include the full text of each case</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decision_date_min</span></code> is the minimum date, we only want decisions later than this date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_size</span></code> is the number of items</p></li>
+</ul>
+<p>More parameters are listed in the CAP documentation linked above.</p>
+<p>Now, let’s fetch the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This step both fetches and decodes the json data in one line. We can also do this step-by-step, to see how the process works.
+If you don’t want to get into the details at this point, you can skip ahead to the section “Using the data”.
+The server response also contains metadata, but we want the content:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can look at the first 100 characters from the raw data. We can see the same data if we open the URL in a web browser:
+<a class="reference external" href="https://api.case.law/v1/cases/?jurisdiction=ill&amp;amp;full_case=true&amp;amp;decision_date_min=2011-01-01&amp;amp;page_size=3">https://api.case.law/v1/cases/?jurisdiction=ill&amp;full_case=true&amp;decision_date_min=2011-01-01&amp;page_size=3</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;{&quot;count&quot;:3869,&quot;next&quot;:&quot;https://api.case.law/v1/cases/?cursor=eyJwIjogWzAuMCwgIjIwMTEtMDEtMDYiLCA0MzA2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use the data, we must decode them. We must specify the character set, which is often UTF-8. Then we decode the json format into a Python dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-data">
+<h2>Using the Data<a class="headerlink" href="#using-the-data" title="Link to this heading">#</a></h2>
+<p>We can print the data, however this is a lot of text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;count&#39;: 3869, &#39;next&#39;: &#39;https://api.case.law/v1/cases/?cursor=eyJwIjogWzAuMCwgIjIwMTEtMDEtMDYiLCA0MzA2Njk3XX0%3D&amp;decision_date_min=2011-01-01&amp;full_case=true&amp;jurisdiction=ill&amp;page_size=3&#39;, &#39;previous&#39;: None, &#39;results&#39;: [{&#39;id&#39;: 4305680, &#39;url&#39;: &#39;https://api.case.law/v1/cases/4305680/&#39;, &#39;name&#39;: &#39;FEDERAL INSURANCE COMPANY, Plaintiff-Appellant, v. LEXINGTON INSURANCE COMPANY, Defendant-Appellee&#39;, &#39;name_abbreviation&#39;: &#39;Federal Insurance v. Lexington Insurance&#39;, &#39;decision_date&#39;: &#39;2011-01-03&#39;, &#39;docket_number&#39;: &#39;No. 1—09—3296&#39;, &#39;first_page&#39;: &#39;895&#39;, &#39;last_page&#39;: &#39;900&#39;, &#39;citations&#39;: [{&#39;type&#39;: &#39;official&#39;, &#39;cite&#39;: &#39;406 Ill. App. 3d 895&#39;}], &#39;volume&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/volumes/32044132260050/&#39;, &#39;volume_number&#39;: &#39;406&#39;, &#39;barcode&#39;: &#39;32044132260050&#39;}, &#39;reporter&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/reporters/322/&#39;, &#39;full_name&#39;: &#39;Illinois Appellate Court Reports, Third Series&#39;, &#39;id&#39;: 322}, &#39;court&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/courts/ill-app-ct/&#39;, &#39;name_abbreviation&#39;: &#39;Ill. App. Ct.&#39;, &#39;slug&#39;: &#39;ill-app-ct&#39;, &#39;id&#39;: 8837, &#39;name&#39;: &#39;Illinois Appellate Court&#39;}, &#39;jurisdiction&#39;: {&#39;id&#39;: 29, &#39;name_long&#39;: &#39;Illinois&#39;, &#39;url&#39;: &#39;https://api.case.law/v1/jurisdictions/ill/&#39;, &#39;slug&#39;: &#39;ill&#39;, &#39;whitelisted&#39;: True, &#39;name&#39;: &#39;Ill.&#39;}, &#39;cites_to&#39;: [{&#39;cite&#39;: &#39;316 Ill. App. 3d 1052&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [1096546], &#39;year&#39;: 2000, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;1063&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;359 Ill. App. 3d 749&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [5594611], &#39;weight&#39;: 2, &#39;year&#39;: 2005, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;755&#39;}, {&#39;page&#39;: &#39;755&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;111 Ill. 2d 229&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3166688], &#39;year&#39;: 1986, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;240&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;368 Ill. App. 3d 462&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [4267340], &#39;year&#39;: 2006, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;468&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;156 Ill. 2d 384&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [777543], &#39;year&#39;: 1993, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;391&#39;}], &#39;opinion_id&#39;: 0}], &#39;frontend_url&#39;: &#39;https://cite.case.law/ill-app-3d/406/895/&#39;, &#39;frontend_pdf_url&#39;: &#39;https://cite.case.law/pdf/4305680/Federal%20Insurance%20v.%20Lexington%20Insurance,%20406%20Ill.%20App.%203d%20895%20(2011).pdf&#39;, &#39;preview&#39;: [], &#39;analysis&#39;: {&#39;word_count&#39;: 1813, &#39;random_bucket&#39;: 37887, &#39;sha256&#39;: &#39;40fc0da1a91ab688bd66b8977fb26431241b872a39b16d20714d2fda1fe47304&#39;, &#39;ocr_confidence&#39;: 0.785, &#39;char_count&#39;: 11245, &#39;random_id&#39;: 733844479, &#39;pagerank&#39;: {&#39;percentile&#39;: 0.14497177248557735, &#39;raw&#39;: 4.03580807328026e-08}, &#39;cardinality&#39;: 579, &#39;simhash&#39;: &#39;1:c934ccf6d6a130d8&#39;}, &#39;last_updated&#39;: &#39;2023-07-14T19:33:07.786999+00:00&#39;, &#39;provenance&#39;: {&#39;date_added&#39;: &#39;2019-08-29&#39;, &#39;batch&#39;: &#39;2018&#39;, &#39;source&#39;: &#39;Harvard&#39;}, &#39;casebody&#39;: {&#39;status&#39;: &#39;ok&#39;, &#39;data&#39;: {&#39;corrections&#39;: &#39;&#39;, &#39;parties&#39;: [&#39;FEDERAL INSURANCE COMPANY, Plaintiff-Appellant, v. LEXINGTON INSURANCE COMPANY, Defendant-Appellee.&#39;], &#39;attorneys&#39;: [&#39;Tressler, LLP, of Chicago (Todd S. Schenk and Amber C. Coisman, of counsel), for appellant.&#39;, &#39;Donohue Brown Mathewson &amp; Smyth LLC, of Chicago (Norman J. Barry, Jr., Karen Kies DeGrand, and Christopher J. Rados, of counsel), for appellee.&#39;], &#39;opinions&#39;: [{&#39;author&#39;: &#39;JUSTICE O’BRIEN&#39;, &#39;text&#39;: &#39;JUSTICE O’BRIEN\ndelivered the judgment of the court, with opinion.\nPresiding Justice Gallagher and Justice Lavin concurred in the judgment and opinion.\nOPINION\nThis appeal arises from an insurance coverage lawsuit in which plaintiff, Federal Insurance Company (Federal), sought to recover from defendant, Lexington Insurance Company (Lexington), settlement payments made by Federal on behalf of its insured in a personal injury action. The circuit court held that the insured’s failure to comply with the “Notice of Circumstance” provision precluded coverage under the Lexington policy and granted summary judgment in favor of Lexington. On appeal, Federal contends the circuit court erred in granting summary judgment to Lexington because sufficient notice was provided as outlined in the insurance policy. We affirm.\nWe adopt the facts as outlined in the judgment of the circuit court.\nIn October 1998, Jose Barajas was seriously injured by a detonator manufactured by the Ensign-Bickford Company (Ensign) and sold by American East Explosives, Inc. (American East). American East, doing business then as Evenson Explosives, is a subsidiary of ETI Canada, Inc. (ETI). At the time of the accident, American East and Ensign were insured by National Union Fire Insurance Company (National Union). Defendant Lexington was their excess carrier from November 29, 1997, through November 29, 1998, and plaintiff, Federal, provided excess coverage from November 29, 1998, through November 29, 1999.\nOn April 18, 2000, Barajas and his spouse filed suit against American East, Ensign, and others, for his injuries. National Union agreed to defend American East and Ensign, and Federal agreed to provide excess coverage. Lexington refused to participate, contending the Barajas claim was not covered under its policy. Once the Barajas litigation settled, Federal filed the instant lawsuit seeking to recover its portion of the settlement from Lexington.\nThe parties filed cross-motions for summary judgment on Federal’s four-count complaint for declaratory relief, indemnification, breach of contract damages, and contribution. The circuit court granted Lexington summary judgment on the four-count complaint and denied summary judgment to Federal. Federal filed this timely appeal.\nAt issue is the notice of circumstance in Lexington’s policy:\n“Whenever the Insured has information relating to a Circumstance which is likely to involve this Policy and gives notice of such Circumstance, in writing, sent by registered or certified mail during the period of this Policy, to the entity designated in Item 4 of the Declarations, then any claim, as respects such Circumstance, which is made, in writing, against the Insured within seven years from the date of the written notification of such Circumstance, to said entity, shall be deemed to have been first made, in writing, against the Insured on the date upon which the notice of the said Circumstance was first sent to said entity, in writing.\nIt is noted that this Insuring Agreement 4 is an option for the Insured and not an obligation and does not alter the provisions of Condition (D) — REPORTING OF LOSSES.” (Emphasis added.)\nWillis Corroon Corporation of Seattle (Willis) is the entity-designated in Item 4. At the time of the Barajas accident, Willis also was American East’s broker in charge of handling all of American East’s general and auto liability claims and the reporting of all those after being notified.\nIt is undisputed American East did not provide Willis with written notification of the Barajas incident. American East’s administrative and risk manager, Carl Clauss, did telephone Willis’s representative, Stanley Heydrick, on the day of the incident or the day after and notified him of the incident. Heydrick does not remember requesting written notice of the Barajas accident, but believes he forwarded the Barajas information to Mr. Jim Sorte in the claims department, which then put National Union, the primary insurer, on notice.\nThe learned trial court correctly stated the standard. “The construction of an insurance policy and a determination of the rights and obligations thereunder are questions of law for the court which are appropriate subjects for disposition by way of summary judgment.” Crum &amp; Forster Managers Corp. v. Resolution Trust Corp., 156 Ill. 2d 384, 391 (1993). Summary judgment should be granted only where the pleadings, depositions, admissions and affidavits, viewed in the light most favorable to the nonmovant, show that no genuine issue of material fact exists and that the moving party is entitled to judgment as a matter of law. Film &amp; Tape Works, Inc. v. Junetwenty Films, Inc., 368 Ill. App. 3d 462, 468 (2006). While summary judgment may aid the expeditious disposition of a lawsuit, it is a drastic means of disposing of litigation and therefore should be allowed only when the right of the moving party is clear and free from doubt. Purtill v. Hess, 111 Ill. 2d 229, 240 (1986). When parties file cross-motions for summary judgment, they concede the absence of a genuine issue of material fact and invite the court to decide the questions presented as a matter of law. Steadfast Insurance Co. v. Caremark Rx, Inc., 359 Ill. App. 3d 749, 755 (2005). Our review is de novo. Steadfast Insurance Co., 359 Ill. App. 3d at 755.\nA proper analysis of the sufficiency of notice is whether the notice given objectively complied with the potential claim notice provision of a policy. Continental Casualty Co. v. Coregis Insurance Co., 316 Ill. App. 3d 1052, 1063 (2000).\nOn appeal, Federal contends the notice was sufficient because: (1) there was oral notice by telephone the next day that was intended as notice; and (2) notice by fax to AIG Claim Services, Inc. (AIG/CS), was sufficient written notice as Lexington, National Union and AIG/CS are all part of the American International Group, Inc. (AIG), corporate group.\nWe disagree. Mr. Clauss testified at his deposition in pertinent part:\n“Q. At the time ETI provided notice of or notified Willis of the Barajas accident, did you understand that there was a possibility that Mr. Barajas’s injuries would result in a claim against ETI or one of its subsidiaries?\nA. No.\nQ. And why do you say that?\nA. Because we sold product to a customer that did their own blasting. The product was loaded in the hole by Material Service’s employees. Therefore, the only way that ETI should have been involved in the litigation or in the claim would be if it was deemed that the product was defective and that was one of the results of why the accident occurred.\nQ. Okay. A day after the accident occurred, was it known whether the product was deemed defective?\nA. No.\nQ. So is it fair to say that Willis was notified of the Barajas accident in case the product involved in the Barajas accident was deemed defective?\nA. That was always the prudent thing to do.\ns¡t * *\nQ. When notice was provided to Willis of the Barajas accident, did you intend to put all carriers on notice of the incident?\n***\nA. That would have been Willis’s decision.\nQ. Was it your understanding that Willis would put the carriers on notice of the Barajas incident?\n***\nA. I feel that they did the right thing, which was notify [National Union,] [which] had a million dollars’ worth of coverage since I didn’t expect it to be a claim.”\nFurther, Willis’s claims representative, Jim Sorte, testified in his deposition in pertinent part:\n“Q. [D]id you in your capacity with Willis in 1998/1999, in those years, did you have the authority to unilaterally decide to put an ETI excess insurer on notice of an incident or claim without first discussing it with Mr. Clauss?\n***\nA. No.\nQ. Would it be fair to say that before anyone at Willis with respect to the ETI account could put an excess insurer on notice of an incident, occurrence or claim, Willis first needed the approval and authority of Mr. Clauss to do so?\n***\nA. Yes.\nQ. Did Mr. Clauss on October 13 of 1998 or at any time ever ask you to put Lexington on notice of the Barajas case under the Lexington claims-made excess policy in effect between November of 1997 and November of 1998?\nA. I don’t believe so, no.”\nThis testimony reveals that Mr. Clauss did not instruct Willis to put Lexington on notice of the Barajas claim; rather, he left it to Willis to figure out which carrier to notify. Mr. Clauss further stated he believed Willis did the “right thing” in notifying National Union (and not the excess carrier Lexington) because Mr. Clauss did not expect a claim to be made.\nOn this record, there simply is no evidence that American East notified Willis, either by telephone or in writing, that it should put Lexington on notice of the Barajas accident. Accordingly, the circuit court was correct in finding that American East failed to comply with the notice of circumstance provision of the Lexington policy.\nFederal contends Lexington received notice of the Barajas incident through an “Acord General Liability Notice of Occurrence Claim” (the Acord) Willis sent by fax to AIG, which was received by AIG/CS on October 14, 1998. Federal argues that Lexington and National Union are both AIG member companies and that AIG/CS accepts notices from brokers or policyholders on behalf of Lexington and National Union. Federal contends this court should find, as a matter of law, that notice to AIG, AIG/CS, or National Union constituted notice to Lexington.\nWe disagree. The Acord referenced only National Union, not Lexington. The Acord contained a section allowing identification of an “umbrella/excess policy in force”; however, this section was left blank by Willis. As aptly noted by the circuit court, “Merely because National Union fortuitously belonged to the same organization as Lexington does not impute notice of the Barajas incident to Lexington. Moreover, there is not even any evidence suggesting that the sender of the Acord intended to notify anyone other than National Union, the only insurer identified therein, of the Barajas incident.”\nFederal also argues:\n“The Lexington Policy’s Other Insurance provision conflicts with the Federal Policy’s Other Insurance provisions because both policies purport to make their insurance excess of all other applicable insurance. Since the Other Insurance provisions are mutually repugnant, this Court should disregard them, and require both insurer[s] to contribute on a pro rata basis, which [in] this case would require Lexington to reimburse Federal for one-half of the settlement of the Barajas lawsuit, plus interest.”\nFederal’s argument is unavailing. As discussed above, Federal is not entitled to any reimbursement from Lexington due to .the insured’s failure to comply with the notice of circumstance provision of the Lexington policy.\nFor the foregoing reasons, we affirm the circuit court.\nAffirmed.&#39;, &#39;type&#39;: &#39;majority&#39;}], &#39;judges&#39;: [], &#39;head_matter&#39;: &#39;FEDERAL INSURANCE COMPANY, Plaintiff-Appellant, v. LEXINGTON INSURANCE COMPANY, Defendant-Appellee.\nFirst District (4th Division)\nNo. 1—09—3296\nOpinion filed January 3, 2011.\nTressler, LLP, of Chicago (Todd S. Schenk and Amber C. Coisman, of counsel), for appellant.\nDonohue Brown Mathewson &amp; Smyth LLC, of Chicago (Norman J. Barry, Jr., Karen Kies DeGrand, and Christopher J. Rados, of counsel), for appellee.&#39;}}}, {&#39;id&#39;: 4307076, &#39;url&#39;: &#39;https://api.case.law/v1/cases/4307076/&#39;, &#39;name&#39;: &#39;THE PEOPLE OF THE STATE OF ILLINOIS, Plaintiff-Appellee, v. PHILLIP CONNOLLY, Defendant-Appellant&#39;, &#39;name_abbreviation&#39;: &#39;People v. Connolly&#39;, &#39;decision_date&#39;: &#39;2011-01-04&#39;, &#39;docket_number&#39;: &#39;No. 3—08—1027&#39;, &#39;first_page&#39;: &#39;1022&#39;, &#39;last_page&#39;: &#39;1030&#39;, &#39;citations&#39;: [{&#39;type&#39;: &#39;official&#39;, &#39;cite&#39;: &#39;406 Ill. App. 3d 1022&#39;}], &#39;volume&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/volumes/32044132260050/&#39;, &#39;volume_number&#39;: &#39;406&#39;, &#39;barcode&#39;: &#39;32044132260050&#39;}, &#39;reporter&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/reporters/322/&#39;, &#39;full_name&#39;: &#39;Illinois Appellate Court Reports, Third Series&#39;, &#39;id&#39;: 322}, &#39;court&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/courts/ill-app-ct/&#39;, &#39;name_abbreviation&#39;: &#39;Ill. App. Ct.&#39;, &#39;slug&#39;: &#39;ill-app-ct&#39;, &#39;id&#39;: 8837, &#39;name&#39;: &#39;Illinois Appellate Court&#39;}, &#39;jurisdiction&#39;: {&#39;id&#39;: 29, &#39;name_long&#39;: &#39;Illinois&#39;, &#39;url&#39;: &#39;https://api.case.law/v1/jurisdictions/ill/&#39;, &#39;slug&#39;: &#39;ill&#39;, &#39;whitelisted&#39;: True, &#39;name&#39;: &#39;Ill.&#39;}, &#39;cites_to&#39;: [{&#39;cite&#39;: &#39;225 Ill. 2d 246&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [5705152], &#39;weight&#39;: 3, &#39;year&#39;: 2007, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;541 U.S. 36&#39;, &#39;category&#39;: &#39;reporters:federal&#39;, &#39;reporter&#39;: &#39;U.S.&#39;, &#39;case_ids&#39;: [5873383], &#39;year&#39;: 2004, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;557 U.S. 305&#39;, &#39;category&#39;: &#39;reporters:federal&#39;, &#39;reporter&#39;: &#39;U.S.&#39;, &#39;case_ids&#39;: [3657952], &#39;year&#39;: 2009, &#39;pin_cites&#39;: [{&#39;parenthetical&#39;: &#39;confrontation clause imposes a burden on the prosecution, not the defendant, to produce witnesses against the defendant&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;308 Ill. App. 348&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App.&#39;, &#39;case_ids&#39;: [5534964], &#39;year&#39;: 1941, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;205 Ill. 2d 52&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [1302618], &#39;weight&#39;: 2, &#39;year&#39;: 2001, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;215 Ill. 2d 194&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [4060428], &#39;year&#39;: 2005, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;141 Ill. 2d 323&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3238398], &#39;year&#39;: 1990, &#39;pin_cites&#39;: [{&#39;parenthetical&#39;: &#39;rejecting the argument that a declarant cannot make a spontaneous declaration to a person after having spoken previously to another&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;226 Ill. 2d 597&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;year&#39;: 2007, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;376 Ill. App. 3d 67&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [4272596], &#39;year&#39;: 2007, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;193 Ill. 2d 306&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [963678], &#39;weight&#39;: 2, &#39;year&#39;: 2000, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;233 Ill. 2d 89&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3621273], &#39;weight&#39;: 4, &#39;year&#39;: 2009, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;107&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;239 Ill. 2d 277&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3633079], &#39;year&#39;: 2010, &#39;pin_cites&#39;: [{&#39;parenthetical&#39;: &#39;discussing the legitimate concern of the General Assembly with the effective prosecution of crimes of domestic violence&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;21 Hofstra L. Rev. 1191&#39;, &#39;category&#39;: &#39;journals:journal&#39;, &#39;reporter&#39;: &#39;Hofstra L. Rev.&#39;, &#39;year&#39;: 1993, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;228 Ill. 2d 548&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;year&#39;: 2008, &#39;pin_cites&#39;: [{&#39;parenthetical&#39;: &#39;table&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;379 Ill. App. 3d 679&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [4276486], &#39;weight&#39;: 2, &#39;year&#39;: 2008, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;366 Ill. App. 3d 501&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [4265004], &#39;weight&#39;: 2, &#39;year&#39;: 2006, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;28 Ill. 2d 464&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [5362185], &#39;weight&#39;: 2, &#39;year&#39;: 1963, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;470&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;205 Ill. 2d 411&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [1302603], &#39;year&#39;: 2002, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;232 Ill. 2d 13&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3619642], &#39;year&#39;: 2008, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;547 U.S. 813&#39;, &#39;category&#39;: &#39;reporters:federal&#39;, &#39;reporter&#39;: &#39;U.S.&#39;, &#39;case_ids&#39;: [3275498], &#39;year&#39;: 2006, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;235 Ill. 2d 97&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3625076], &#39;year&#39;: 2009, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;238 Ill. 2d 125&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3630803], &#39;year&#39;: 2010, &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;225 Ill. 2d 246&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [5705152], &#39;year&#39;: 2007, &#39;opinion_id&#39;: 1}, {&#39;cite&#39;: &#39;233 Ill. 2d 89&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3621273], &#39;year&#39;: 2009, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;107&#39;}], &#39;opinion_id&#39;: 1}, {&#39;cite&#39;: &#39;229 Ill. 2d 322&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [3615240], &#39;weight&#39;: 2, &#39;year&#39;: 2008, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;367&#39;}, {&#39;page&#39;: &#39;367&#39;}], &#39;opinion_id&#39;: 1}], &#39;frontend_url&#39;: &#39;https://cite.case.law/ill-app-3d/406/1022/&#39;, &#39;frontend_pdf_url&#39;: &#39;https://cite.case.law/pdf/4307076/People%20v.%20Connolly,%20406%20Ill.%20App.%203d%201022%20(2011).pdf&#39;, &#39;preview&#39;: [], &#39;analysis&#39;: {&#39;word_count&#39;: 3321, &#39;random_bucket&#39;: 28354, &#39;sha256&#39;: &#39;8b312d1ecaa714b4bd8cb2932dd828a2208e362725ed16f4de031d708aa9c87c&#39;, &#39;ocr_confidence&#39;: 0.768, &#39;char_count&#39;: 20555, &#39;random_id&#39;: 2573758146, &#39;pagerank&#39;: {&#39;percentile&#39;: 0.29291283005302626, &#39;raw&#39;: 4.666970501906556e-08}, &#39;cardinality&#39;: 869, &#39;simhash&#39;: &#39;1:37e667c233378f92&#39;}, &#39;last_updated&#39;: &#39;2023-07-14T19:33:07.786999+00:00&#39;, &#39;provenance&#39;: {&#39;date_added&#39;: &#39;2019-08-29&#39;, &#39;batch&#39;: &#39;2018&#39;, &#39;source&#39;: &#39;Harvard&#39;}, &#39;casebody&#39;: {&#39;status&#39;: &#39;ok&#39;, &#39;data&#39;: {&#39;corrections&#39;: &#39;&#39;, &#39;parties&#39;: [&#39;THE PEOPLE OF THE STATE OF ILLINOIS, Plaintiff-Appellee, v. PHILLIP CONNOLLY, Defendant-Appellant.&#39;], &#39;attorneys&#39;: [&#39;Dan W Evers, of State Appellate Defender’s Office, of Mount Vernon, for appellant.&#39;, &#39;James Glasgow, State’s Attorney, of Joliet (Terry A. Mertel, of State’s Attorneys Appellate Prosecutor’s Office, of counsel), for the People.&#39;], &#39;opinions&#39;: [{&#39;author&#39;: &#39;JUSTICE CARTER&#39;, &#39;text&#39;: &#39;JUSTICE CARTER\ndelivered the judgment of the court, with opinion.\nJustice Lytton concurred in the judgment and opinion.\nJustice Wright dissented, with opinion.\nOPINION\nAfter a jury trial, the defendant, Phillip Connolly, was convicted of domestic battery (720 ILCS 5/12 — 3.2(a)(2) (West 2006)) and endangering the life or health of a child (720 ILCS 5/12 — 21.6(a) (West 2006)). The trial court sentenced the defendant to 364 days’ imprisonment. The defendant appealed, contending that his domestic battery conviction must be reversed and his endangering the life or health of a child conviction must be vacated because the trial court improperly admitted a hearsay statement of Melissa Connolly. We affirm.\nFACTS\nThe charges against the defendant arose from an argument between the defendant and his wife, Melissa, outside their home. The couple’s neighbor, Dina Perritano, testified that she was sleeping on her couch after working all night when her son woke her up because the defendant and Melissa were arguing outside. Perritano went outside and observed Melissa seated in the driver’s seat of her vehicle and the defendant standing in the open doorway of the vehicle, holding their son on his hip. Perritano testified that the defendant and Melissa were screaming and yelling at each other, and Melissa threatened to call the police. Perritano returned to her home and telephoned the police. When she turned back toward the argument, the child was sitting in the middle of the two-lane street and the defendant was leaning over Melissa while screaming at her. Perritano estimated that the child was in the middle of the street for a few minutes. Perritano saw a car coming slowly down the street, but it came to a stop and the defendant picked up the child and left. Melissa remained in her vehicle until the police arrived. Perritano estimated that the police arrived a few minutes after the defendant left with the child. When the police officer arrived that day, he spoke separately to Melissa and then spoke to Perritano.\nJon Muehlbauer, a deputy with the Will County sheriffs department, testified he arrived at the scene within five to seven minutes after he was dispatched. He first spoke to Melissa, who appeared upset, agitated, and nervous upon his arrival. The defense objected to allowing Muehlbauer to testify as to what Melissa told him, but the trial court overruled the objection, finding an adequate foundation, and allowed Melissa’s statements to be admitted under the excited utterance exception to hearsay. Muehlbauer went on to testify that Melissa told him that the defendant pulled her out of her vehicle and battered her about the head. Melissa also told Muehlbauer that the defendant put the child down in the middle of the street. The deputy did not recall seeing injuries on Melissa. He then spoke to Perritano and the driver of the car that stopped. Muehlbauer attempted to locate the defendant, but could not find him. Muehlbauer located the child in a residence down the street and returned the child to his mother, Melissa. The State rested, and the defendant’s motion for a directed verdict was denied.\nMelissa testified for the defense. She stated that, at the time of the incident, their child was 19 months old. Melissa testified that she had an argument with the defendant, but that he did not strike her and he never set the child down. She testified that she was calm when she spoke to Muehlbauer about 10 minutes after the argument.\nThe defendant also testified. He denied putting the child in the street. He testified that he had an argument with Melissa, but he could not recall what it was about. He heard Perritano say that she was calling the police, but he did not run away with the child. According to the defendant, he was taking the child for a walk in his stroller.\nThe jury found the defendant guilty of both offenses, and the defendant’s motion for a new trial was denied. At sentencing, the trial judge noted that the defendant and Melissa were “two of the least believable witnesses [he] ever heard” in the two decades he had been licensed to practice law and sentenced the defendant to 364 days’ imprisonment.\nANALYSIS\nThe defendant contends that the trial court abused its discretion by admitting Melissa’s statements to the officer under the excited utterance exception to the hearsay rule. The defendant also contends that the admission of Melissa’s statements violated the confrontation clause of the United States Constitution (U.S. Const., amend. VI). The defendant argues that if Melissa’s out-of-court statements were improperly admitted by the court as an exception to the hearsay rule, double jeopardy bars his retrial for domestic battery.\nThe State contends the trial court properly admitted Melissa’s responses to the officer’s questions as an excited utterance. Alternatively, the State submits that even if an error occurred, there is no double jeopardy bar to a retrial on these charges.\nWe begin by considering the defendant’s argument that Melissa’s statements constituted inadmissible hearsay. Out-of-court statements offered to prove the truth of the matter asserted are inadmissible hearsay and considered to lack reliability unless an exception applies. People v. Tenney, 205 Ill. 2d 411 (2002).\nThe State offered Melissa’s out-of-court statements to the jury for the truth of the matters asserted, so her statements were hearsay unless an exception applied. The trial court found that the excited utterance, or spontaneous declaration, exception applied, and it admitted the statements.\nOur supreme court has explained that the excited utterance exception to the hearsay rule is based on human experience. That is, where people are under physical or mental shock, they experience a stress of nervous excitement which produces a statement that expresses the real belief of the speaker as to the facts just observed. People v. Damen, 28 Ill. 2d 464 (1963). It is not unusual for the State to attempt to utilize the excited utterance exception when appropriate. See, e.g., People v. Gwinn, 366 Ill. App. 3d 501 (2006); People v. Robinson, 379 Ill. App. 3d 679 (2008), appeal allowed, 228 Ill. 2d 548 (2008) (table). Given the studied psychological dynamics of domestic violence (see generally Mary A.\nDutton, Understanding Women’s Responses to Domestic Violence: A Redefinition of Battered Woman Syndrome, 21 Hofstra L. Rev. 1191 (1993)), efforts by the State to rely on the hearsay exception might arise from the recognition that domestic violence is a type of crime that is very susceptible to intimidation of the victim to ensure the victim does not testify against the abuser. See People v. Dabbs, 239 Ill. 2d 277 (2010) (discussing the legitimate concern of the General Assembly with the effective prosecution of crimes of domestic violence).\nFor the excited utterance exception to the hearsay rule to apply, “there must be an occurrence sufficiently startling to produce a spontaneous and unreflecting statement, there must be an absence of time for the declarant to fabricate the statement, and the statement must relate to the circumstances of the occurrence.” People v. Sutton, 233 Ill. 2d 89, 107 (2009). Courts look at the totality of the circumstances to determine whether a statement is admissible under the excited utterance exception. People v. Williams, 193 Ill. 2d 306 (2000). An event can be sufficiently startling, even in the absence of physical injury, based on the totality of the circumstances. Robinson, 379 Ill. App. 3d 679.\nWhile the amount of time necessary for fabrication may vary greatly, the critical inquiry with regard to time is whether the statement was made while the declarant was still affected by the excitement of the event. Sutton, 233 Ill. 2d 89. The time factor is not viewed in isolation, but in the context of the event. For example, a 15- to 20-minute delay between an incident of home invasion and aggravated domestic battery and the victim’s statement to the police concerning the events does not destroy spontaneity under given circumstances. Gwinn, 366 Ill. App. 3d 501 (victim was crying, trembling, and visibly shaken, as well as injured, when she made the statement to officers).\nThe fact that a statement is made in response to an inquiry does not destroy spontaneity. People v. Lisle, 376 Ill. App. 3d 67 (2007), appeal denied, 226 Ill. 2d 597 (2007). In Damen, 28 Ill. 2d at 470, a forcible rape case, our supreme court noted the fact an officer asked the complainant “what happened” was insufficient to destroy its spontaneity. See also Williams, 193 Ill. 2d 306. In another case, when the statements are made in respect to a police officer’s questions more than 20 minutes after the crime had occurred, the victim’s statement was still considered a spontaneous declaration. Sutton, 233 Ill. 2d 89 (victim’s statement made while excitement of the event predominated). An excited utterance can still be made even after having spoken previously to another after the event. See People v. House, 141 Ill. 2d 323 (1990) (rejecting the argument that a declarant cannot make a spontaneous declaration to a person after having spoken previously to another).\nThe trial court in the instant case determined that Melissa’s statements were admissible as excited utterances, so our review is limited to whether that determination was an abuse of discretion. People v. Cookson, 215 Ill. 2d 194 (2005). Evidentiary rulings are within the sound discretion of the trial court, and we review those rulings with deference to the trial court. People v. Caffey, 205 Ill. 2d 52 (2001). This court will find an abuse of discretion only where the trial court’s ruling is arbitrary, fanciful, unreasonable, or where no reasonable person could take the view adopted by the trial court. Caffey, 205 Ill. 2d 52. Inasmuch as the application of the excited utterance exception always depends on the circumstances of the particular case, it has been suggested that the trial court should be clothed with a reasonable degree of latitude. Peterson v. Cochran &amp; McCluer Co., 308 Ill. App. 348 (1941); see 6 John H. Wigmore, Evidence §1750 (Chadbourn rev. ed. 1976).\nIn this case, the totality of the circumstances supports the trial court’s finding that Melissa’s statements were excited utterances. Domestic violence is an intolerable offense sufficiently startling to render inoperative the normal reflective thought processes of the victim. Her statements were made within a relatively short time span following the occurrence that allowed the emotional upset to continue. There does not appear to have been any time for reflection by Melissa prior to her statements to the police officer. Muehlbauer arrived on the scene within minutes of the argument between Melissa and the defendant. Melissa was still at the scene in a nervous, upset, and agitated condition, directly related to the event. Her child was absent. The defendant was no longer at the scene, and he had taken the child. Muehlbauer left Melissa at the scene to look for the defendant and the child. We find no abuse of discretion in the conclusion that Melissa’s responses to police questioning on the scene were excited utterances and were admissible.\nHaving determined that Melissa’s statements to Muehlbauer were admissible as exceptions to hearsay, we must address the constitutional issue based on the confrontation clause. Melissa did not testify for the State, so she was not subject to cross-examination for purposes of the sixth amendment confrontation clause. See Melendez-Diaz v. Massachusetts, 557 U.S. 305 (2009) (confrontation clause imposes a burden on the prosecution, not the defendant, to produce witnesses against the defendant).\nThe confrontation clause provides that “[i]n all criminal prosecutions, the accused shall enjoy the right *** to be confronted with the witnesses against him.” U.S. Const., amends. VI, XIV. A testimonial out-of-court statement by a witness who does not testify at trial is not admissible unless the witness is unavailable to testify and the defendant had a prior opportunity for cross-examination. Crawford v. Washington, 541 U.S. 36 (2004); People v. Stechly, 225 Ill. 2d 246 (2007). The confrontation clause does not apply, however, if the statements are not testimonial. Stechly, 225 Ill. 2d 246.\nThe trial court found that Melissa’s statements were not testimonial and, thus, did not violate the confrontation clause with their admission into evidence. A sixth amendment confrontation clause violation claim is a question of law that we review de novo. People v. Williams, 238 Ill. 2d 125 (2010); People v. Lovejoy, 235 Ill. 2d 97 (2009).\nA statement is testimonial if it is made in a solemn fashion and is intended to establish a particular fact. Stechly, 225 Ill. 2d 246. However, just because a statement was made to a police officer, standing alone, does not mean the statement is prohibited. A statement made to a law enforcement official is not testimonial when the circumstances objectively indicate that the primary purpose of any questioning was to address an ongoing emergency. Sutton, 233 Ill. 2d 89. The Davis court applied four factors when deciding whether interrogation was to meet an ongoing emergency: whether the purpose was to determine a past fact or ascertain an ongoing event; whether the situation could be described as an emergency; whether the nature of the questions focused on the present or on the past; and finally, the level of formality involved. Davis v. Washington, 547 U.S. 813 (2006). In such circumstances, the objective intent of the questioner, not the questioner’s status, becomes the determinative question. In re Rolandis G., 232 Ill. 2d 13 (2008).\nMuehlbauer testified that when he arrived at the scene, Melissa was still at the scene and she appeared upset, nervous, and agitated. He first talked to Melissa. She told him that the defendant had pulled her out of her vehicle and battered her about the head, and that the defendant had set the child in the middle of the street. The defendant had also taken the child. After questioning the two other witnesses at the scene, assessing the ongoing situation, Muehlbauer proceeded to try to locate the defendant and the child. In fact, he eventually located the child and then returned the child to his mother, Melissa. We conclude that Melissa’s statements to Muehlbauer were nontestimonial because Muehlbauer was addressing an ongoing emergency. As such, the confrontation clause did not bar the admission of Melissa’s statements. Having found Melissa’s statements were an exception to the hearsay rule that did not violate the confrontation clause, we need not address the double jeopardy argument.\nCONCLUSION\nFor the foregoing reasons, the judgment of the circuit court of Will County is affirmed.\nAffirmed.\nThis excited utterance exception has a long history in the common law of evidence. See Thompson v. Trevanion, (1693) 90 Eng. Rep. 179 (K.B.) (in an action for trespass of the wife of the plaintiff, Chief Justice Holt found that what the wife said immediately upon the hurt received, and before there was time to contrive anything, might be given in evidence); see generally 6 John H. Wigmore, Evidence §§1747 through 1750 (Chadbourn rev. ed. 1976).&#39;, &#39;type&#39;: &#39;majority&#39;}, {&#39;author&#39;: &#39;JUSTICE WRIGHT,&#39;, &#39;text&#39;: &#39;JUSTICE WRIGHT,\ndissenting:\nIn this case, the couple’s neighbor, Dina Perritano, testified that she observed defendant and Melissa screaming and yelling at each other outside their residence while Melissa was seated in the driver’s seat of her vehicle. Perritano observed defendant was standing in the open doorway of the vehicle, holding their son on his hip. During this verbal argument, Perritano heard Melissa threaten to call the police. Perritano did not observe any physical contact between the couple but called the police on her own initiative. Perritano estimated that the police arrived a few minutes later after defendant left with his son.\nJon Muehlbauer, a deputy with the Will County sheriff’s department, testified he arrived at the scene within five to seven minutes after he was dispatched to that location. He spoke to Melissa, who told him that defendant pulled her out of her vehicle and battered her about the head. The officer described her to be upset and nervous.\nFor the excited utterance exception to the hearsay rule to apply, “there must be an occurrence sufficiently startling to produce a spontaneous and unreflecting statement, there must be an absence of time for the declarant to fabricate the statement, and the statement must relate to the circumstances of the occurrence.” People v. Sutton, 233 Ill. 2d 89, 107 (2009). In this case, I conclude that the events witnessed by the neighbor do not indicate that there was a sufficiently startling event or the required spontaneity to trigger this narrow and inflexible exception to the hearsay rule.\nGenerally, many people who speak to investigating officers are both upset and nervous. The excited utterance requires something more, that is, a sufficiently startling event to trigger a spontaneous declaration. Mere nervousness and anxiety are not enough.\nHere, the neighbor’s testimony established that heated verbal altercations were not unusual for this couple and that the police officer arrived on the scene between 5 and 10 minutes after the couple separated. This time period would allow sufficient time for Melissa’s personal reflection, thereby negating the spontaneity of her responses to the officer’s questions. Based on the circumstances of this case, it is unclear whether Melissa was upset because her child had been removed from the area by his father or upset by the purported altercation.\nIn my view, the foundation for an excited utterance exception should not vary due to the domestic nature of the underlying offense or based on the reality that the State cannot prove its case without the statement. In this case, the State’s evidence neither satisfied the requirement that the occurrence in this case was startling for this declarant and also failed to establish there was not an opportunity for the declarant’s reflection. Thus, I have reached the conclusion that Melissa’s out-of-court statement to Muehlbauer constituted inadmissible hearsay and requires reversal of defendant’s conviction.\nNext, based on my position as set forth above, I reject defendant’s contention that a retrial for domestic battery is barred based upon double jeopardy considerations. Double jeopardy does not prevent a retrial when a conviction is overturned due to an error in the trial. People v. Lopez, 229 Ill. 2d 322, 367 (2008). When deciding if the evidence was sufficient to sustain a conviction, for double jeopardy purposes, this court may consider all of the evidence admitted at trial, even the erroneously admitted evidence. If viewing all the evidence in the light most favorable to the State, a rational trier of fact could have found all of the elements of the crime beyond a reasonable doubt, there is no double jeopardy bar to retrial. People v. Lopez, 229 Ill. 2d at 367.\nIn this case, Melissa told the police officer that defendant had pulled her out of the car and battered her about the head. Moreover, upon remand, Melissa could change her mind and elect to testify for the State in a fashion that is consistent with her out-of-court statements to the officer. Viewing all of the evidence, including the improperly admitted evidence, I conclude that a reasonable trier of fact could have found defendant guilty of domestic battery.\nAs for defendant’s conviction of endangering the life or health of a child, the State contends that retrial is not warranted because any error was harmless. Although there was sufficient evidence to sustain the conviction, the impact of the erroneous admission of Melissa’s statements to the officer cannot be considered harmless in this case. See People v. Stechly, 225 Ill. 2d 246 (2007).\nConsequently, I would find the trial court abused its discretion by admitting the out-of-court statement as a spontaneous utterance, vacate both convictions, and remand the cause for a new trial on both charges.\nFor the foregoing reasons, I respectfully dissent.&#39;, &#39;type&#39;: &#39;dissent&#39;}], &#39;judges&#39;: [], &#39;head_matter&#39;: &#39;THE PEOPLE OF THE STATE OF ILLINOIS, Plaintiff-Appellee, v. PHILLIP CONNOLLY, Defendant-Appellant.\nThird District\nNo. 3—08—1027\nOpinion filed January 4, 2011.\nDan W Evers, of State Appellate Defender’s Office, of Mount Vernon, for appellant.\nJames Glasgow, State’s Attorney, of Joliet (Terry A. Mertel, of State’s Attorneys Appellate Prosecutor’s Office, of counsel), for the People.&#39;}}}, {&#39;id&#39;: 4306697, &#39;url&#39;: &#39;https://api.case.law/v1/cases/4306697/&#39;, &#39;name&#39;: &#39;In re GUARDIANSHIP OF A.G.G., a Minor (Victor Eck, Petitioner-Appellant, v. Jennifer Greer, Respondent-Appellee)&#39;, &#39;name_abbreviation&#39;: &#39;Eck v. Greer&#39;, &#39;decision_date&#39;: &#39;2011-01-06&#39;, &#39;docket_number&#39;: &#39;No. 5—10—0353&#39;, &#39;first_page&#39;: &#39;389&#39;, &#39;last_page&#39;: &#39;396&#39;, &#39;citations&#39;: [{&#39;type&#39;: &#39;official&#39;, &#39;cite&#39;: &#39;406 Ill. App. 3d 389&#39;}], &#39;volume&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/volumes/32044132260050/&#39;, &#39;volume_number&#39;: &#39;406&#39;, &#39;barcode&#39;: &#39;32044132260050&#39;}, &#39;reporter&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/reporters/322/&#39;, &#39;full_name&#39;: &#39;Illinois Appellate Court Reports, Third Series&#39;, &#39;id&#39;: 322}, &#39;court&#39;: {&#39;url&#39;: &#39;https://api.case.law/v1/courts/ill-app-ct/&#39;, &#39;name_abbreviation&#39;: &#39;Ill. App. Ct.&#39;, &#39;slug&#39;: &#39;ill-app-ct&#39;, &#39;id&#39;: 8837, &#39;name&#39;: &#39;Illinois Appellate Court&#39;}, &#39;jurisdiction&#39;: {&#39;id&#39;: 29, &#39;name_long&#39;: &#39;Illinois&#39;, &#39;url&#39;: &#39;https://api.case.law/v1/jurisdictions/ill/&#39;, &#39;slug&#39;: &#39;ill&#39;, &#39;whitelisted&#39;: True, &#39;name&#39;: &#39;Ill.&#39;}, &#39;cites_to&#39;: [{&#39;cite&#39;: &#39;835 N.E.2d 403&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 2005, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;409&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;359 Ill. App. 3d 730&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [5595137], &#39;year&#39;: 2005, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;737&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;405 Ill. App. 3d 527&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [3716620], &#39;year&#39;: 2010, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;535-36&#39;, &#39;parenthetical&#39;: &#39;describing the mixed standard of review applied when standing is tried&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;561 N.E.2d 1276&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1990, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;1278&#39;, &#39;parenthetical&#39;: &#39;a waiver of the standing requirement in a custody case under the Marriage Act&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;204 Ill. App. 3d 28&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [2576476], &#39;year&#39;: 1990, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;31-32&#39;, &#39;parenthetical&#39;: &#39;a waiver of the standing requirement in a custody case under the Marriage Act&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;393 N.E.2d 1385&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1979, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;1388&#39;, &#39;parenthetical&#39;: &#39;the record indicated that the court and the parties clearly understood their responsibilities at a single hearing under the Adoption Act&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;75 Ill. App. 3d 799&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [3277057], &#39;year&#39;: 1979, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;804&#39;, &#39;parenthetical&#39;: &#39;the record indicated that the court and the parties clearly understood their responsibilities at a single hearing under the Adoption Act&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;773 N.E.2d 1204&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 2002, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;1210&#39;, &#39;parenthetical&#39;: &#39;Juvenile Court Act of 1987 (705 ILCS 405/2 - 3 (West 2000))&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;332 Ill. App. 3d 996&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [1034212], &#39;year&#39;: 2002, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;1004&#39;, &#39;parenthetical&#39;: &#39;Juvenile Court Act of 1987 (705 ILCS 405/2 - 3 (West 2000))&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;706 N.E.2d 123&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1999, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;129&#39;, &#39;parenthetical&#39;: &#39;Adoption Act (750 ILCS 50/1 (West 1996))&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;302 Ill. App. 3d 770&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [1352929], &#39;year&#39;: 1999, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;779&#39;, &#39;parenthetical&#39;: &#39;Adoption Act (750 ILCS 50/1 (West 1996))&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;562 N.E.2d 174&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1990, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;184&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;138 Ill. 2d 255&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [5576828], &#39;year&#39;: 1990, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;276&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;736 N.E.2d 678&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 2000, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;686&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;316 Ill. App. 3d 553&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [1096571], &#39;year&#39;: 2000, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;562&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;778 N.E.2d 262&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 2002, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;267&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;334 Ill. App. 3d 692&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [522055], &#39;year&#39;: 2002, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;698&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;597 N.E.2d 1238&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1992, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;1240&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;232 Ill. App. 3d 317&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [8498752], &#39;year&#39;: 1992, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;320&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;629 N.E.2d 182&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1994, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;186&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;257 Ill. App. 3d 999&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [2889839], &#39;year&#39;: 1994, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;1006&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;527 N.E.2d 524&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1988, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;525&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;173 Ill. App. 3d 376&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [3477479], &#39;year&#39;: 1988, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;379&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;844 N.E.2d 22&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;weight&#39;: 4, &#39;year&#39;: 2006, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;28&#39;}, {&#39;page&#39;: &#39;28&#39;}, {&#39;page&#39;: &#39;31&#39;}, {&#39;page&#39;: &#39;31&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;218 Ill. 2d 428&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. 2d&#39;, &#39;case_ids&#39;: [5736074], &#39;weight&#39;: 4, &#39;year&#39;: 2006, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;436&#39;}, {&#39;page&#39;: &#39;436&#39;}, {&#39;page&#39;: &#39;441&#39;}, {&#39;page&#39;: &#39;441&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;501 N.E.2d 307&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1986, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;310&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;149 Ill. App. 3d 793&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [3458535], &#39;year&#39;: 1986, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;799&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;523 N.E.2d 193&#39;, &#39;category&#39;: &#39;reporters:state_regional&#39;, &#39;reporter&#39;: &#39;N.E.2d&#39;, &#39;year&#39;: 1988, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;197&#39;}], &#39;opinion_id&#39;: 0}, {&#39;cite&#39;: &#39;169 Ill. App. 3d 97&#39;, &#39;category&#39;: &#39;reporters:state&#39;, &#39;reporter&#39;: &#39;Ill. App. 3d&#39;, &#39;case_ids&#39;: [3551711], &#39;year&#39;: 1988, &#39;pin_cites&#39;: [{&#39;page&#39;: &#39;102&#39;}], &#39;opinion_id&#39;: 0}], &#39;frontend_url&#39;: &#39;https://cite.case.law/ill-app-3d/406/389/&#39;, &#39;frontend_pdf_url&#39;: &#39;https://cite.case.law/pdf/4306697/Eck%20v.%20Greer,%20406%20Ill.%20App.%203d%20389%20(2011).pdf&#39;, &#39;preview&#39;: [], &#39;analysis&#39;: {&#39;word_count&#39;: 3005, &#39;random_bucket&#39;: 12991, &#39;sha256&#39;: &#39;7f31a4891d7b2ec474b5f1f782a82dbb37f30c0d42121a5b67845e2336fca9fb&#39;, &#39;ocr_confidence&#39;: 0.781, &#39;char_count&#39;: 17822, &#39;random_id&#39;: 1215181503, &#39;pagerank&#39;: {&#39;percentile&#39;: 0.14503084928889676, &#39;raw&#39;: 4.03580807328026e-08}, &#39;cardinality&#39;: 777, &#39;simhash&#39;: &#39;1:bfdcb4079bdcc7d9&#39;}, &#39;last_updated&#39;: &#39;2023-07-14T19:33:07.786999+00:00&#39;, &#39;provenance&#39;: {&#39;date_added&#39;: &#39;2019-08-29&#39;, &#39;batch&#39;: &#39;2018&#39;, &#39;source&#39;: &#39;Harvard&#39;}, &#39;casebody&#39;: {&#39;status&#39;: &#39;ok&#39;, &#39;data&#39;: {&#39;corrections&#39;: &#39;&#39;, &#39;parties&#39;: [&#39;In re GUARDIANSHIP OF A.G.G., a Minor (Victor Eck, Petitioner-Appellant, v. Jennifer Greer, Respondent-Appellee).&#39;], &#39;attorneys&#39;: [&#39;Susan Burger, of Jonesboro, for appellant.&#39;, &#39;Ann P. Coward and Sandi Gordon, both of Land of Lincoln Legal Assistance Foundation, Inc., of Carbondale, for appellee.&#39;, &#39;Eugenia C. Hunter, of Carbondale, guardian ad litem.&#39;], &#39;opinions&#39;: [{&#39;author&#39;: &#39;JUSTICE GOLDENHERSH&#39;, &#39;text&#39;: &#39;JUSTICE GOLDENHERSH\ndelivered the judgment of the court, with opinion.\nJustices Welch and Stewart concurred in the judgment and opinion.\nOPINION\nVictor Eck filed a petition for the guardianship of a minor, A.G.G., under the Probate Act of 1975 (Probate Act) (755 ILCS 5/11 — 5 (West 2008)) in the circuit court of Jackson County. After a hearing, the circuit court denied the petition. On appeal, Victor raises issues regarding whether the circuit court erred by denying the petition on the grounds of standing, without holding an evidentiary hearing on the issue. We reverse and remand with directions.\nFACTS\nOn April 27, 2010, Victor filed a petition under the Probate Act, seeking the guardianship of A.G.G., a minor, born in 2007. See 755 ILCS 5/11 — 5 (West 2008). Victor stated that he had been caring for A.G.G. for the previous three years. Victor alleged that A.G.G.’s mother, Jennifer Greer, has been unable and unwilling to care for her and had relinquished that responsibility to him. Victor further alleged that A.G.G.’s biological father was unable and unwilling to care for her, as evidenced by the lack of any involvement in A.G.G.’s life since her birth. At the same time, Victor filed a motion to enter an interim order and appoint a guardian ad litem.\nThe following day the court made a docket entry and entered a separate written order. In the docket entry, the court stated that the petition did not contain any detail on the relationship of Victor to A.G.G. and did not set forth all the allegations required by the Probate Act (755 ILCS 5/11 — 3 (West 2008)). The docket entry stated that Victor had 14 days to comply and that attorney Eugenia Hunter was appointed as the guardian ad litem. The written order of that date also stated that Hunter was appointed as the guardian ad litem. On May 11, 2010, Victor filed an amended petition for guardianship, in which he alleged that he was not the biological father of A.G.G. but was the only father figure A.G.G. has ever known.\nOn June 2, 2010, the court entered an interim order stating that the cause had been heard on the pending petition for a guardianship and a motion to enter an interim order. The order appointed Hunter as the guardian ad litem and authorized her to appoint Victor as the guardian if she deemed it to be in A.G.G.’s best interests. The order granted custody to Victor for the pendency of the proceedings.\nOn June 7, 2010, Jennifer filed a motion to dismiss the amended petition for a guardianship. Jennifer asserted that the allegations in the amended petition did not overcome the presumption that she is willing and able to carry out day-to-day child care decisions for A.G.G. Jennifer asserted that, thus, the trial court lacked jurisdiction to proceed on the petition. See 755 ILCS 5/11 — 5(b) (West 2008). Jennifer also filed a motion to vacate the interim order.\nOn June 7, 2010, the court entered several docket entries and a written order. In one of the docket entries, the court stated: “Court hears motion to vacate 6/2/10 Interim Order. Court continues Mot/ Vacate, Motion to Dismiss.” In the written order, the court set “[a]ll pending” matters for June 21, 2010. On June 18, 2010, Victor filed a response to the motion to dismiss.\nOn June 21, 2010, the guardian ad litem submitted a report outlining her interviews of Jennifer, Victor, and A.G.G. The guardian ad litem stated that Jennifer “has difficulty with the truth or an exceptionally faulty memory.” The guardian ad litem also noted that despite being educated, Jennifer had a sporadic work record and did not have the ability to support herself. The guardian ad litem reported that Jennifer had lived in approximately nine locations in the previous five years and was homeless at the time of the report. The guardian ad litem concluded as follows:\n“If this were a custody case in which ‘best interest’ was the legal issue, I would have no hesitancy in recommending that the best interests of [A.G.G.] were with Victor Eck. This is, however, a guardianship case in which the standard is different and more complex. For this reason, I would prefer to withhold a recommendation until the evidence and testimony are presented.”\nOn June 21, 2010, the court called the case for a hearing. The court began by discussing Jennifer’s motion to dismiss for a lack of standing. Upon direct questioning by the court, the guardian ad litem responded that she thought Jennifer was entitled to an evidentiary hearing on the issue of standing. At that point, counsel for Jennifer stated that Victor had to meet the threshold of standing before the best interests of the child could be considered and that the guardian ad litem’s opinion should be limited to the issue of best interests. The court responded, “[The report of the guardian ad litem] has raised some concerns that the Court had and I think that this Court does have the inherent power, whether or not we get past that initial step, to look out for the best interest of the child; and I have some real concerns that have been raised by the guardian ad litem’s report and we’re going to have evidence today and I’m going to make a determination.”\nJennifer’s counsel responded by asking the court whether this meant that the motion to dismiss had been denied. The court responded by asking if Jennifer’s counsel would like to make an argument or statement for the record. The colloquy continued:\n“[Counsel for Jennifer:] Certainly, your Honor. Then I would just like to state for the record that it is my understanding that the motion to dismiss this petition for guardianship has actually been based on a best standards or best interest of the child’s standard and not on the statute under the Probate Act?\nTHE COURT: Are you asking the Court a question, Ms. Coward?\n[Counsel for Jennifer:] I — originally, your Honor, I asked if the motion to dismiss had been denied.\nTHE COURT: Well I’ll deny the motion to dismiss.\n[Counsel for Jennifer:] Okay, and just for clarification, your Honor, it’s being denied based on best interest of the child standard, is that correct?\nTHE COURT: You don’t wish to argue your motion?\n[Counsel for Jennifer:] No. That’s a question, your Honor.\nTHE COURT: No, it’s not being denied under the best interest of the child. This Court has inherent authority to look out for the best interest of the child and that’s why we’re proceeding on the amended petition today.”\nThe court made the following docket entry: “6/21/10 Case called[;] parties, counsel, GA all present. Ct Denies Mot/D, proceeds to hearing on A.Pet.” The court noted that after denying the motion to dismiss, it conducted a hearing over two days, at which both Victor and Jennifer presented testimony from several witnesses. The docket entry concluded, “Court finds that [Victor] has not proved by a preponderance of evidence that [Jennifer] as natural mother is not willing and able to make and carry out day-to-day child care decisions concerning the minor as per 5/11 — 5(b).” On June 28, 2010, the court entered a written order denying the petition on the grounds that Victor had failed to rebut the presumption that Jennifer is willing and able to carry out day-to-day child care decisions.\nVictor appeals.\nANALYSIS\nThe results of the procedure used by the trial court are inherently unreliable. At the beginning of the proceedings of June 21, 2010, the trial court denied Jennifer’s request to conduct an evidentiary hearing on the issue of standing. The court then proceeded to entertain evidence seemingly on the best interests of the minor. At the conclusion of the hearing, the court denied the petition, applying the standard for standing. The failure of the court to entertain a hearing on the standard on which it denied the petition undermines the credibility of its ruling and mandates a reversal.\nSection 11 — 5 of the Probate Act dictates the grounds for the appointment of a guardian. 755 ILCS 5/11 — 5 (West 2008). In order to grant a petition for a guardianship, a trial court must make two evidentiary findings. Paragraph (a) provides that upon the filing of a petition the court may appoint a guardian as “the court finds to be in the best interest of the minor.” 755 ILCS 5/11 — 5(a) (West 2008). Paragraph (b) provides that a court lacks jurisdiction to proceed on a petition if the minor has a parent “whose parental rights have not been terminated, whose whereabouts are known, and who is willing and able to make and carry out day-to-day child care decisions concerning the minor.” 755 ILCS 5/11 — 5(b) (West 2008).\nThe standards of the best interests of the minor, in paragraph (a), and a parent who is “willing and able,” in paragraph (b), are separate questions of fact. Historically, Illinois courts have found guidance in the Illinois Marriage and Dissolution of Marriage Act (Marriage Act) when determining the best interests of a minor in guardianship proceedings. 750 ILCS 5/602(a) (West 2008); In re Marriage of Russell, 169 Ill. App. 3d 97, 102, 523 N.E.2d 193, 197 (1988); In re Estate of Suggs, 149 Ill. App. 3d 793, 799, 501 N.E.2d 307, 310 (1986). After the recent amendment to the provision for the revocation of a guardianship, effective January 1, 2011, the Probate Act lists factors for determining best interests, including the interaction with the parent, the ability of the parent to provide a nurturing environment, and the stability of the parties. Pub. Act 96 — 1338 (eff. Jan. 1, 2011) (amending 755 ILCS 5/11 — 14.1 (West 2008)).\nThe question of whether a parent meets the willing-and-able standard set forth in paragraph (b) is a separate test from the best-interests-of-the-minor standard. Paragraph (b) sets forth a threshold for standing under the Probate Act that replaces a previous interpretation derived from the Marriage Act. In re R.L.S., 218 Ill. 2d 428, 436, 844 N.E.2d 22, 28 (2006), abrogating In re Person &amp; Estate of New-some, 173 Ill. App. 3d 376, 379, 527 N.E.2d 524, 525 (1988); In re Marriage of Haslett, 257 Ill. App. 3d 999, 1006, 629 N.E.2d 182, 186 (1994); In re Person &amp; Estate of Barnhart, 232 Ill. App. 3d 317, 320, 597 N.E.2d 1238, 1240 (1992). Paragraph (b) states, “There shall be a rebuttable presumption that a parent of a minor is willing and able to make and carry out day-to-day child care decisions concerning the minor, but the presumption may be rebutted by a preponderance of the evidence.” 755 ILCS 5/11 — 5(b) (West 2008).\nThe seminal case instructing on the appointments of guardians under the Probate Act is In re R.L.S., 218 Ill. 2d 428, 436, 844 N.E.2d 22, 28 (2006). In re R.L.S. held that the standing requirement contained in paragraph (b) protects the superior rights of parents and ensures that guardianship proceedings pass constitutional muster. In re R.L.S., 218 Ill. 2d at 441, 844 N.E.2d at 31. In re R.L.S. explained the procedural protections outlined in section 11 — 5:\n“By allowing a guardianship petition to proceed to a hearing on the merits over the wishes of a parent only when the parent has been established to be unwilling or unable to carry out day-to-day childcare decisions, the Probate Act respects the superior rights of parents while also insuring to protect the health, safety, and welfare of children.” In re R.L.S., 218 Ill. 2d at 441, 844 N.E.2d at 31.\nIn the case at hand, the trial court denied the request for an evidentiary hearing on the standing issue and proceeded to entertain evidence supposedly on the remaining question of best interests. After the evidentiary hearing, the court did not rule on the question of best interests but dismissed the petition on the standard for standing. The proceedings before the trial court were, at best, muddled. The process both diverged from the burden created by a rebuttable presumption and undermined any claim that the issue of standing was actually heard.\nThe court’s procedure displayed a misunderstanding of the nature of the standing requirement as a rebuttable presumption. Once a presumption is overcome, it ceases to operate. In re Estate of Miller, 334 Ill. App. 3d 692, 698, 778 N.E.2d 262, 267 (2002); In re J.A., 316 Ill. App. 3d 553, 562, 736 N.E.2d 678, 686 (2000). The record indicates that by the court’s prehearing comments and ruling on the motion to dismiss, the parties to the action were led to believe that the presumption had dissolved. Although the court might have initially erred against Jennifer by not holding a hearing on standing, the court prejudiced Victor by reviving the presumption after the conclusion of the evidence.\nUltimately, the court ruled on the standing issue without conducting an evidentiary hearing on the issue. The record indicates that the issue of whether Jennifer was a willing and able parent was not actually tried. The court denied the request for an evidentiary hearing on the issue of whether Jennifer was a willing and able parent and then proceeded to what was ostensibly a dispositional hearing on best interests. Thus, the parties were not on notice that the issue of standing was being considered by the court, and any evidence introduced on the issue was merely coincidental. Alternatively, the court’s action could be characterized as misinterpreting the test for best interests. Either way, the issue of standing was never tried.\nThe interpretation of comparable statutory schemes for determining custody supports a reversal. Under other statutory schemes, the fitness of a parent and the best interests of a child are seen as distinct matters, and courts have recognized the potential for prejudice and confusion when the issues are not addressed at separate hearings. In re Adoption of Syck, 138 Ill. 2d 255, 276, 562 N.E.2d 174, 184 (1990); In re C.L.T., 302 Ill. App. 3d 770, 779, 706 N.E.2d 123, 129 (1999) (Adoption Act (750 ILCS 50/1 (West 1996))); In re M.B., 332 Ill. App. 3d 996, 1004, 773 N.E.2d 1204, 1210 (2002) (Juvenile Court Act of 1987 (705 ILCS 405/2 — 3 (West 2000))). This court need not address whether it is possible for the separate issues of standing and best interests in the Probate Act to be considered at a consolidated proceeding. See Freeman v. Settle, 75 Ill. App. 3d 799, 804, 393 N.E.2d 1385, 1388 (1979) (the record indicated that the court and the parties clearly understood their responsibilities at a single hearing under the Adoption Act); see also In re Custody of Gonzalez, 204 Ill. App. 3d 28, 31-32, 561 N.E.2d 1276, 1278 (1990) (a waiver of the standing requirement in a custody case under the Marriage Act). At best, the proceedings in this case are so muddled that they leave the factual underpinnings of the court’s decision unreliable.\nJennifer contends that Victor waived his right to appeal a lack of an evidentiary hearing on the standing issue. Victor did not object to the lack of a hearing on the standing issue. Indeed, Jennifer points out that Victor was perfectly happy with the trial court’s prehearing ruling.\nThis, however, misconstrues why the proceedings were flawed. Victor had no reason to call for an evidentiary hearing on the standing issue, or even present evidence on the issue, because the trial court indicated that he had already been granted standing. Although Jennifer is able to point to comments by the trial court at the conclusion of the hearing referring to paragraph (b), the undeniable import of the trial court’s prehearing comments was that the ostensible purpose of the hearing was the question of best interests, not standing. Thus, the trial court’s conclusory ruling and posthearing comments defy application of the standard of review this court would apply if the issue had actually been tried. See In re Guardianship of K.R.J., 405 Ill. App. 3d 527, 535-36 (2010) (describing the mixed standard of review applied when standing is tried).\nThe nature of the standing requirement as a protection for parents, instead of petitioners, does not diminish the magnitude of the trial court’s error. The application of a standard for which there was no evidentiary hearing and the revival of a presumption that the court indicated had been overcome mandate a remand for an actual evidentiary hearing on the standing issue.\nThe comments of the trial court that Jennifer relies on for her claim of waiver raise other issues. Jennifer notes that the trial court referred to paragraph (b) after the conclusion of the evidence. The court stated that the Probate Act limited its consideration to acts of commission and excluded acts of omission as evidence. The Probate Act makes no such distinction.\nThe trial court also commented that the role of the guardian ad litem was limited to issues concerning the best interests of the minor. In denying the request for an evidentiary hearing on the issue of standing, the trial court suggested that the guardian ad litem would be precluded from commenting on whether Jennifer was a willing-and-able parent. Again, there is no basis for this limitation. The court had plenary jurisdiction over the person of the minor, and the authority to appoint the guardian ad litem was derived from common law. In re Estate of Green, 359 Ill. App. 3d 730, 737, 835 N.E.2d 403, 409 (2005).\nCONCLUSION\nAccordingly, the order of the circuit court of Jackson County is hereby reversed, and the matter is remanded with directions to conduct an evidentiary hearing on standing as described in the Probate Act (755 ILCS 5/11 — 5 (West 2008)).\nReversed; cause remanded with directions.&#39;, &#39;type&#39;: &#39;majority&#39;}], &#39;judges&#39;: [], &#39;head_matter&#39;: &#39;In re GUARDIANSHIP OF A.G.G., a Minor (Victor Eck, Petitioner-Appellant, v. Jennifer Greer, Respondent-Appellee).\nFifth District\nNo. 5—10—0353\nOpinion filed January 6, 2011.\nSusan Burger, of Jonesboro, for appellant.\nAnn P. Coward and Sandi Gordon, both of Land of Lincoln Legal Assistance Foundation, Inc., of Carbondale, for appellee.\nEugenia C. Hunter, of Carbondale, guardian ad litem.&#39;}}}]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead, we can print only the keys using <code class="docutils literal notranslate"><span class="pre">list()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;count&#39;, &#39;next&#39;, &#39;previous&#39;, &#39;results&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The field <code class="docutils literal notranslate"><span class="pre">count</span></code> contains the number of hits in the database. This is usually different from the number of items we requested.
+If the <code class="docutils literal notranslate"><span class="pre">count</span></code> is zero, we don’t have any results and need to check the query in the URL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3869
+</pre></div>
+</div>
+</div>
+</div>
+<p>That looks good. Let’s fetch the list of cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can inspect each case. Let’s loop over the cases and get some of the information.
+The data contains various metadata about each case, such as the case name and the abbreviated case name.</p>
+<p>It’s often useful to look at the data in a web browser to get an overview.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case name:&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;name_abbreviation&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Case name: Federal Insurance v. Lexington Insurance
+Case name: People v. Connolly
+Case name: Eck v. Greer
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-docket-number">
+<h3><span style="color:green"> Exercise: Docket Number </span><a class="headerlink" href="#exercise-docket-number" title="Link to this heading">#</a></h3>
+<p>Complete the code below to print the docket number and decision date of each case.
+You will need to browse the <a class="reference external" href="https://api.case.law/v1/cases/?jurisdiction=ill&amp;amp;full_case=true&amp;amp;decision_date_min=2011-01-01&amp;amp;page_size=1%22">data</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.case.law/v1/cases/?jurisdiction=ill&amp;full_case=true&amp;decision_date_min=2011-01-01&amp;page_size=3&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">cases</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case name:&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;name_abbreviation&quot;</span><span class="p">])</span>
+    <span class="c1">#your code here</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Case name: Federal Insurance v. Lexington Insurance
+Case name: People v. Connolly
+Case name: Eck v. Greer
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="following-the-path">
+<h2>Following the Path<a class="headerlink" href="#following-the-path" title="Link to this heading">#</a></h2>
+<p>As mentioned, JSON data is a tree structure. It can contain many nested levels. In that case, we need to follow the path to find the entry we’re looking for.
+It’s usually advisable to follow the path one step at a time. This makes it easier to find errors in our programs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case name:&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;name_abbreviation&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Step-by-step:</span>
+    <span class="n">court</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;court&quot;</span><span class="p">]</span>
+    <span class="n">court_name</span> <span class="o">=</span> <span class="n">court</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Court name:&quot;</span><span class="p">,</span> <span class="n">court_name</span><span class="p">)</span>
+
+    <span class="c1"># We start a new path from the root:</span>
+    <span class="n">casebody</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;casebody&quot;</span><span class="p">]</span>
+    <span class="n">case_data</span> <span class="o">=</span> <span class="n">casebody</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="c1">#we have already used the variable name data</span>
+    <span class="n">attorneys</span> <span class="o">=</span> <span class="n">case_data</span><span class="p">[</span><span class="s2">&quot;attorneys&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attorneys:&quot;</span><span class="p">,</span> <span class="n">attorneys</span><span class="p">)</span>
+
+    <span class="c1"># Extra linebreak:</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Case name: Federal Insurance v. Lexington Insurance
+Court name: Illinois Appellate Court
+Attorneys: [&#39;Tressler, LLP, of Chicago (Todd S. Schenk and Amber C. Coisman, of counsel), for appellant.&#39;, &#39;Donohue Brown Mathewson &amp; Smyth LLC, of Chicago (Norman J. Barry, Jr., Karen Kies DeGrand, and Christopher J. Rados, of counsel), for appellee.&#39;]
+
+Case name: People v. Connolly
+Court name: Illinois Appellate Court
+Attorneys: [&#39;Dan W Evers, of State Appellate Defender’s Office, of Mount Vernon, for appellant.&#39;, &#39;James Glasgow, State’s Attorney, of Joliet (Terry A. Mertel, of State’s Attorneys Appellate Prosecutor’s Office, of counsel), for the People.&#39;]
+
+Case name: Eck v. Greer
+Court name: Illinois Appellate Court
+Attorneys: [&#39;Susan Burger, of Jonesboro, for appellant.&#39;, &#39;Ann P. Coward and Sandi Gordon, both of Land of Lincoln Legal Assistance Foundation, Inc., of Carbondale, for appellee.&#39;, &#39;Eugenia C. Hunter, of Carbondale, guardian ad litem.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-attorneys-and-head-matter">
+<h3><span style="color:green"> Exercise: Attorneys and Head Matter </span><a class="headerlink" href="#exercise-attorneys-and-head-matter" title="Link to this heading">#</a></h3>
+<p>Complete the code below to print the attorneys and head matter of each case.
+You will need to browse the <a class="reference external" href="https://api.case.law/v1/cases/?jurisdiction=ill&amp;amp;full_case=true&amp;amp;decision_date_min=2011-01-01&amp;amp;page_size=1%22">data</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.case.law/v1/cases/?jurisdiction=ill&amp;full_case=true&amp;decision_date_min=2011-01-01&amp;page_size=3&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">cases</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case name:&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;name_abbreviation&quot;</span><span class="p">])</span>
+    <span class="c1"># Your solution</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Case name: Federal Insurance v. Lexington Insurance
+Case name: People v. Connolly
+Case name: Eck v. Greer
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="working-with-lists">
+<h2>Working with Lists<a class="headerlink" href="#working-with-lists" title="Link to this heading">#</a></h2>
+<p>Each case in the data set contains a list of one or more opinions. These lists are located quite deep in the data structure, in <code class="docutils literal notranslate"> <span class="pre">case[&quot;casebody&quot;][&quot;data&quot;][&quot;opinions&quot;]</span></code>. These levels are somewhat like directories in a file tree, and can be seen when browsing the <a class="reference external" href="https://api.case.law/v1/cases/?jurisdiction=ill&amp;amp;full_case=true&amp;amp;decision_date_min=2011-01-01&amp;amp;page_size=3%22">web interface</a>.</p>
+<p>We can look at some of the data for each opinion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">case</span> <span class="ow">in</span> <span class="n">cases</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Case name:&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;name_abbreviation&quot;</span><span class="p">])</span>
+    <span class="n">court</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;court&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Court name:&quot;</span><span class="p">,</span> <span class="n">court</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+    <span class="n">casebody</span> <span class="o">=</span> <span class="n">case</span><span class="p">[</span><span class="s2">&quot;casebody&quot;</span><span class="p">]</span>
+    <span class="n">case_data</span> <span class="o">=</span> <span class="n">casebody</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+    <span class="n">opinions</span> <span class="o">=</span> <span class="n">case_data</span><span class="p">[</span><span class="s2">&quot;opinions&quot;</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">opinion</span> <span class="ow">in</span> <span class="n">opinions</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Opinion author:&quot;</span><span class="p">,</span> <span class="n">opinion</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Case name: Federal Insurance v. Lexington Insurance
+Court name: Illinois Appellate Court
+  Opinion author: JUSTICE O’BRIEN
+
+Case name: People v. Connolly
+Court name: Illinois Appellate Court
+  Opinion author: JUSTICE CARTER
+  Opinion author: JUSTICE WRIGHT,
+
+Case name: Eck v. Greer
+Court name: Illinois Appellate Court
+  Opinion author: JUSTICE GOLDENHERSH
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-points">
+<h2><span style="color:blue">Key Points</span><a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> library can be used to fetch data from the web.</p></li>
+<li><p>Many data providers provide an API from which we can fetch data programatically.</p></li>
+<li><p>Parameters can be used to control what data we get from an API.</p></li>
+<li><p>Most APIs provide data in the JSON format, and JSON is well supported in Python.</p></li>
+<li><p>Additional filtering and processing of the retrieved data can be done using loops and conditions (<code class="docutils literal notranslate"><span class="pre">if</span></code>-statements, next chapter)</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_library_catalogue.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">JSON and Library Catalog Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_if.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Decisions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-data">Fetching Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data">Using the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-docket-number"><span style="color:green"> Exercise: Docket Number </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#following-the-path">Following the Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-attorneys-and-head-matter"><span style="color:green"> Exercise: Attorneys and Head Matter </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-lists">Working with Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><span style="color:blue">Key Points</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Oslo, Erik Winge, Eirill Strand Hauge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
