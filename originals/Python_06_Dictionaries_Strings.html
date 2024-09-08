@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dictionaries &#8212; Introduction to Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'originals/Python_06_Dictionaries_Strings';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Programming - Home"/>
+    <script>document.write(`<img src="../_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_basics.html">The Basics: Variables and Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_lists_loops.html">Lists and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_Dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_library_catalogue.html">JSON and Library Catalog Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_caselaw.html">JSON and Case Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_if.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_Strings.html">Bonus Episode: Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning.html">A short introduction to machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_exercises.html">More Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_library_data_exercises.html">Library Data Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_case_law_exercises.html">Case Law Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/scriptotek/programming/master?urlpath=tree/originals/Python_06_Dictionaries_Strings.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/scriptotek/programming&urlpath=tree/programming/originals/Python_06_Dictionaries_Strings.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/scriptotek/programming/blob/master/originals/Python_06_Dictionaries_Strings.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/edit/master/originals/Python_06_Dictionaries_Strings.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/issues/new?title=Issue%20on%20page%20%2Foriginals/Python_06_Dictionaries_Strings.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/originals/Python_06_Dictionaries_Strings.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dictionaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dictionaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opprette-dictionaries">Opprette dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indeksere-dictionaries">Indeksere dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterere-gjennom-dictionaries">Iterere gjennom dictionaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#er-nokkelen-i-dictionary">Er nøkkelen i dictionary?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nostede-dictionaries">Nøstede dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-split"><code class="docutils literal notranslate"><span class="pre">string.split()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indeksere-strings">Indeksere Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-replace"><code class="docutils literal notranslate"><span class="pre">string.replace()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dictionaries">
+<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h1>
+<p>Dictionaries er en veldig fleksibel måte å lagre data på. Dictionaries kan gjennkjennes ved krøllparenteser <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p>
+<p><strong>Et dictionary har egendefinerte indekser, disse kalles nøkler.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dictionary</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="opprette-dictionaries">
+<h2>Opprette dictionaries<a class="headerlink" href="#opprette-dictionaries" title="Link to this heading">#</a></h2>
+<p>Under vises hvordan man initialiserer et dictionary, og hvordan man kan legge inn nye elementer etterpå.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">value1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">value2</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="n">value2</span><span class="p">}</span>
+<span class="c1"># adding key and value to my_dict</span>
+<span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;key3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;key1&#39;: 2, &#39;key2&#39;: 4, &#39;key3&#39;: 6}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indeksere-dictionaries">
+<h2>Indeksere dictionaries<a class="headerlink" href="#indeksere-dictionaries" title="Link to this heading">#</a></h2>
+<p>Å hente ut elementer i et dictionary er veldig analogt med å indeksere liser og arrays, men nøklene i dictionaries er ikke lengre nødvendigvis tall.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value3</span> <span class="o">=</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;key3&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<section id="iterere-gjennom-dictionaries">
+<h3>Iterere gjennom dictionaries<a class="headerlink" href="#iterere-gjennom-dictionaries" title="Link to this heading">#</a></h3>
+<p>Når du itererer gjennom et dictionary, <strong>itererer du over nøklene, ikke verdiene.</strong></p>
+<p>** <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">key</span> <span class="pre">in</span> <span class="pre">dictionary</span></code> **</p>
+<p>Dette er vist i et eksempel under.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">molar_mass</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="mf">1.0079</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">:</span> <span class="mf">4.0026</span><span class="p">,</span> \
+    <span class="s1">&#39;Li&#39;</span><span class="p">:</span> <span class="mf">6.941</span><span class="p">,</span> <span class="s1">&#39;Be&#39;</span><span class="p">:</span> <span class="mf">9.012</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mf">10.811</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">12.011</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="mf">14.007</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="mf">15.999</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="mf">18.998</span><span class="p">,</span> <span class="s1">&#39;Ne&#39;</span><span class="p">:</span> <span class="mf">20.180</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">molar_mass</span><span class="p">:</span>
+    <span class="n">mass</span> <span class="o">=</span> <span class="n">molar_mass</span><span class="p">[</span><span class="n">element</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Molar mass of </span><span class="si">%2s</span><span class="s2"> is </span><span class="si">%6g</span><span class="s2"> g/mol&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">mass</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Molar mass of  H is 1.0079 g/mol
+Molar mass of He is 4.0026 g/mol
+Molar mass of Li is  6.941 g/mol
+Molar mass of Be is  9.012 g/mol
+Molar mass of  B is 10.811 g/mol
+Molar mass of  C is 12.011 g/mol
+Molar mass of  N is 14.007 g/mol
+Molar mass of  O is 15.999 g/mol
+Molar mass of  F is 18.998 g/mol
+Molar mass of Ne is  20.18 g/mol
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="er-nokkelen-i-dictionary">
+<h3>Er nøkkelen i dictionary?<a class="headerlink" href="#er-nokkelen-i-dictionary" title="Link to this heading">#</a></h3>
+<p><strong><code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">in</span> <span class="pre">dictionary</span></code></strong> vil være <code class="docutils literal notranslate"><span class="pre">True</span></code> eller <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Slik kan du kan sjekke om en nøkkel eksisterer i et dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;He&quot;</span><span class="p">,</span> <span class="s2">&quot;Ne&quot;</span><span class="p">,</span> <span class="s2">&quot;Ar&quot;</span><span class="p">,</span> <span class="s2">&quot;Kr&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">molar_mass</span><span class="p">:</span>
+        <span class="n">mass</span> <span class="o">=</span> <span class="n">molar_mass</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Molar mass of </span><span class="si">%2s</span><span class="s2"> is </span><span class="si">%6g</span><span class="s2"> g/mol.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">mass</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> in not in the dictionary!&quot;</span> <span class="o">%</span><span class="k">key</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Molar mass of He is 4.0026 g/mol.
+Molar mass of Ne is  20.18 g/mol.
+Ar in not in the dictionary!
+Kr in not in the dictionary!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="nostede-dictionaries">
+<h2>Nøstede dictionaries<a class="headerlink" href="#nostede-dictionaries" title="Link to this heading">#</a></h2>
+<p>Under ligger et eksempel på et dictionary som inneholder to dictionaries. Eksempelet er et dictionary som inneholder begge grunnstoff fra første periode i periodesystemet. Hvert grunnstoff har et eget dictionary med informasjon om molar masse <code class="docutils literal notranslate"><span class="pre">M</span></code> og beregnet atomradius <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<p>Merk hvordan nøstede dictionaries indekseres!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">period_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;M&#39;</span> <span class="p">:</span> <span class="mf">1.0079</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span> <span class="p">:</span> <span class="mi">53</span><span class="p">},</span> <span class="s1">&#39;He&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;M&#39;</span> <span class="p">:</span> <span class="mf">4.0026</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span> <span class="p">:</span> <span class="mi">31</span><span class="p">}}</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">period_1</span><span class="p">:</span>
+    <span class="n">sub_dict</span> <span class="o">=</span> <span class="n">period_1</span><span class="p">[</span><span class="n">element</span><span class="p">]</span>
+    <span class="n">mass</span> <span class="o">=</span> <span class="n">sub_dict</span><span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">]</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">sub_dict</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%-2s</span><span class="s1"> has a molar mass of </span><span class="si">%.4f</span><span class="s1"> g/mol and an atomic radius of </span><span class="si">%d</span><span class="s1"> pm.&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">mass</span><span class="p">,</span> <span class="n">radius</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>H  has a molar mass of 1.0079 g/mol and an atomic radius of 53 pm.
+He has a molar mass of 4.0026 g/mol and an atomic radius of 31 pm.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="strings">
+<h1>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h1>
+<p>Objekter av typen String har mange funksjoner. Det vil kun bli gjennomgått noen få av disse.</p>
+<p>Mye på samme måte som i dictionaries, kan du teste om en sub-string finnes i en String. Dette er vist under.</p>
+<p><span style="color:green">Kan du se hvorfor den finner <code class="docutils literal notranslate"><span class="pre">men</span></code> som en sub-String?</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;Strange women lying in ponds, distributing swords, is no basis for a system of government!&quot;</span>
+
+<span class="n">sub_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;women&quot;</span><span class="p">,</span> <span class="s2">&quot;men&quot;</span><span class="p">,</span> <span class="s2">&quot;Camelot&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">sub_string</span> <span class="ow">in</span> <span class="n">sub_strings</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">sub_string</span> <span class="ow">in</span> <span class="n">my_string</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; was found in my_string&quot;</span> <span class="o">%</span><span class="k">sub_string</span>)
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;</span><span class="si">%s</span><span class="s2">&#39; was not found in my_string&quot;</span> <span class="o">%</span><span class="k">sub_string</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;women&#39; was found in my_string
+&#39;men&#39; was found in my_string
+&#39;Camelot&#39; was not found in my_string
+</pre></div>
+</div>
+</div>
+</div>
+<section id="string-split">
+<h2><code class="docutils literal notranslate"><span class="pre">string.split()</span></code><a class="headerlink" href="#string-split" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">split()</span></code> deler en String inn i en liste. Hvis intet annet blir spesifisert, deler den på mellomrom.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string_list</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Strange&#39;, &#39;women&#39;, &#39;lying&#39;, &#39;in&#39;, &#39;ponds,&#39;, &#39;distributing&#39;, &#39;swords,&#39;, &#39;is&#39;, &#39;no&#39;, &#39;basis&#39;, &#39;for&#39;, &#39;a&#39;, &#39;system&#39;, &#39;of&#39;, &#39;government!&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Du kan også spesifisere hva den skal dele på ved å sende inn argument, som vist under</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string_list</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Strange women lying in ponds&#39;, &#39; distributing swords&#39;, &#39; is no basis for a system of government!&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indeksere-strings">
+<h2>Indeksere Strings<a class="headerlink" href="#indeksere-strings" title="Link to this heading">#</a></h2>
+<p>Du kan indeksere objekt av typen String. Indeksene tilhører “characters”, ikke ord!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First char in my_string is &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span><span class="k">my_string</span>[0])
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last char in my_string is &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span><span class="k">my_string</span>[-1])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First char in my_string is &#39;S&#39;
+Last char in my_string is &#39;!&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_string</span> <span class="o">=</span> <span class="n">my_string</span><span class="p">[</span><span class="mi">57</span><span class="p">:</span><span class="mi">63</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sub_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>basis 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-replace">
+<h2><code class="docutils literal notranslate"><span class="pre">string.replace()</span></code><a class="headerlink" href="#string-replace" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">string.replace()</span></code>  tar to argument. Første er hva som skal byttes ut, andre argument er hva den skal byttes med.</p>
+<p>Et nyttig eksempel på bruk av replace er når man leser filer. Noen filer vil bruke komma istendenfor punktum for å skille desimaler på tall. Dette må fikses FØR den tallet konverteres til float.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="s2">&quot;1,57&quot;</span>
+<span class="n">number</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>   <span class="c1"># number is now string object &quot;1.57&quot;</span>
+<span class="n">number</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>              <span class="c1"># number is now float 1.57</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./originals"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dictionaries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opprette-dictionaries">Opprette dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indeksere-dictionaries">Indeksere dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterere-gjennom-dictionaries">Iterere gjennom dictionaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#er-nokkelen-i-dictionary">Er nøkkelen i dictionary?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nostede-dictionaries">Nøstede dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-split"><code class="docutils literal notranslate"><span class="pre">string.split()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indeksere-strings">Indeksere Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-replace"><code class="docutils literal notranslate"><span class="pre">string.replace()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Oslo, Erik Winge, Eirill Strand Hauge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

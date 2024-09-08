@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User Input &#8212; Introduction to Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'originals/Python_04_user_input';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Programming - Home"/>
+    <script>document.write(`<img src="../_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_basics.html">The Basics: Variables and Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_lists_loops.html">Lists and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_Dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_library_catalogue.html">JSON and Library Catalog Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_caselaw.html">JSON and Case Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_if.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_Strings.html">Bonus Episode: Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning.html">A short introduction to machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_exercises.html">More Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_library_data_exercises.html">Library Data Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_case_law_exercises.html">Case Law Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/scriptotek/programming/master?urlpath=tree/originals/Python_04_user_input.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/scriptotek/programming&urlpath=tree/programming/originals/Python_04_user_input.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/scriptotek/programming/blob/master/originals/Python_04_user_input.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/edit/master/originals/Python_04_user_input.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/issues/new?title=Issue%20on%20page%20%2Foriginals/Python_04_user_input.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/originals/Python_04_user_input.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>User Input</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">User Input</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sporre-bruker-om-input">Spørre bruker om input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-gjennom-kommandolinjen">Input gjennom kommandolinjen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#handtering-av-error">Håndtering av <code class="docutils literal notranslate"><span class="pre">Error</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raise"><code class="docutils literal notranslate"><span class="pre">raise</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lese-og-skrive-fil-i-python">Lese og skrive fil i Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skrive-til-fil">Skrive til fil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lese-fil">Lese fil</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="user-input">
+<h1>User Input<a class="headerlink" href="#user-input" title="Link to this heading">#</a></h1>
+<p>Det er utrolig mye man kan gjøre med user input, men vi skal her begrense oss til å ta inn enkle variabler fra bruker. Programmet skal være ferdig skrevet, men nye variabler kan gis hver gang man kjører programmet, uten å endre koden.</p>
+<p><strong>OBS!</strong> All user input kommer inn som <code class="docutils literal notranslate"><span class="pre">String</span></code>. Hvis input er tall som skal brukes til beregninger, må disse gjøres om til riktig datatype, ofte <code class="docutils literal notranslate"><span class="pre">int</span></code> eller <code class="docutils literal notranslate"><span class="pre">float</span></code>. Dette gjøres slik som vist på eksempelet under. Merk at <code class="docutils literal notranslate"><span class="pre">int</span></code> og <code class="docutils literal notranslate"><span class="pre">str</span></code> ser like ut, uten at de er det. <code class="docutils literal notranslate"><span class="pre">a_int</span></code> kan brukes i utregninger, mens <code class="docutils literal notranslate"><span class="pre">a</span></code> kan ikke det.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;5&quot;</span>     <span class="c1"># This is the number 5 as type String</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+<span class="n">a_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># casting a to int </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_int</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a_int</span><span class="p">))</span>
+
+<span class="n">a_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># casting a to float</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_float</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a_float</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 &lt;class &#39;str&#39;&gt;
+5 &lt;class &#39;int&#39;&gt;
+5.0 &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="sporre-bruker-om-input">
+<h2>Spørre bruker om input<a class="headerlink" href="#sporre-bruker-om-input" title="Link to this heading">#</a></h2>
+<p>Du kan printe ut spørsmål i terminalvinduet ved å bruke <code class="docutils literal notranslate"><span class="pre">input()</span></code>. Programmet venter da til bruker skriver noe og trykker enter. Merk at funksjonen heter <code class="docutils literal notranslate"><span class="pre">input()</span></code> i Python 3 og <code class="docutils literal notranslate"><span class="pre">raw_input()</span></code> i Python 2. Under ligger et enkelt eksempel på hvordan <code class="docutils literal notranslate"><span class="pre">input()</span></code> fungerer. Legg merke til at dersom du bruker en <code class="docutils literal notranslate"><span class="pre">str</span></code> som argument i <code class="docutils literal notranslate"><span class="pre">input()</span></code>
+-funksjonen, vil denne printes ut i terminal før bruker skriver noe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You said &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span><span class="k">word</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">word</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You said &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span><span class="k">word</span>)
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="input-gjennom-kommandolinjen">
+<h2>Input gjennom kommandolinjen<a class="headerlink" href="#input-gjennom-kommandolinjen" title="Link to this heading">#</a></h2>
+<p>Input gjennom kommandolinjen er variabler som spesifiseres samtidig som du kjører programmet. Disse kalles argumenter. Dette gjøres ved å legge til tall eller ord etter filnavnet. Det kan legges til flere argumenter, disse separeres med mellomrom.</p>
+<p>Argumentene hentes ut ved å bruke <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, som er en liste. Det første elementet i <code class="docutils literal notranslate"><span class="pre">argv</span></code>, altså på plass <code class="docutils literal notranslate"><span class="pre">[0]</span></code>, er filnavnet. Derfor begynner man å indeksere på plass <code class="docutils literal notranslate"><span class="pre">[1]</span></code> når argumentene hentes ut. Eksempelet under illustrerer enkelt hvordan argumenter kan hentes fra kommandolinjen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> cml.py
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the filename is </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="n">word</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">number</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number you provided was </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing cml.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> cml.py 3.14159265359
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the filename is cml.py
+The number you provided was 3.14
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="handtering-av-error">
+<h1>Håndtering av <code class="docutils literal notranslate"><span class="pre">Error</span></code><a class="headerlink" href="#handtering-av-error" title="Link to this heading">#</a></h1>
+<p>Feilmeldinger kan håndteres slik at programmet ikke kræsjer. Slik kan det gis flere sjanser til å fullføre hele programmet. Det kan også være bra med en egendefinert feilmelding. Hvis programmet skal avsluttes etter at feilen er fanget opp, kan <code class="docutils literal notranslate"><span class="pre">sys.exit()</span></code> brukes.</p>
+<p>Håndetering av feilmeldinger gjøres ved å bruke <code class="docutils literal notranslate"><span class="pre">try</span></code> og <code class="docutils literal notranslate"><span class="pre">except</span></code>. Som vist i eksempelet under, kan flere forskjellige typer <code class="docutils literal notranslate"><span class="pre">Error</span></code> fanges opp i samme <code class="docutils literal notranslate"><span class="pre">try</span></code>. En mer generell metode som fanger opp alle feil samtidig er <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Error</span></code>, men da behandles alle feil likt. Et eksempel på feil er at bruker gir uventet input, slik som å skrive <code class="docutils literal notranslate"><span class="pre">&quot;to&quot;</span></code> istedenfor <code class="docutils literal notranslate"><span class="pre">2</span></code>. Du får da en <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># write the code that may create Errors</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="c1"># Handle this error</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="c1"># Handle this error</span>
+</pre></div>
+</div>
+<section id="raise">
+<h2><code class="docutils literal notranslate"><span class="pre">raise</span></code><a class="headerlink" href="#raise" title="Link to this heading">#</a></h2>
+<p>Du kan også tvinge frem dine egne feilmeldinger ved å bruke <code class="docutils literal notranslate"><span class="pre">rasie</span> <span class="pre">Error</span></code>. Et eksempel er gitt under.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Write your own message here&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-5-9bb55c08eee4&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Write your own message here&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: Write your own message here
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="lese-og-skrive-fil-i-python">
+<h1>Lese og skrive fil i Python<a class="headerlink" href="#lese-og-skrive-fil-i-python" title="Link to this heading">#</a></h1>
+<p>For å kunne lese og skrive til en tekstfil i Python, må filen først åpnes. I IN1900 blir det undervist to forskjellige måter å åpne tekstfiler på i Python. Under kommer jeg kun til å bruke <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open()</span></code>. Dette er en personlig preferanse. Denne måten krever indentering, men man slipper å tenke på å lukke filen etter den er åpnet. Begge måter som er forelest i IN1900 kan selvfølgelig brukes både på obliger og eksamen.</p>
+<section id="skrive-til-fil">
+<h2>Skrive til fil<a class="headerlink" href="#skrive-til-fil" title="Link to this heading">#</a></h2>
+<p><strong><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(filename,</span> <span class="pre">&quot;w&quot;)</span> <span class="pre">as</span> <span class="pre">outfile:</span></code></strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> står for write, og indikerer at du skal skrive til filen. Det er en konvensjon å kalle filer du skriver til for <code class="docutils literal notranslate"><span class="pre">outfile</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">outfile.write()</span></code> brukes til å skrive til fil. Du kan formatere det du skriver til fil på samme måte som du formatterer i <code class="docutils literal notranslate"><span class="pre">print()</span></code>, altså ved å bruke <code class="docutils literal notranslate"><span class="pre">\%</span></code>.</p>
+<p>Tegnet newline <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> brukes for å markere en ny linje. Hvis du ikke bruker dette, kommer alt på én linje i tekstfilen du skriver!</p>
+<p>Under ligger et eksempel på skriving til en tekstfil i Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;eksempel.txt&#39;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Paracetamol contains:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;8 C, M is 12.011 g/mol</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;9 H, M is 1.0079 g/mol</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;1 N, M is 14.007 g/mol</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;2 O, M is 15.999 g/mol&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lese-fil">
+<h2>Lese fil<a class="headerlink" href="#lese-fil" title="Link to this heading">#</a></h2>
+<p><strong><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(filename,</span> <span class="pre">&quot;r&quot;)</span> <span class="pre">as</span> <span class="pre">infile:</span></code></strong></p>
+<p>Her står <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> for read, og indikerer at du skal lese filen. Det er en konvensjon å kalle filer du leser for <code class="docutils literal notranslate"><span class="pre">infile</span></code>.</p>
+<p>Under er det enkleste eksempelet av lesing av fil. Hver linje av filen som ble skrevet i forrige kodesnutt printes ut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;eksempel.txt&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Paracetamol contains:
+8 C, M is 12.011 g/mol
+9 H, M is 1.0079 g/mol
+1 N, M is 14.007 g/mol
+2 O, M is 15.999 g/mol
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">infile.readline()</span></code> leser én linje i filen. Hver gang du bruker <code class="docutils literal notranslate"><span class="pre">readline()</span></code>, kommer det derfor en ny linje. <strong>Filen leses fra første linje og nedover.</strong> Alle linjer vil kun leses én gang. Dersom linjen skal brukes til noe, må den derfor lagres som en variabel. <strong>Alle linjer er av typen <code class="docutils literal notranslate"><span class="pre">String</span></code>.</strong></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">strip()</span></code></strong> brukes til å ta bort <code class="docutils literal notranslate"><span class="pre">char</span></code>s i begynnelsen og enden av en <code class="docutils literal notranslate"><span class="pre">String</span></code>. Hvis ikke noe er spesifisert, tar den bort mellomrom, tabs og newlines (<code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">split()</span></code></strong> tar en <code class="docutils literal notranslate"><span class="pre">String</span></code> og deler den opp i en liste. Hvis ingenting er spesifisert, deler den på mellomrom. Denne funksjonen brukes mye når filer leses i Python. Husk at alle elementene i en liste laget av <code class="docutils literal notranslate"><span class="pre">split()</span></code> også er av typen <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">infile</span></code> kan itereres gjennom på samme måte som en liste. På denne måten kan du få Pythonkoden til å si: for hver linje i filen: gjør følgende. <strong>Merk at de linjene som allerede har blitt lest, ikke vil komme med i løkken.</strong></p>
+<p>Under ligger et eksempel på lesing av fil. Filen som blir lest, er den som ble generert i forrige avsnitt. Merk at den første linjen blir behandlet annerledes. Her printes det også mye. Dette er kun ment til å illustrere hva som skjer når du bruker <code class="docutils literal notranslate"><span class="pre">readline()</span></code>, <code class="docutils literal notranslate"><span class="pre">strip()</span></code> og <code class="docutils literal notranslate"><span class="pre">split()</span></code>.</p>
+<p>I løkken behandles linje 2 - 5 likt. Her regnes det ut den molare massen til molekylet beskrevet i filen. For hver linje hentes <code class="docutils literal notranslate"><span class="pre">n</span></code> og <code class="docutils literal notranslate"><span class="pre">this_M</span></code> ut. <code class="docutils literal notranslate"><span class="pre">n</span></code> er antall atomer spesifisert på linjen i molekylet, og er det første elementet på linjen og i listen (<code class="docutils literal notranslate"><span class="pre">[0]</span></code>). <code class="docutils literal notranslate"><span class="pre">this_M</span></code> er den molare massen til atomet på linjen, og ligger som nest siste elementet på linjen og i listen (<code class="docutils literal notranslate"><span class="pre">[-2]</span></code>). For å regne ut molekylmassebidraget til atomet på linjen, ganges den molare massen med antall atomer. Summen av bidraget fra alle atomene utgjør den molare massen til molekylet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;eksempel.txt&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">first_line</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first line: &quot;</span><span class="p">,</span> <span class="n">first_line</span><span class="p">)</span>
+    <span class="n">first_line_list</span> <span class="o">=</span> <span class="n">first_line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list of the first line: &quot;</span><span class="p">,</span> <span class="n">first_line_list</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">first_line_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
+        <span class="n">this_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">this_line</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">this_M</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">this_line</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">M</span> <span class="o">+=</span> <span class="n">n</span><span class="o">*</span><span class="n">this_M</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The molas mass of </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.2f</span><span class="s2"> g/mol&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>first line:  Paracetamol contains:
+list of the first line:  [&#39;Paracetamol&#39;, &#39;contains:&#39;]
+The molas mass of Paracetamol is 151.16 g/mol
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./originals"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">User Input</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sporre-bruker-om-input">Spørre bruker om input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-gjennom-kommandolinjen">Input gjennom kommandolinjen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#handtering-av-error">Håndtering av <code class="docutils literal notranslate"><span class="pre">Error</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raise"><code class="docutils literal notranslate"><span class="pre">raise</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lese-og-skrive-fil-i-python">Lese og skrive fil i Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skrive-til-fil">Skrive til fil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lese-fil">Lese fil</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Oslo, Erik Winge, Eirill Strand Hauge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

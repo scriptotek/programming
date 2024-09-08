@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lists and Loops &#8212; Introduction to Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_lists_loops';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dictionaries" href="03_Dictionaries.html" />
+    <link rel="prev" title="The Basics: Variables and Printing" href="01_basics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Programming - Home"/>
+    <script>document.write(`<img src="_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">The Basics: Variables and Printing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lists and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_library_catalogue.html">JSON and Library Catalog Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_caselaw.html">JSON and Case Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_if.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Strings.html">Bonus Episode: Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">A short introduction to machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_exercises.html">More Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_library_data_exercises.html">Library Data Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_case_law_exercises.html">Case Law Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/scriptotek/programming/master?urlpath=tree/02_lists_loops.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/scriptotek/programming&urlpath=tree/programming/02_lists_loops.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/scriptotek/programming/blob/master/02_lists_loops.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/edit/master/02_lists_loops.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/issues/new?title=Issue%20on%20page%20%2F02_lists_loops.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02_lists_loops.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lists and Loops</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-appending-elements-to-a-list">Adding (Appending) Elements to a List</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-adding-elements-to-a-list"><span style="color:green"> Exercise: Adding Elements to a List </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-list-elements-list-indexing">Accessing List Elements - List Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-lists"><span style="color:green"> Exercise: Indexing Lists</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-lists">Nested Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-list-of-lists">Making a List of Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-dates-and-indexing-nested-lists"><span style="color:green">Exercise: Dates and Indexing Nested Lists</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-loop"><span style="color:green">Exercise: Loop</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-loops">Visualizing loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops"><span style="color:green">Exercise: Nested Loops</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-material-iterating-over-numbers-with-range">Bonus Material: Iterating over Numbers with <code class="docutils literal notranslate"><span class="pre">range()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-in-a-loop"><span style="color:green">Exercise: Indexing in a Loop</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range-start-stop-step-length"><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step_length)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range-when-indexing"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops-and-range"><span style="color:green"> Exercise: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><span style="color:blue">Key Points</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lists-and-loops">
+<h1>Lists and Loops<a class="headerlink" href="#lists-and-loops" title="Link to this heading">#</a></h1>
+<p>This notebook is based on materials kindly provided by the <a class="reference external" href="https://www.uio.no/studier/emner/matnat/ifi/IN1900/h19/">IN1900</a> team.</p>
+<section id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
+<p>Python lists can contain <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code> and other items.
+We make a list by placing the items in square brackets, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, separated by commas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many functions for working with lists. One example is <code class="docutils literal notranslate"><span class="pre">len()</span></code>, which returns the length of the list, in other words the number of items it contains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odd</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;odd: &quot;</span><span class="p">,</span> <span class="n">odd</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;length of list &#39;odd&#39; :&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">odd</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odd:  [1, 3, 5, 7, 9]
+length of list &#39;odd&#39; : 5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-appending-elements-to-a-list">
+<h2>Adding (Appending) Elements to a List<a class="headerlink" href="#adding-appending-elements-to-a-list" title="Link to this heading">#</a></h2>
+<p>We can add/append elements to an existing list. Below we first make an empty list, and then append one element at a time using <code class="docutils literal notranslate"><span class="pre">append()</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">append()</span></code> adds items at the end of the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">empty_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;not&quot;</span><span class="p">)</span>
+<span class="n">empty_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;so&quot;</span><span class="p">)</span>
+<span class="n">empty_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;empty&quot;</span><span class="p">)</span>
+<span class="n">empty_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;anymore&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;not&#39;, &#39;so&#39;, &#39;empty&#39;, &#39;anymore&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-adding-elements-to-a-list">
+<h3><span style="color:green"> Exercise: Adding Elements to a List </span><a class="headerlink" href="#exercise-adding-elements-to-a-list" title="Link to this heading">#</a></h3>
+<p>The list <code class="docutils literal notranslate"><span class="pre">days</span></code> below contains the weekdays, but is missing the weekend. Your task will be to add <em>Saturday</em> and <em>Sunday</em> to the existing list <code class="docutils literal notranslate"><span class="pre">days</span></code>.</p>
+<p>Start by printing out the length of the list <code class="docutils literal notranslate"><span class="pre">days</span></code> using the function <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Then, add the two days of the weekend to <code class="docutils literal notranslate"><span class="pre">days</span></code>. Finish by printing out the new length of the list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code>-function.</p>
+<p>An example of how your output could be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>There are 5 days!
+There are 7 days!
+</pre></div>
+</div>
+<p>The text is not strictly necessary, the numbers are the important part!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span> <span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span> <span class="s2">&quot;Thursday&quot;</span><span class="p">,</span> <span class="s2">&quot;Friday&quot;</span><span class="p">]</span>  <span class="c1"># DO NOT CHANGE THIS LINE</span>
+
+<span class="c1"># PRINT THE LENGTH OF THE LIST </span>
+
+<span class="c1"># ADD THE DAYS OF THE WEEKEND HERE</span>
+
+<span class="c1"># PRINT THE LENGTH OF THE LIST AGAIN</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:green">Hint  </span>  : remember that <em>Saturday</em> and <em>Sunday</em> need to be of type <code class="docutils literal notranslate"><span class="pre">str</span></code>, else you will get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>.</p>
+</section>
+</section>
+<section id="accessing-list-elements-list-indexing">
+<h2>Accessing List Elements - List Indexing<a class="headerlink" href="#accessing-list-elements-list-indexing" title="Link to this heading">#</a></h2>
+<p>To get an item from a list, we use an index number.</p>
+<p><strong>Python counts from 0, not 1!</strong></p>
+<p>We can get the items in <code class="docutils literal notranslate"><span class="pre">odd</span></code> one at a time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[0] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[1] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[2] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[3] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[4] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odd[0] =  1
+odd[1] =  3
+odd[2] =  5
+odd[3] =  7
+odd[4] =  9
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-indexing-lists">
+<h3><span style="color:green"> Exercise: Indexing Lists</span><a class="headerlink" href="#exercise-indexing-lists" title="Link to this heading">#</a></h3>
+<p>Change the variable <code class="docutils literal notranslate"><span class="pre">index</span></code> in the code below such that the word <em>something</em> is printed when the code snippet is run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Margaret_Lanterman</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="s1">&#39;something&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="s1">&#39;tell&#39;</span><span class="p">,</span> <span class="s1">&#39;you.&#39;</span><span class="p">]</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Margaret_Lanterman</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>you.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="nested-lists">
+<h2>Nested Lists<a class="headerlink" href="#nested-lists" title="Link to this heading">#</a></h2>
+<p>Lists are frequently used in Python. Later we will see an example of lists of cases from US case law.
+Lists can contain other lists. In the list of cases, each case has a list of attorneys.</p>
+<p>We can make a new list <code class="docutils literal notranslate"><span class="pre">even</span></code> to complement our list <code class="docutils literal notranslate"><span class="pre">odd</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">even</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="making-a-list-of-lists">
+<h2>Making a List of Lists<a class="headerlink" href="#making-a-list-of-lists" title="Link to this heading">#</a></h2>
+<p>Now, we can make a new list containing the lists <code class="docutils literal notranslate"><span class="pre">odd</span></code> and <code class="docutils literal notranslate"><span class="pre">even</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odd_and_even</span> <span class="o">=</span> <span class="p">[</span><span class="n">odd</span><span class="p">,</span> <span class="n">even</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;odd_and_even : &quot;</span><span class="p">,</span> <span class="n">odd_and_even</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second object in odd_and_even is the list even : &quot;</span><span class="p">,</span> <span class="n">odd_and_even</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First number in even: &quot;</span><span class="p">,</span> <span class="n">odd_and_even</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Third number in even: &quot;</span><span class="p">,</span> <span class="n">odd_and_even</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odd_and_even :  [[1, 3, 5, 7, 9], [2, 4, 6, 8, 10]]
+Second object in odd_and_even is the list even :  [2, 4, 6, 8, 10]
+First number in even:  2
+Third number in even:  6
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-dates-and-indexing-nested-lists">
+<h3><span style="color:green">Exercise: Dates and Indexing Nested Lists</span><a class="headerlink" href="#exercise-dates-and-indexing-nested-lists" title="Link to this heading">#</a></h3>
+<p>Change the indexes in the code below, so that the printed information is correct.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">]</span>
+<span class="n">autum</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">]</span>
+<span class="n">winter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;December&quot;</span><span class="p">,</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">]</span>
+<span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="s2">&quot;May&quot;</span><span class="p">]</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="n">summer</span><span class="p">,</span> <span class="n">autum</span><span class="p">,</span> <span class="n">winter</span><span class="p">,</span> <span class="n">spring</span><span class="p">]</span>
+
+
+<span class="c1"># change the indices below</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My birthday is the Xth of </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">months</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Christmas is the Xth of </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">months</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My birthday is the Xth of August.
+Christmas is the Xth of October.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
+<p>We saw above how we could manually get each element in a list. However, this kind of repetition is tedious and error-prone. For example, if we change <code class="docutils literal notranslate"><span class="pre">odd</span></code> to be a shorter list, we will get an error when re-running the code we wrote above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odd</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[0] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[1] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[2] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[3] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[4] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odd[0] =  1
+odd[1] =  3
+odd[2] =  5
+odd[3] =  7
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[2] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[3] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;odd[4] = &#39;</span><span class="p">,</span> <span class="n">odd</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>This code violates an important principle in programming: <em>Don’t Repeat Yourself</em> (DRY).
+To avoid such errors, we should leave the work of keeping track of the list elements to the computer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">odd</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can read the code above as:
+for each <code class="docutils literal notranslate"><span class="pre">number</span></code> in <code class="docutils literal notranslate"><span class="pre">odd</span></code>, do the following:
+print the number.</p>
+<section id="exercise-loop">
+<h3><span style="color:green">Exercise: Loop</span><a class="headerlink" href="#exercise-loop" title="Link to this heading">#</a></h3>
+<p>We can also loop or iterate over lists of strings.
+Complete the following code, to loop (iterate) over the summer months.
+The expected output is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>June
+July
+August
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
+    <span class="s2">&quot;your code here&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-loops">
+<h2>Visualizing loops<a class="headerlink" href="#visualizing-loops" title="Link to this heading">#</a></h2>
+<p>It might be helpful to illustrate loops with an animation. Here, we iterate over a list of strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;short&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iterating over the sentence:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For each iteration of the loop, the variable <code class="docutils literal notranslate"><span class="pre">word</span></code> changes to the next element in the list:</p>
+<iframe src="https://www.openprocessing.org/sketch/906164/embed/" width="510" height="600"></iframe></section>
+<section id="nested-loops">
+<h2>Nested Loops<a class="headerlink" href="#nested-loops" title="Link to this heading">#</a></h2>
+<p>When we put a loop inside another loop, we call them nested loops. We can use nested loops to iterate over nested lists.</p>
+<p>Remember that <code class="docutils literal notranslate"><span class="pre">odd_and_even</span> <span class="pre">=</span> <span class="pre">[odd,</span> <span class="pre">even]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">odd_and_even</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-nested-loops">
+<h3><span style="color:green">Exercise: Nested Loops</span><a class="headerlink" href="#exercise-nested-loops" title="Link to this heading">#</a></h3>
+<p>Next, we iterate over a nested list of strings:
+Complete the following code, to loop (iterate) over all the months.</p>
+<p>You will need two nested <code class="docutils literal notranslate"><span class="pre">for</span></code>-loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">]</span>
+<span class="n">autum</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">]</span>
+<span class="n">winter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;December&quot;</span><span class="p">,</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">]</span>
+<span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="s2">&quot;May&quot;</span><span class="p">]</span>
+
+<span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="n">summer</span><span class="p">,</span> <span class="n">autum</span><span class="p">,</span> <span class="n">winter</span><span class="p">,</span> <span class="n">spring</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="bonus-material-iterating-over-numbers-with-range">
+<h2>Bonus Material: Iterating over Numbers with <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#bonus-material-iterating-over-numbers-with-range" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-loops iterate over all the elements in a sequence, frequently a list.
+We can also loop over other kinds of sequences. The function <code class="docutils literal notranslate"><span class="pre">range()</span></code> returns a sequence of numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using range:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-indexing-in-a-loop">
+<h3><span style="color:green">Exercise: Indexing in a Loop</span><a class="headerlink" href="#exercise-indexing-in-a-loop" title="Link to this heading">#</a></h3>
+<p>The list <code class="docutils literal notranslate"><span class="pre">names</span></code> contains a few names and the list <code class="docutils literal notranslate"><span class="pre">birth_years</span></code> contain their corresponding birth years. There is also a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop that should print out the names with their corresponding birth years. The print-statement is incomplete, such that only the name is printed.</p>
+<p>Your task is to add the correct birth year in the print-statement in the loop by indexing <code class="docutils literal notranslate"><span class="pre">birth_years</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;John Cleese&quot;</span><span class="p">,</span> <span class="s2">&quot;Terry Gilliam&quot;</span><span class="p">,</span> <span class="s2">&quot;Eric Idle&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael Palin&quot;</span><span class="p">,</span> <span class="s2">&quot;Graham Chapman&quot;</span><span class="p">,</span> <span class="s2">&quot;Terry Jones&quot;</span><span class="p">]</span>
+<span class="n">birth_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1939</span><span class="p">,</span> <span class="mi">1940</span><span class="p">,</span> <span class="mi">1943</span><span class="p">,</span> <span class="mi">1943</span><span class="p">,</span> <span class="mi">1941</span><span class="p">,</span> <span class="mi">1942</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;was born in&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="range-start-stop-step-length">
+<h3><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step_length)</span></code><a class="headerlink" href="#range-start-stop-step-length" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">range()</span></code> can have up to three arguments. If you give all three arguments, range will yield integers starting from and <em>including</em> <code class="docutils literal notranslate"><span class="pre">start</span></code>, up to but <em>excluding</em> <code class="docutils literal notranslate"><span class="pre">stop</span></code>, in steps of size <code class="docutils literal notranslate"><span class="pre">step_length</span></code>.</p>
+<p>If you only give two arguments, the step length will be 1.</p>
+<p>If you only give a single argument, the starting point will be zero.</p>
+</section>
+<section id="exercise-using-range">
+<h3><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span><a class="headerlink" href="#exercise-using-range" title="Link to this heading">#</a></h3>
+<p>Predict what will be printed when running the code snippet below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="exercise-using-range-when-indexing">
+<h3><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing </span><a class="headerlink" href="#exercise-using-range-when-indexing" title="Link to this heading">#</a></h3>
+<p>Predict what will be printed when running the code snippet below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;You&quot;</span><span class="p">,</span> <span class="s2">&quot;don&#39;t&quot;</span><span class="p">,</span> <span class="s2">&quot;understand!&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="exercise-nested-loops-and-range">
+<h3><span style="color:green"> Exercise: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span><a class="headerlink" href="#exercise-nested-loops-and-range" title="Link to this heading">#</a></h3>
+<p>We can also use nested loops with <code class="docutils literal notranslate"><span class="pre">range</span></code>. Explain the loop below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main loop i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Inner loop j =&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s2">&quot;  (i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="key-points">
+<h2><span style="color:blue">Key Points</span><a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We can make lists of items</p></li>
+<li><p>We use indexes to access items in lists: <code class="docutils literal notranslate"><span class="pre">things[3]</span></code> or <code class="docutils literal notranslate"><span class="pre">many_things[0][4]</span></code></p></li>
+<li><p>Modify lists using <code class="docutils literal notranslate"><span class="pre">append()</span></code> and other functions</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">for</span></code>-loops to iterate over lists</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Basics: Variables and Printing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_Dictionaries.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dictionaries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-appending-elements-to-a-list">Adding (Appending) Elements to a List</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-adding-elements-to-a-list"><span style="color:green"> Exercise: Adding Elements to a List </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-list-elements-list-indexing">Accessing List Elements - List Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-lists"><span style="color:green"> Exercise: Indexing Lists</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-lists">Nested Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-a-list-of-lists">Making a List of Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-dates-and-indexing-nested-lists"><span style="color:green">Exercise: Dates and Indexing Nested Lists</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-loop"><span style="color:green">Exercise: Loop</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-loops">Visualizing loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-loops">Nested Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops"><span style="color:green">Exercise: Nested Loops</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-material-iterating-over-numbers-with-range">Bonus Material: Iterating over Numbers with <code class="docutils literal notranslate"><span class="pre">range()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-in-a-loop"><span style="color:green">Exercise: Indexing in a Loop</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range-start-stop-step-length"><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step_length)</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range-when-indexing"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing </span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops-and-range"><span style="color:green"> Exercise: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><span style="color:blue">Key Points</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Oslo, Erik Winge, Eirill Strand Hauge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>JSON and Library Catalog Data &#8212; Introduction to Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_library_catalogue';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JSON and Case Law" href="04_caselaw.html" />
+    <link rel="prev" title="Dictionaries" href="03_Dictionaries.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Programming - Home"/>
+    <script>document.write(`<img src="_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html">The Basics: Variables and Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_lists_loops.html">Lists and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">JSON and Library Catalog Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_caselaw.html">JSON and Case Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_if.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Strings.html">Bonus Episode: Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machine_learning.html">A short introduction to machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_exercises.html">More Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_library_data_exercises.html">Library Data Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_case_law_exercises.html">Case Law Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/scriptotek/programming/master?urlpath=tree/04_library_catalogue.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/scriptotek/programming&urlpath=tree/programming/04_library_catalogue.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/scriptotek/programming/blob/master/04_library_catalogue.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/edit/master/04_library_catalogue.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/issues/new?title=Issue%20on%20page%20%2F04_library_catalogue.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_library_catalogue.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>JSON and Library Catalog Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-data">Fetching Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data">Using the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-creator"><span style="color:green"> Exercise: Creator </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#following-the-path">Following the Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-presentation-and-urn"><span style="color:green"> Exercise: Presentation and URN </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-lists">Working with Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><span style="color:blue">Key Points</span></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="json-and-library-catalog-data">
+<h1>JSON and Library Catalog Data<a class="headerlink" href="#json-and-library-catalog-data" title="Link to this heading">#</a></h1>
+<p>How can we extract data from APIs (machine-readable online data sources)?</p>
+<p>In this lesson, we look at how we can use data from the web.
+We will use real-world data from
+<a class="reference external" href="https://www.nb.no/">The National Library of Norway</a>.
+The National Library has a <a class="reference external" href="https://api.nb.no/">search API</a>
+which we will use.</p>
+<section id="json">
+<h2>JSON<a class="headerlink" href="#json" title="Link to this heading">#</a></h2>
+<p>JSON is a machine-readable data format.
+Machine-readable data makes it easy to read and process the information with a computer.
+JSON data is usually tree structured, with multiple levels containing information.
+This is kind of like a directory tree containing files.</p>
+</section>
+<section id="fetching-data">
+<h2>Fetching Data<a class="headerlink" href="#fetching-data" title="Link to this heading">#</a></h2>
+<p>To fetch data from the web, we can use a library called requests that makes this task quite easy.
+Since we are are fetching data in the JSON format, we will also import a library to decode JSON data.
+Libraries are collections of code written by others that we can utilize instead of
+writing everything from scratch ourselves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need to specify the URL to the data we want to fetch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=3&amp;filter=mediatype:bøker&amp;q=Bing,Jon&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We include some parameters that specifies which cases we want to load:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">digitalAccessibleOnly</span></code> specifies that we only want documents that are available in fulltext</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code> is the number of items to fetch</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code> narrows the search, in this case to books</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">q</span></code> is the search query</p></li>
+</ul>
+<p>More parameters are listed in the <a class="reference external" href="https://api.nb.no/">API documentation</a>.</p>
+<p>Now, let’s fetch the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This step both fetches and decodes the json data in one line. We can also do this step-by-step, to see how the process works.
+If you don’t want to get into the details at this point, you can skip ahead to the section “Using the data”.
+The server response also contains metadata, but we want the content:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can look at the first 100 characters from the raw data. We can see the same data if we open the URL in a web browser:
+<a class="reference external" href="https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;amp;size=3&amp;amp;filter=mediatype:b%C3%B8ker&amp;amp;q=Bing,Jon">https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=3&amp;filter=mediatype:bøker&amp;q=Bing,Jon</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;{\n  &quot;_links&quot; : {\n    &quot;self&quot; : {\n      &quot;href&quot; : &quot;https://api.nb.no/catalog/v1/items?q=Bing,Jon&amp;digita&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use the data, we must decode them. We must specify the character set, which is often UTF-8. Then we decode the json format into a Python dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-data">
+<h2>Using the Data<a class="headerlink" href="#using-the-data" title="Link to this heading">#</a></h2>
+<p>We can print the data, however this is a lot of text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no/catalog/v1/items?q=Bing,Jon&amp;digitalAccessibleOnly=true&amp;filter=mediatype:b%C3%B8ker&amp;page=0&amp;size=3&#39;}, &#39;next&#39;: {&#39;href&#39;: &#39;https://api.nb.no/catalog/v1/items?q=Bing,Jon&amp;digitalAccessibleOnly=true&amp;filter=mediatype:b%C3%B8ker&amp;page=1&amp;size=3&#39;}, &#39;last&#39;: {&#39;href&#39;: &#39;https://api.nb.no/catalog/v1/items?q=Bing,Jon&amp;digitalAccessibleOnly=true&amp;filter=mediatype:b%C3%B8ker&amp;page=50&amp;size=3&#39;}}, &#39;page&#39;: {&#39;size&#39;: 3, &#39;totalElements&#39;: 1435, &#39;totalPages&#39;: 479, &#39;number&#39;: 0}, &#39;_embedded&#39;: {&#39;items&#39;: [{&#39;id&#39;: &#39;e3195d7716f6e6dbd02827e43b05fdc1&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/e3195d7716f6e6dbd02827e43b05fdc1&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/e3195d7716f6e6dbd02827e43b05fdc1/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/e3195d7716f6e6dbd02827e43b05fdc1/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/e3195d7716f6e6dbd02827e43b05fdc1/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/e3195d7716f6e6dbd02827e43b05fdc1/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/e3195d7716f6e6dbd02827e43b05fdc1/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/e3195d7716f6e6dbd02827e43b05fdc1/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2020101258046_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2020101258046_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2020101258046_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2020101258046_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2022-04-28T20:30:07.504Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Dobbelt-eksponering : eit balanse-spel av Bing &amp; Bringsværd ; omsett til nynorsk av Halldis Hoaas&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Dobbelt-eksponering : eit balanse-spel av Bing &amp; Bringsværd ; omsett til nynorsk av Halldis Hoaas&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;[Oslo]&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Det Norske teatret&#39;, &#39;issued&#39;: &#39;1981&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-17T23:24:08.705Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2020-10-17T03:03:07.905Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-09T06:05:50.490Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;e3195d7716f6e6dbd02827e43b05fdc1&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999920073084102202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2020101258046&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nno&#39;}], &#39;pageCount&#39;: 6, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Hoaas, Halldis&#39;, &#39;Bing, Jon&#39;, &#39;Det Norske teatret&#39;, &#39;Bringsværd, Tor Åge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}, {&#39;id&#39;: &#39;f7c2926938b3b414ac959368ebcdddc0&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/f7c2926938b3b414ac959368ebcdddc0&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/f7c2926938b3b414ac959368ebcdddc0/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/f7c2926938b3b414ac959368ebcdddc0/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/f7c2926938b3b414ac959368ebcdddc0/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/f7c2926938b3b414ac959368ebcdddc0/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/f7c2926938b3b414ac959368ebcdddc0/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/f7c2926938b3b414ac959368ebcdddc0/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2021020448501_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2021020448501_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2021020448501_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2021020448501_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;ccbyncnd&#39;, &#39;accessInfoLastModified&#39;: &#39;2024-02-02T14:36:12.727Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &quot;Er&#39;e ikke det ene, så er&#39;e det andre..., eller Badekaret som ble vekk : av Jon Bing, Svein Erik Brodal, Erik Bye, Tor Edvin Dahl, Knut Faldbakken, Gunnar Bull Gundersen, Helge Hagerup, Jon Michelet, Sidsel Mørck, Arild Nyquist, Vivi Schøyen, Karin Sveen, Jan Erik Vold : med musikk av Egil Kapstad&quot;, &#39;titleInfos&#39;: [{&#39;title&#39;: &quot;Er&#39;e ikke det ene, så er&#39;e det andre..., eller Badekaret som ble vekk : av Jon Bing, Svein Erik Brodal, Erik Bye, Tor Edvin Dahl, Knut Faldbakken, Gunnar Bull Gundersen, Helge Hagerup, Jon Michelet, Sidsel Mørck, Arild Nyquist, Vivi Schøyen, Karin Sveen, Jan Erik Vold : med musikk av Egil Kapstad&quot;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;[Oslo]&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Riksteatret&#39;, &#39;issued&#39;: &#39;1900&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-16T18:38:48.227Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2021-02-18T08:01:51.514Z&#39;, &#39;indexLastModified&#39;: &#39;2024-02-02T14:36:12.727Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;f7c2926938b3b414ac959368ebcdddc0&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999920112502602202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2021020448501&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 16, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Riksteatret&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;CCBYNCND&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}, {&#39;id&#39;: &#39;ee333b7284cc60d6ea7a05f95c77add1&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/ee333b7284cc60d6ea7a05f95c77add1&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/ee333b7284cc60d6ea7a05f95c77add1/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/ee333b7284cc60d6ea7a05f95c77add1/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/ee333b7284cc60d6ea7a05f95c77add1/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/ee333b7284cc60d6ea7a05f95c77add1/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/ee333b7284cc60d6ea7a05f95c77add1/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/ee333b7284cc60d6ea7a05f95c77add1/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2006111300028_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2006111300028_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2006111300028_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2006111300028_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2018-10-09T11:32:10.673Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Fortegnelse over magistratpersoner i Trondhjem 1377-1922 : med biografiske oplysninger og henvisninger&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Fortegnelse over magistratpersoner i Trondhjem 1377-1922 : med biografiske oplysninger og henvisninger&#39;}, {&#39;title&#39;: &#39;Magistratpersoner i Trondhjem 1377-1922&#39;, &#39;type&#39;: &#39;alternative&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Trondheim&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;[s.n.]&#39;, &#39;issued&#39;: &#39;1945&#39;, &#39;firstIndexTime&#39;: &#39;2024-04-20T10:10:25.555Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T07:56:35.765Z&#39;, &#39;indexLastModified&#39;: &#39;2024-04-20T10:10:25.532Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;ee333b7284cc60d6ea7a05f95c77add1&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999306842654702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2006111300028&#39;}, &#39;subject&#39;: {&#39;geographics&#39;: [&#39;Trondheim&#39;]}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 67, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Mathiesen, Henrik&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}]}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead, we can print only the keys using <code class="docutils literal notranslate"><span class="pre">list()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;_links&#39;, &#39;page&#39;, &#39;_embedded&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our search results only contain the first few items. We say that we are viewing a <em>page</em> of the results.
+The field <code class="docutils literal notranslate"><span class="pre">page</span></code> contains information about the current page.
+This is a dictionary, and we can print the information:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">page</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;size&#39;: 3, &#39;totalElements&#39;: 1435, &#39;totalPages&#39;: 479, &#39;number&#39;: 0}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The field <code class="docutils literal notranslate"><span class="pre">size</span></code> contains the number of hits in the database. This is usually different from the number of items we requested.
+If the <code class="docutils literal notranslate"><span class="pre">size</span></code> is zero, we don’t have any results and need to check the query in the URL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="n">page</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>That looks good. Let’s fetch the list of items:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can inspect each item. Let’s loop over the items and get some of the information.
+The data contains various metadata about each item, such as the item ID.</p>
+<p>It’s often useful to look at the data in a web browser to get an overview.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;item ID:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>item ID: e3195d7716f6e6dbd02827e43b05fdc1
+item ID: f7c2926938b3b414ac959368ebcdddc0
+item ID: ee333b7284cc60d6ea7a05f95c77add1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each item has a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> dictionary with the title etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Item title:&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Item title: Dobbelt-eksponering : eit balanse-spel av Bing &amp; Bringsværd ; omsett til nynorsk av Halldis Hoaas
+Item title: Er&#39;e ikke det ene, så er&#39;e det andre..., eller Badekaret som ble vekk : av Jon Bing, Svein Erik Brodal, Erik Bye, Tor Edvin Dahl, Knut Faldbakken, Gunnar Bull Gundersen, Helge Hagerup, Jon Michelet, Sidsel Mørck, Arild Nyquist, Vivi Schøyen, Karin Sveen, Jan Erik Vold : med musikk av Egil Kapstad
+Item title: Fortegnelse over magistratpersoner i Trondhjem 1377-1922 : med biografiske oplysninger og henvisninger
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-creator">
+<h3><span style="color:green"> Exercise: Creator </span><a class="headerlink" href="#exercise-creator" title="Link to this heading">#</a></h3>
+<p>Complete the code below to print the creator of each item.
+You will need to browse the <a class="reference external" href="https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;amp;size=3&amp;amp;filter=mediatype:b%C3%B8ker&amp;amp;q=Bing,Jon">data</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=3&amp;filter=mediatype:bøker&amp;q=Bing,Jon&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Item title:&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+    <span class="c1">#your code here</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Item title: Dobbelt-eksponering : eit balanse-spel av Bing &amp; Bringsværd ; omsett til nynorsk av Halldis Hoaas
+Item title: Er&#39;e ikke det ene, så er&#39;e det andre..., eller Badekaret som ble vekk : av Jon Bing, Svein Erik Brodal, Erik Bye, Tor Edvin Dahl, Knut Faldbakken, Gunnar Bull Gundersen, Helge Hagerup, Jon Michelet, Sidsel Mørck, Arild Nyquist, Vivi Schøyen, Karin Sveen, Jan Erik Vold : med musikk av Egil Kapstad
+Item title: Fortegnelse over magistratpersoner i Trondhjem 1377-1922 : med biografiske oplysninger og henvisninger
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="following-the-path">
+<h2>Following the Path<a class="headerlink" href="#following-the-path" title="Link to this heading">#</a></h2>
+<p>As mentioned, JSON data is a tree structure. It can contain many nested levels. In that case, we need to follow the path to find the entry we’re looking for.
+It’s usually advisable to follow the path one step at a time. This makes it easier to find errors in our programs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=3&amp;filter=mediatype:bøker&amp;q=Bing,Jon&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Item title:&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># Step-by-step:</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;_links&#39;</span><span class="p">]</span>
+    <span class="bp">self</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="s1">&#39;self&#39;</span><span class="p">]</span>
+    <span class="n">href</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Item URL:&quot;</span><span class="p">,</span> <span class="n">href</span><span class="p">)</span>
+
+    <span class="c1"># We start a new path from links:</span>
+    <span class="n">thumbnail_large</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="s1">&#39;thumbnail_large&#39;</span><span class="p">]</span>
+    <span class="n">thumbnail_URL</span> <span class="o">=</span> <span class="n">thumbnail_large</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span> <span class="c1"># have already used the name &#39;href&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Thumbnail:&#39;</span><span class="p">,</span> <span class="n">thumbnail_URL</span><span class="p">)</span>
+
+    <span class="c1"># Extra linebreak:</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Item title: Dobbelt-eksponering : eit balanse-spel av Bing &amp; Bringsværd ; omsett til nynorsk av Halldis Hoaas
+Item URL: https://api.nb.no:443/catalog/v1/items/e3195d7716f6e6dbd02827e43b05fdc1
+Thumbnail: https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2020101258046_C1/full/0,200/0/native.jpg
+
+Item title: Er&#39;e ikke det ene, så er&#39;e det andre..., eller Badekaret som ble vekk : av Jon Bing, Svein Erik Brodal, Erik Bye, Tor Edvin Dahl, Knut Faldbakken, Gunnar Bull Gundersen, Helge Hagerup, Jon Michelet, Sidsel Mørck, Arild Nyquist, Vivi Schøyen, Karin Sveen, Jan Erik Vold : med musikk av Egil Kapstad
+Item URL: https://api.nb.no:443/catalog/v1/items/f7c2926938b3b414ac959368ebcdddc0
+Thumbnail: https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2021020448501_C1/full/0,200/0/native.jpg
+
+Item title: Fortegnelse over magistratpersoner i Trondhjem 1377-1922 : med biografiske oplysninger og henvisninger
+Item URL: https://api.nb.no:443/catalog/v1/items/ee333b7284cc60d6ea7a05f95c77add1
+Thumbnail: https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2006111300028_C1/full/0,200/0/native.jpg
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-presentation-and-urn">
+<h3><span style="color:green"> Exercise: Presentation and URN </span><a class="headerlink" href="#exercise-presentation-and-urn" title="Link to this heading">#</a></h3>
+<p>The field <code class="docutils literal notranslate"><span class="pre">presentation</span></code> contains a link to the full text.
+Complete the code below to print the <code class="docutils literal notranslate"><span class="pre">presentation</span></code> URL and the ‘URN’ of each item.</p>
+<p>You will need to browse the <a class="reference external" href="https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;amp;size=3&amp;amp;filter=mediatype:b%C3%B8ker&amp;amp;q=Bing,Jon">data</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=3&amp;filter=mediatype:bøker&amp;q=Bing,Jon&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Item title:&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+    <span class="c1">#your code here</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Item title: Dobbelt-eksponering : eit balanse-spel av Bing &amp; Bringsværd ; omsett til nynorsk av Halldis Hoaas
+Item title: Er&#39;e ikke det ene, så er&#39;e det andre..., eller Badekaret som ble vekk : av Jon Bing, Svein Erik Brodal, Erik Bye, Tor Edvin Dahl, Knut Faldbakken, Gunnar Bull Gundersen, Helge Hagerup, Jon Michelet, Sidsel Mørck, Arild Nyquist, Vivi Schøyen, Karin Sveen, Jan Erik Vold : med musikk av Egil Kapstad
+Item title: Fortegnelse over magistratpersoner i Trondhjem 1377-1922 : med biografiske oplysninger og henvisninger
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="working-with-lists">
+<h2>Working with Lists<a class="headerlink" href="#working-with-lists" title="Link to this heading">#</a></h2>
+<p>Each item in the data set contains a list of one or more creators.
+These lists are located in each item’s <code class="docutils literal notranslate"><span class="pre">metadata</span></code> field.
+We can use a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop to process the list items:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Item title:&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+    <span class="n">creators</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;creators&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">creators</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creator:&#39;</span><span class="p">,</span><span class="n">creator</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span> <span class="c1">#insert empty line</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Item title: Dobbelt-eksponering : eit balanse-spel av Bing &amp; Bringsværd ; omsett til nynorsk av Halldis Hoaas
+Creator: Hoaas, Halldis
+Creator: Bing, Jon
+Creator: Det Norske teatret
+Creator: Bringsværd, Tor Åge
+
+Item title: Er&#39;e ikke det ene, så er&#39;e det andre..., eller Badekaret som ble vekk : av Jon Bing, Svein Erik Brodal, Erik Bye, Tor Edvin Dahl, Knut Faldbakken, Gunnar Bull Gundersen, Helge Hagerup, Jon Michelet, Sidsel Mørck, Arild Nyquist, Vivi Schøyen, Karin Sveen, Jan Erik Vold : med musikk av Egil Kapstad
+Creator: Riksteatret
+
+Item title: Fortegnelse over magistratpersoner i Trondhjem 1377-1922 : med biografiske oplysninger og henvisninger
+Creator: Mathiesen, Henrik
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="key-points">
+<h2><span style="color:blue">Key Points</span><a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> library can be used to fetch data from the web.</p></li>
+<li><p>Many data providers provide an API from which we can fetch data programatically.</p></li>
+<li><p>Parameters can be used to control what data we get from an API.</p></li>
+<li><p>Most APIs provide data in the JSON format, and JSON is well supported in Python.</p></li>
+<li><p>Additional filtering and processing of the retrieved data can be done using loops and conditions (<code class="docutils literal notranslate"><span class="pre">if</span></code>-statements, next chapter)</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_Dictionaries.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dictionaries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_caselaw.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">JSON and Case Law</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json">JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-data">Fetching Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-data">Using the Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-creator"><span style="color:green"> Exercise: Creator </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#following-the-path">Following the Path</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-presentation-and-urn"><span style="color:green"> Exercise: Presentation and URN </span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-lists">Working with Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points"><span style="color:blue">Key Points</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Oslo, Erik Winge, Eirill Strand Hauge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

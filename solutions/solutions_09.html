@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercise: Count Works per Creator &#8212; Introduction to Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'solutions/solutions_09';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Programming - Home"/>
+    <script>document.write(`<img src="../_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_basics.html">The Basics: Variables and Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_lists_loops.html">Lists and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_Dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_library_catalogue.html">JSON and Library Catalog Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_caselaw.html">JSON and Case Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_if.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_Strings.html">Bonus Episode: Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning.html">A short introduction to machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_exercises.html">More Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_library_data_exercises.html">Library Data Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_case_law_exercises.html">Case Law Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/scriptotek/programming/master?urlpath=tree/solutions/solutions_09.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/scriptotek/programming&urlpath=tree/programming/solutions/solutions_09.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/scriptotek/programming/blob/master/solutions/solutions_09.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/edit/master/solutions/solutions_09.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/issues/new?title=Issue%20on%20page%20%2Fsolutions/solutions_09.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/solutions/solutions_09.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><span style="color:green"> Exercise: Count Works per Creator </span></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a">a)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b">b)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c">c)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d">d)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e">e)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f">f)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exercise-count-works-per-creator">
+<h1><span style="color:green"> Exercise: Count Works per Creator </span><a class="headerlink" href="#exercise-count-works-per-creator" title="Link to this heading">#</a></h1>
+<p>In the JSON book data, each item has a <code class="docutils literal notranslate"><span class="pre">creator</span></code> field located in <code class="docutils literal notranslate"><span class="pre">metadata</span></code>.
+Complete the code below step-by-step to count the number of items per creator.</p>
+<p>You will need to browse the <a class="reference external" href="https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;amp;size=1&amp;amp;filter=mediatype:b%C3%B8ker&amp;amp;q=Skatterett">data</a>.</p>
+<section id="a">
+<h2>a)<a class="headerlink" href="#a" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=20&amp;filter=mediatype:bøker&amp;q=Skatterett&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">creator2count</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># example content {&#39;Bing, Jon&#39;: 1}</span>
+
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: &#39;d7f07bd569f131088b715ddade58ca07&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/d7f07bd569f131088b715ddade58ca07&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/d7f07bd569f131088b715ddade58ca07/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/d7f07bd569f131088b715ddade58ca07/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/d7f07bd569f131088b715ddade58ca07/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d7f07bd569f131088b715ddade58ca07/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d7f07bd569f131088b715ddade58ca07/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d7f07bd569f131088b715ddade58ca07/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013081208039_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013081208039_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013081208039_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013081208039_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-19T09:40:59.497Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lov av 21. november 1952 nr 2 om betaling og innkreving av skatt (skattebetalingsloven) : med endringer, sist ved lov av 18. juni 1993 nr 111&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lov av 21. november 1952 nr 2 om betaling og innkreving av skatt (skattebetalingsloven) : med endringer, sist ved lov av 18. juni 1993 nr 111&#39;}, {&#39;title&#39;: &#39;: Lov om betaling og innkreving av skatt&#39;, &#39;type&#39;: &#39;alternative&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl Dreyer&#39;, &#39;issued&#39;: &#39;1993&#39;, &#39;firstIndexTime&#39;: &#39;2023-02-07T20:30:21.764Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T05:40:01.734Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-19T09:40:59.497Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8250410939&#39;], &#39;sesamId&#39;: &#39;d7f07bd569f131088b715ddade58ca07&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999325595494702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2013081208039&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 37, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;32310280f3bad90b528a4fc9f62d8bba&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/32310280f3bad90b528a4fc9f62d8bba&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/32310280f3bad90b528a4fc9f62d8bba/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/32310280f3bad90b528a4fc9f62d8bba/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/32310280f3bad90b528a4fc9f62d8bba/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/32310280f3bad90b528a4fc9f62d8bba/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/32310280f3bad90b528a4fc9f62d8bba/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/32310280f3bad90b528a4fc9f62d8bba/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016040708051_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016040708051_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016040708051_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016040708051_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2020-05-04T20:30:25.655Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lov av 18. august 1911 om skatt av formue og inntekt (skatteloven) : med endringslover, sist av 12. juni 1987 ; samt Vedtak om forskudd på formues- og inntektsskatt til staten for inntektsåret 1987&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lov av 18. august 1911 om skatt av formue og inntekt (skatteloven) : med endringslover, sist av 12. juni 1987 ; samt Vedtak om forskudd på formues- og inntektsskatt til staten for inntektsåret 1987&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl&#39;, &#39;issued&#39;: &#39;1987&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-18T21:30:00.418Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-05-04T03:01:33.882Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-09T12:44:37.701Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8250410173&#39;], &#39;sesamId&#39;: &#39;32310280f3bad90b528a4fc9f62d8bba&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:991303282434702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2016040708051&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 92, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;082c69ff00e83a17926db3a729770d57&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/082c69ff00e83a17926db3a729770d57&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/082c69ff00e83a17926db3a729770d57/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/082c69ff00e83a17926db3a729770d57/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/082c69ff00e83a17926db3a729770d57/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/082c69ff00e83a17926db3a729770d57/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/082c69ff00e83a17926db3a729770d57/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/082c69ff00e83a17926db3a729770d57/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2017042848132_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2017042848132_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2017042848132_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2017042848132_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2020-01-17T20:30:09.037Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Skattelov for landet av 18. august 1911 : med endringslover, sist av 14. juni 1968&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Skattelov for landet av 18. august 1911 : med endringslover, sist av 14. juni 1968&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl&#39;, &#39;issued&#39;: &#39;1968&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-17T11:44:59.100Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2017-05-19T10:00:18.165Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-08T19:33:51.480Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;082c69ff00e83a17926db3a729770d57&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999413213984702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2017042848132&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 129, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;cfe70dfcff0694a56c912a25cd962a09&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/cfe70dfcff0694a56c912a25cd962a09&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/cfe70dfcff0694a56c912a25cd962a09/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/cfe70dfcff0694a56c912a25cd962a09/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/cfe70dfcff0694a56c912a25cd962a09/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/cfe70dfcff0694a56c912a25cd962a09/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/cfe70dfcff0694a56c912a25cd962a09/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/cfe70dfcff0694a56c912a25cd962a09/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012050708114_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012050708114_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012050708114_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012050708114_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-02-07T20:30:28.421Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lov av 13. juni 1980 nr 24 om ligningsforvaltning (ligningsloven) : med endringer, sist ved lov av 21. mai 1993 nr 49&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lov av 13. juni 1980 nr 24 om ligningsforvaltning (ligningsloven) : med endringer, sist ved lov av 21. mai 1993 nr 49&#39;}, {&#39;title&#39;: &#39;Lov om ligningsforvaltning&#39;, &#39;type&#39;: &#39;alternative&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl Dreyer&#39;, &#39;issued&#39;: &#39;1993&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-16T23:27:43.394Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T04:51:28.726Z&#39;, &#39;indexLastModified&#39;: &#39;2023-09-26T16:35:31.267Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8250414101&#39;], &#39;sesamId&#39;: &#39;cfe70dfcff0694a56c912a25cd962a09&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999316599304702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2012050708114&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 53, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;4da82a2828a20835b9660c5f92954238&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/4da82a2828a20835b9660c5f92954238&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/4da82a2828a20835b9660c5f92954238/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/4da82a2828a20835b9660c5f92954238/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/4da82a2828a20835b9660c5f92954238/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/4da82a2828a20835b9660c5f92954238/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/4da82a2828a20835b9660c5f92954238/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/4da82a2828a20835b9660c5f92954238/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009021900105_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009021900105_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009021900105_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009021900105_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-18T09:59:47.267Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Tilleggsskatt m.m : utredning fra et utvalg oppnevnt av Finansdepartementet 26. april 2001 : avgitt 11. februar 2003&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Tilleggsskatt m.m : utredning fra et utvalg oppnevnt av Finansdepartementet 26. april 2001 : avgitt 11. februar 2003&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Statens forvaltningstjeneste, Informasjonsforvaltning&#39;, &#39;issued&#39;: &#39;2003&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-16T09:30:04.955Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T16:01:28.193Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-18T09:59:47.267Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8258306936&#39;], &#39;sesamId&#39;: &#39;4da82a2828a20835b9660c5f92954238&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:990304890754702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2009021900105&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 189, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Hedlund, Mary-Ann&#39;, &#39;Norge Finansdepartementet&#39;], &#39;contentClasses&#39;: [&#39;staten&#39;, &#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;], &#39;series&#39;: [&#39;Norges offentlige utredninger (tidsskrift : trykt utg.) NOU 2003: 7&#39;]}}
+{&#39;id&#39;: &#39;d9e2d209ab3f8e6a2d42b88a2a20ef84&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/d9e2d209ab3f8e6a2d42b88a2a20ef84&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/d9e2d209ab3f8e6a2d42b88a2a20ef84/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/d9e2d209ab3f8e6a2d42b88a2a20ef84/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/d9e2d209ab3f8e6a2d42b88a2a20ef84/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d9e2d209ab3f8e6a2d42b88a2a20ef84/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d9e2d209ab3f8e6a2d42b88a2a20ef84/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d9e2d209ab3f8e6a2d42b88a2a20ef84/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015012708123_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015012708123_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015012708123_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015012708123_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-02-07T20:30:03.630Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lov av 14. desember 1962 om skattefrie fondsavsetninger : med endringer, sist ved lov av 17. desember 1976 samt forskrifter sist av 8. desember 1978&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lov av 14. desember 1962 om skattefrie fondsavsetninger : med endringer, sist ved lov av 17. desember 1976 samt forskrifter sist av 8. desember 1978&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl Dreyer&#39;, &#39;issued&#39;: &#39;1979&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-17T15:31:27.942Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T05:51:40.913Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-09T20:28:05.391Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;d9e2d209ab3f8e6a2d42b88a2a20ef84&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:991303281544702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2015012708123&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 24, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;3d605381265b53cc1d5d005cd6478b1c&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/3d605381265b53cc1d5d005cd6478b1c&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/3d605381265b53cc1d5d005cd6478b1c/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/3d605381265b53cc1d5d005cd6478b1c/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/3d605381265b53cc1d5d005cd6478b1c/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/3d605381265b53cc1d5d005cd6478b1c/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/3d605381265b53cc1d5d005cd6478b1c/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/3d605381265b53cc1d5d005cd6478b1c/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012070308164_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012070308164_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012070308164_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012070308164_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-11-24T13:04:06.971Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lov av 24. mai 1969 nr. 71 om særregler for skattlegging av aksjeselskaper og aksjonærer : med endringer, sist ved lov av 15. juni 1990 nr. 23 ; samt lover som opphever aksjeskatteloven av 30. august 1991 nr. 71 (1/1-92) ; og 20. juli 1991 nr. 57 (1/1-93)&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lov av 24. mai 1969 nr. 71 om særregler for skattlegging av aksjeselskaper og aksjonærer : med endringer, sist ved lov av 15. juni 1990 nr. 23 ; samt lover som opphever aksjeskatteloven av 30. august 1991 nr. 71 (1/1-92) ; og 20. juli 1991 nr. 57 (1/1-93)&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl Dreyer&#39;, &#39;issued&#39;: &#39;1992&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-17T19:21:17.167Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T14:17:39.124Z&#39;, &#39;indexLastModified&#39;: &#39;2023-11-24T13:04:06.971Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8250412060&#39;], &#39;sesamId&#39;: &#39;3d605381265b53cc1d5d005cd6478b1c&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999213276684702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2012070308164&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 17, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;COPYRIGHTED&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;22c74e5f5561c378bea1200f940378bd&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/22c74e5f5561c378bea1200f940378bd&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/22c74e5f5561c378bea1200f940378bd/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/22c74e5f5561c378bea1200f940378bd/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/22c74e5f5561c378bea1200f940378bd/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/22c74e5f5561c378bea1200f940378bd/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/22c74e5f5561c378bea1200f940378bd/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/22c74e5f5561c378bea1200f940378bd/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908004_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908004_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908004_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908004_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2018-10-09T12:02:52.823Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Skattelov for landet av 18 august 1911 : med endrings- og tilleggslover av 28 juni 1912, 17 august 1915, 14. desember 1917, 3 mai 1918, 22 februar 1921, 21 juli 1922, 11 august 1924 og 16 juli 1926 samt endringslover av 18 februar 1921 og 14 juli 1922&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Skattelov for landet av 18 august 1911 : med endrings- og tilleggslover av 28 juni 1912, 17 august 1915, 14. desember 1917, 3 mai 1918, 22 februar 1921, 21 juli 1922, 11 august 1924 og 16 juli 1926 samt endringslover av 18 februar 1921 og 14 juli 1922&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl &amp; søn&#39;, &#39;issued&#39;: &#39;1926&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-18T19:23:31.097Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-05-28T03:00:43.136Z&#39;, &#39;indexLastModified&#39;: &#39;2023-09-27T01:34:03.675Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;22c74e5f5561c378bea1200f940378bd&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:990619188814702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2016041908004&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 85, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;94f27aa7d25d45895b41ff8018db56bb&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/94f27aa7d25d45895b41ff8018db56bb&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/94f27aa7d25d45895b41ff8018db56bb/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/94f27aa7d25d45895b41ff8018db56bb/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/94f27aa7d25d45895b41ff8018db56bb/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/94f27aa7d25d45895b41ff8018db56bb/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/94f27aa7d25d45895b41ff8018db56bb/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/94f27aa7d25d45895b41ff8018db56bb/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908002_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908002_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908002_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016041908002_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2018-10-09T11:49:05.354Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Skattelov for byene : av 18. august 1911 : med endringslover av 28. juni 1912, 14 desember 1917, 3. mai 1918, 22 februar 1921, 21 juli 1922, 11 august 1924, 16 juli 1926, 3 juni og 7 juli 1927&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Skattelov for byene : av 18. august 1911 : med endringslover av 28. juni 1912, 14 desember 1917, 3. mai 1918, 22 februar 1921, 21 juli 1922, 11 august 1924, 16 juli 1926, 3 juni og 7 juli 1927&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl&#39;, &#39;issued&#39;: &#39;1928&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-17T04:24:32.902Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-05-28T03:00:35.016Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-08T21:19:35.910Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;94f27aa7d25d45895b41ff8018db56bb&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:990620201964702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2016041908002&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 103, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;d64a6f2548e1337afb1d4b1c144eb869&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/d64a6f2548e1337afb1d4b1c144eb869&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/d64a6f2548e1337afb1d4b1c144eb869/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/d64a6f2548e1337afb1d4b1c144eb869/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/d64a6f2548e1337afb1d4b1c144eb869/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d64a6f2548e1337afb1d4b1c144eb869/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d64a6f2548e1337afb1d4b1c144eb869/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/d64a6f2548e1337afb1d4b1c144eb869/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008041400018_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008041400018_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008041400018_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008041400018_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2022-01-12T20:30:01.578Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Sportelloven og Lov om vidners og sakkyndiges godtgjørelse m.v : med kommentar&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Sportelloven og Lov om vidners og sakkyndiges godtgjørelse m.v : med kommentar&#39;}, {&#39;title&#39;: &#39;Lov om vidners og sakkyndiges godtgjørelse m.v&#39;, &#39;type&#39;: &#39;alternative&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Stenersen&#39;, &#39;issued&#39;: &#39;1927&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-17T05:58:44.426Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T05:32:03.972Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-09T16:32:28.728Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;d64a6f2548e1337afb1d4b1c144eb869&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999419307504702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2008041400018&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 287, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Harbek, Ole F.&#39;, &#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;0cd01d40092ba4e4f46b5e8d4d6cfb96&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/0cd01d40092ba4e4f46b5e8d4d6cfb96&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/0cd01d40092ba4e4f46b5e8d4d6cfb96/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/0cd01d40092ba4e4f46b5e8d4d6cfb96/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/0cd01d40092ba4e4f46b5e8d4d6cfb96/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/0cd01d40092ba4e4f46b5e8d4d6cfb96/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/0cd01d40092ba4e4f46b5e8d4d6cfb96/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/0cd01d40092ba4e4f46b5e8d4d6cfb96/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112800051_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112800051_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112800051_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112800051_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-18T10:33:12.687Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Bedrifts- og kapitalbeskatningen : beskatning av formue : delutredning III&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Bedrifts- og kapitalbeskatningen : beskatning av formue : delutredning III&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Statens forvaltningstjeneste, Seksjon Statens trykning&#39;, &#39;issued&#39;: &#39;1991&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-16T21:50:32.625Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T09:35:38.438Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-18T10:33:12.687Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8258302272&#39;], &#39;sesamId&#39;: &#39;0cd01d40092ba4e4f46b5e8d4d6cfb96&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999108207244702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2007112800051&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 75, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Aarbakke, Magnus&#39;, &#39;Gruppen for utredning av bedrifts- og kapitalbeskatningen&#39;], &#39;contentClasses&#39;: [&#39;staten&#39;, &#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;], &#39;series&#39;: [&#39;Norges offentlige utredninger (tidsskrift : trykt utg.) NOU 1991:17&#39;]}}
+{&#39;id&#39;: &#39;e6c299460e55f0c6d3e4674803361f6b&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/e6c299460e55f0c6d3e4674803361f6b&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/e6c299460e55f0c6d3e4674803361f6b/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/e6c299460e55f0c6d3e4674803361f6b/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/e6c299460e55f0c6d3e4674803361f6b/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/e6c299460e55f0c6d3e4674803361f6b/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/e6c299460e55f0c6d3e4674803361f6b/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/e6c299460e55f0c6d3e4674803361f6b/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007071104072_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007071104072_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007071104072_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007071104072_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-18T11:21:56.227Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Skattlegging av diettgodtgjørelser&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Skattlegging av diettgodtgjørelser&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Universitetsforlaget&#39;, &#39;issued&#39;: &#39;1985&#39;, &#39;firstIndexTime&#39;: &#39;2024-05-15T10:00:55.596Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T07:08:08.788Z&#39;, &#39;indexLastModified&#39;: &#39;2024-05-15T10:00:55.570Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8200709213&#39;], &#39;sesamId&#39;: &#39;e6c299460e55f0c6d3e4674803361f6b&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:998511016404702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2007071104072&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 201, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Fagereng, Jens&#39;], &#39;contentClasses&#39;: [&#39;staten&#39;, &#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;], &#39;series&#39;: [&#39;Norges offentlige utredninger (tidsskrift : trykt utg.) NOU 1985:5&#39;]}}
+{&#39;id&#39;: &#39;2b04393c45bb858fc1d54a0c2421dfb1&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/2b04393c45bb858fc1d54a0c2421dfb1&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/2b04393c45bb858fc1d54a0c2421dfb1/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/2b04393c45bb858fc1d54a0c2421dfb1/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/2b04393c45bb858fc1d54a0c2421dfb1/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/2b04393c45bb858fc1d54a0c2421dfb1/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/2b04393c45bb858fc1d54a0c2421dfb1/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/2b04393c45bb858fc1d54a0c2421dfb1/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008090504050_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008090504050_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008090504050_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2008090504050_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-18T10:33:18.061Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Flatere skatt : utredning fra et ekspertutvalg oppnevnt av Finans- og  tolldepartementet 18. februar 1998 : avgitt 15. januar 1999&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Flatere skatt : utredning fra et ekspertutvalg oppnevnt av Finans- og  tolldepartementet 18. februar 1998 : avgitt 15. januar 1999&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Statens forvaltningstjeneste, Statens trykning&#39;, &#39;issued&#39;: &#39;1999&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-17T08:43:57.154Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T12:33:57.136Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-18T10:33:18.061Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8258304747&#39;], &#39;sesamId&#39;: &#39;2b04393c45bb858fc1d54a0c2421dfb1&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999902865924702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2008090504050&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 293, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Stølen, Nils Martin&#39;, &#39;Flatere skatt-utvalget&#39;, &#39;Norge Finansdepartementet&#39;], &#39;contentClasses&#39;: [&#39;staten&#39;, &#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;], &#39;series&#39;: [&#39;Norges offentlige utredninger (tidsskrift : trykt utg.) NOU 1999: 7&#39;]}}
+{&#39;id&#39;: &#39;c88ace17a7f4c055a2455ed7126bcbc2&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/c88ace17a7f4c055a2455ed7126bcbc2&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/c88ace17a7f4c055a2455ed7126bcbc2/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/c88ace17a7f4c055a2455ed7126bcbc2/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/c88ace17a7f4c055a2455ed7126bcbc2/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/c88ace17a7f4c055a2455ed7126bcbc2/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/c88ace17a7f4c055a2455ed7126bcbc2/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/c88ace17a7f4c055a2455ed7126bcbc2/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016052028001_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016052028001_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016052028001_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2016052028001_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2018-10-09T14:07:52.570Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Om directe og indirecte Skat med særdeles Hensyn paa vort nuværende Beskatningssystem&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Om directe og indirecte Skat med særdeles Hensyn paa vort nuværende Beskatningssystem&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Christiania&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Trykt i P.T. Mallings Bogtrykkeri&#39;, &#39;issued&#39;: &#39;1850&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-18T06:10:28.744Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-06-14T03:01:30.726Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-14T13:25:19.357Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;c88ace17a7f4c055a2455ed7126bcbc2&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:990016035664702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2016052028001&#39;}, &#39;subject&#39;: {&#39;geographics&#39;: [&#39;Europa&#39;, &#39;Norge,Oslo&#39;]}, &#39;languages&#39;: [{&#39;code&#39;: &#39;dan&#39;}], &#39;pageCount&#39;: 97, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Blom, Gustav Peter&#39;, &#39;Malling, P.T.&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;c948e351519611efce3676d2b29a6dcd&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/c948e351519611efce3676d2b29a6dcd&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/c948e351519611efce3676d2b29a6dcd/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/c948e351519611efce3676d2b29a6dcd/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/c948e351519611efce3676d2b29a6dcd/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/c948e351519611efce3676d2b29a6dcd/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/c948e351519611efce3676d2b29a6dcd/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/c948e351519611efce3676d2b29a6dcd/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012051805040_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012051805040_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012051805040_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012051805040_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2018-10-09T14:22:32.533Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Skattereformen 1992&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Skattereformen 1992&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;[Oslo]&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Departementet&#39;, &#39;issued&#39;: &#39;1991&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-18T01:58:04.139Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T04:14:10.243Z&#39;, &#39;indexLastModified&#39;: &#39;2023-06-09T17:31:10.658Z&#39;}, &#39;identifiers&#39;: {&#39;sesamId&#39;: &#39;c948e351519611efce3676d2b29a6dcd&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999105183604702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2012051805040&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 427, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge Finansdepartementet&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;], &#39;series&#39;: [&#39;Ot.prp. 35 (1990-91)&#39;]}}
+{&#39;id&#39;: &#39;2ca8b01ca38f06e3eb2b503f1f8a380c&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/2ca8b01ca38f06e3eb2b503f1f8a380c&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/2ca8b01ca38f06e3eb2b503f1f8a380c/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/2ca8b01ca38f06e3eb2b503f1f8a380c/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/2ca8b01ca38f06e3eb2b503f1f8a380c/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/2ca8b01ca38f06e3eb2b503f1f8a380c/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/2ca8b01ca38f06e3eb2b503f1f8a380c/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/2ca8b01ca38f06e3eb2b503f1f8a380c/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112700009_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112700009_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112700009_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2007112700009_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-18T10:33:18.394Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Bedrifts- og kapitalbeskatningen : beskatning av aksjer, obligasjoner, valuta og enkelte finansielle instrumenter : delutredning II&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Bedrifts- og kapitalbeskatningen : beskatning av aksjer, obligasjoner, valuta og enkelte finansielle instrumenter : delutredning II&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Forvaltningstjenestene, Statens trykningskontor&#39;, &#39;issued&#39;: &#39;1990&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-16T17:52:26.324Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T12:41:53.716Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-18T10:33:18.394Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8258302248&#39;], &#39;sesamId&#39;: &#39;2ca8b01ca38f06e3eb2b503f1f8a380c&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999011960614702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2007112700009&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 47, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Aarbakke, Magnus&#39;], &#39;contentClasses&#39;: [&#39;staten&#39;, &#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;], &#39;series&#39;: [&#39;Norges offentlige utredninger (tidsskrift : trykt utg.) 1990:27&#39;]}}
+{&#39;id&#39;: &#39;f802ccf77c68f18ab4b8d22d08f35ebb&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/f802ccf77c68f18ab4b8d22d08f35ebb&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/f802ccf77c68f18ab4b8d22d08f35ebb/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/f802ccf77c68f18ab4b8d22d08f35ebb/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/f802ccf77c68f18ab4b8d22d08f35ebb/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/f802ccf77c68f18ab4b8d22d08f35ebb/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/f802ccf77c68f18ab4b8d22d08f35ebb/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/f802ccf77c68f18ab4b8d22d08f35ebb/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013090206056_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013090206056_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013090206056_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013090206056_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-18T11:22:02.451Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Beskatning av utlendinger som investerer i norsk skipsfartsvirksomhet&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Beskatning av utlendinger som investerer i norsk skipsfartsvirksomhet&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Universitetsforlaget&#39;, &#39;issued&#39;: &#39;1986&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-16T14:36:36.994Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-22T08:52:28.123Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-18T11:22:02.451Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8200710335&#39;], &#39;sesamId&#39;: &#39;f802ccf77c68f18ab4b8d22d08f35ebb&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:998620630864702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2013090206056&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 41, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Zimmer, Frederik&#39;], &#39;contentClasses&#39;: [&#39;staten&#39;, &#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;], &#39;series&#39;: [&#39;Norges offentlige utredninger (tidsskrift : trykt utg.) 1986:9&#39;]}}
+{&#39;id&#39;: &#39;6c560fa694caef96a28f4dfcd1955c47&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/6c560fa694caef96a28f4dfcd1955c47&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/6c560fa694caef96a28f4dfcd1955c47/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/6c560fa694caef96a28f4dfcd1955c47/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/6c560fa694caef96a28f4dfcd1955c47/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/6c560fa694caef96a28f4dfcd1955c47/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/6c560fa694caef96a28f4dfcd1955c47/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/6c560fa694caef96a28f4dfcd1955c47/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012083008018_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012083008018_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012083008018_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2012083008018_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;publicdomain&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-19T09:42:08.645Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: True}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lov av 18. august 1911 nr 8 om skatt av formue og inntekt (skatteloven) : med endringslover, sist av 26. juni 1992 nr 85, samt Skattevedtak for inntektsåret 1992 av 7. november 1991 nr 745&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lov av 18. august 1911 nr 8 om skatt av formue og inntekt (skatteloven) : med endringslover, sist av 26. juni 1992 nr 85, samt Skattevedtak for inntektsåret 1992 av 7. november 1991 nr 745&#39;}, {&#39;title&#39;: &#39;Lov om skatt av formue og inntekt&#39;, &#39;type&#39;: &#39;alternative&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Grøndahl Dreyer&#39;, &#39;issued&#39;: &#39;1992&#39;, &#39;firstIndexTime&#39;: &#39;2023-02-07T20:30:02.493Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T18:58:38.971Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-19T09:42:08.645Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8250410173&#39;], &#39;sesamId&#39;: &#39;6c560fa694caef96a28f4dfcd1955c47&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999220362254702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2012083008018&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 117, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;public&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;publicdomain&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;1368f4a06b11dc912e87266a54f41611&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/1368f4a06b11dc912e87266a54f41611&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/1368f4a06b11dc912e87266a54f41611/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/1368f4a06b11dc912e87266a54f41611/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/1368f4a06b11dc912e87266a54f41611/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/1368f4a06b11dc912e87266a54f41611/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/1368f4a06b11dc912e87266a54f41611/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/1368f4a06b11dc912e87266a54f41611/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015070608011_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015070608011_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015070608011_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2015070608011_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2024-03-05T09:29:13.670Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lovsamling for skatt og avgift. 1992/93&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lovsamling for skatt og avgift. 1992/93&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Kommuneforlaget&#39;, &#39;issued&#39;: &#39;1993&#39;, &#39;firstIndexTime&#39;: &#39;2024-03-05T09:29:13.808Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T10:15:15.751Z&#39;, &#39;indexLastModified&#39;: &#39;2024-03-05T09:29:13.670Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8270460664&#39;], &#39;sesamId&#39;: &#39;1368f4a06b11dc912e87266a54f41611&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999310321484702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2015070608011&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 1553, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;showonly&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;COPYRIGHTED&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+{&#39;id&#39;: &#39;992a74fa4cf7c7e1d9cb1a93afbed936&#39;, &#39;_links&#39;: {&#39;self&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/items/992a74fa4cf7c7e1d9cb1a93afbed936&#39;}, &#39;mods&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/992a74fa4cf7c7e1d9cb1a93afbed936/mods&#39;}, &#39;dublincore&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/metadata/992a74fa4cf7c7e1d9cb1a93afbed936/dublincore&#39;}, &#39;presentation&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/iiif/992a74fa4cf7c7e1d9cb1a93afbed936/manifest&#39;}, &#39;enw&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/992a74fa4cf7c7e1d9cb1a93afbed936/enw&#39;}, &#39;ris&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/992a74fa4cf7c7e1d9cb1a93afbed936/ris&#39;}, &#39;wiki&#39;: {&#39;href&#39;: &#39;https://api.nb.no:443/catalog/v1/reference/992a74fa4cf7c7e1d9cb1a93afbed936/wiki&#39;}, &#39;thumbnail_custom&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009101200158_C1/full/{width},{height}/0/native.jpg&#39;, &#39;templated&#39;: True}, &#39;thumbnail_large&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009101200158_C1/full/0,200/0/native.jpg&#39;}, &#39;thumbnail_medium&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009101200158_C1/full/0,128/0/native.jpg&#39;}, &#39;thumbnail_small&#39;: {&#39;href&#39;: &#39;https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2009101200158_C1/full/0,64/0/native.jpg&#39;}}, &#39;accessInfo&#39;: {&#39;accessAllowedFrom&#39;: &#39;EVERYWHERE&#39;, &#39;viewability&#39;: &#39;ALL&#39;, &#39;license&#39;: &#39;copyrighted&#39;, &#39;accessInfoLastModified&#39;: &#39;2023-12-04T10:01:59.205Z&#39;, &#39;isDigital&#39;: True, &#39;isPublicDomain&#39;: False}, &#39;metadata&#39;: {&#39;title&#39;: &#39;Lovsamling for skatt og avgift. 1993/94&#39;, &#39;titleInfos&#39;: [{&#39;title&#39;: &#39;Lovsamling for skatt og avgift. 1993/94&#39;}], &#39;geographic&#39;: {&#39;city&#39;: &#39;Oslo&#39;}, &#39;originInfo&#39;: {&#39;publisher&#39;: &#39;Kommuneforlaget&#39;, &#39;issued&#39;: &#39;1994&#39;, &#39;firstIndexTime&#39;: &#39;2024-02-16T14:24:47.145Z&#39;, &#39;firstDigitalContentTime&#39;: &#39;2016-01-21T23:24:53.744Z&#39;, &#39;indexLastModified&#39;: &#39;2023-12-04T10:01:59.220Z&#39;}, &#39;identifiers&#39;: {&#39;isbn10&#39;: [&#39;8244600934&#39;], &#39;sesamId&#39;: &#39;992a74fa4cf7c7e1d9cb1a93afbed936&#39;, &#39;oaiId&#39;: &#39;oai:nb.bibsys.no:999407765964702202&#39;, &#39;urn&#39;: &#39;URN:NBN:no-nb_digibok_2009101200158&#39;}, &#39;languages&#39;: [{&#39;code&#39;: &#39;nob&#39;}], &#39;pageCount&#39;: 1649, &#39;mediaTypes&#39;: [&#39;bøker&#39;], &#39;creators&#39;: [&#39;Norge&#39;], &#39;contentClasses&#39;: [&#39;showonly&#39;, &#39;legaldeposit&#39;, &#39;jp2&#39;, &#39;COPYRIGHTED&#39;], &#39;metadataClasses&#39;: [&#39;public&#39;]}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="b">
+<h2>b)<a class="headerlink" href="#b" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=20&amp;filter=mediatype:bøker&amp;q=Skatterett&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">creator2count</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># example content {&#39;Bing, Jon&#39;: 1}</span>
+
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="n">creators</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;creators&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">creators</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+[&#39;Hedlund, Mary-Ann&#39;, &#39;Norge Finansdepartementet&#39;]
+[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+[&#39;Harbek, Ole F.&#39;, &#39;Norge&#39;]
+[&#39;Aarbakke, Magnus&#39;, &#39;Gruppen for utredning av bedrifts- og kapitalbeskatningen&#39;]
+[&#39;Fagereng, Jens&#39;]
+[&#39;Stølen, Nils Martin&#39;, &#39;Flatere skatt-utvalget&#39;, &#39;Norge Finansdepartementet&#39;]
+[&#39;Blom, Gustav Peter&#39;, &#39;Malling, P.T.&#39;]
+[&#39;Norge Finansdepartementet&#39;]
+[&#39;Aarbakke, Magnus&#39;]
+[&#39;Zimmer, Frederik&#39;]
+[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+[&#39;Norge&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c">
+<h2>c)<a class="headerlink" href="#c" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=20&amp;filter=mediatype:bøker&amp;q=Skatterett&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">creator2count</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># example content {&#39;Bing, Jon&#39;: 1}</span>
+
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="n">creators</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;creators&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">creators</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">creator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norge
+Norge
+Norge
+Norge
+Hedlund, Mary-Ann
+Norge Finansdepartementet
+Norge
+Norge
+Norge
+Norge
+Harbek, Ole F.
+Norge
+Aarbakke, Magnus
+Gruppen for utredning av bedrifts- og kapitalbeskatningen
+Fagereng, Jens
+Stølen, Nils Martin
+Flatere skatt-utvalget
+Norge Finansdepartementet
+Blom, Gustav Peter
+Malling, P.T.
+Norge Finansdepartementet
+Aarbakke, Magnus
+Zimmer, Frederik
+Norge
+Norge
+Norge
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d">
+<h2>d)<a class="headerlink" href="#d" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=20&amp;filter=mediatype:bøker&amp;q=Skatterett&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">creator2count</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># example content {&#39;Bing, Jon&#39;: 1}</span>
+
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="n">creators</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;creators&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">creators</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">creator</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">creator2count</span><span class="p">:</span>
+            <span class="n">creator2count</span><span class="p">[</span><span class="n">creator</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="e">
+<h2>e)<a class="headerlink" href="#e" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=20&amp;filter=mediatype:bøker&amp;q=Skatterett&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">creator2count</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># example content {&#39;Bing, Jon&#39;: 1}</span>
+
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="n">creators</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;creators&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">creators</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">creator</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">creator2count</span><span class="p">:</span>
+            <span class="n">creator2count</span><span class="p">[</span><span class="n">creator</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">creator2count</span><span class="p">[</span><span class="n">creator</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="f">
+<h2>f)<a class="headerlink" href="#f" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.nb.no/catalog/v1/items?digitalAccessibleOnly=true&amp;size=20&amp;filter=mediatype:bøker&amp;q=Skatterett&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">creator2count</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># example content {&#39;Bing, Jon&#39;: 1}</span>
+
+<span class="n">embedded</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">]</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">embedded</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">]</span>
+    <span class="n">creators</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;creators&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">creators</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">creator</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">creator2count</span><span class="p">:</span>
+            <span class="n">creator2count</span><span class="p">[</span><span class="n">creator</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">creator2count</span><span class="p">[</span><span class="n">creator</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Show results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Number of items/works per creator:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">creator2count</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">creator2count</span><span class="p">[</span><span class="n">creator</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">creator</span><span class="p">,</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="s2">&quot;works&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of items/works per creator:
+Norge created 12 works
+Hedlund, Mary-Ann created 1 works
+Norge Finansdepartementet created 3 works
+Harbek, Ole F. created 1 works
+Aarbakke, Magnus created 2 works
+Gruppen for utredning av bedrifts- og kapitalbeskatningen created 1 works
+Fagereng, Jens created 1 works
+Stølen, Nils Martin created 1 works
+Flatere skatt-utvalget created 1 works
+Blom, Gustav Peter created 1 works
+Malling, P.T. created 1 works
+Zimmer, Frederik created 1 works
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a">a)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b">b)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c">c)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d">d)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#e">e)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f">f)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Oslo, Erik Winge, Eirill Strand Hauge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

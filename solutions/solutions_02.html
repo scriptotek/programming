@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercise: Adding Elements to a List &#8212; Introduction to Programming</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'solutions/solutions_02';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/uio_logo_small.svg" class="logo__image only-light" alt="Introduction to Programming - Home"/>
+    <script>document.write(`<img src="../_static/uio_logo_small.svg" class="logo__image only-dark" alt="Introduction to Programming - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_basics.html">The Basics: Variables and Printing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_lists_loops.html">Lists and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_Dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_library_catalogue.html">JSON and Library Catalog Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_caselaw.html">JSON and Case Law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_if.html">Decisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_Strings.html">Bonus Episode: Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning.html">A short introduction to machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08_exercises.html">More Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_library_data_exercises.html">Library Data Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_case_law_exercises.html">Case Law Exercises</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/scriptotek/programming/master?urlpath=tree/solutions/solutions_02.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uio.no/hub/user-redirect/git-pull?repo=https%3A//github.com/scriptotek/programming&urlpath=tree/programming/solutions/solutions_02.ipynb&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on JupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="JupyterHub logo" src="../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/scriptotek/programming/blob/master/solutions/solutions_02.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/edit/master/solutions/solutions_02.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/scriptotek/programming/issues/new?title=Issue%20on%20page%20%2Fsolutions/solutions_02.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/solutions/solutions_02.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><span style="color:green"> Exercise: Adding Elements to a List </span></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span style="color:green"> Exercise: Adding Elements to a List </span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-adding-elements-to-a-list"><span style="color:blue"> Solution: Adding Elements to a List </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-lists"><span style="color:green">Exercise: Indexing Lists</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-indexing-lists"><span style="color:blue"> Solution: Indexing Lists </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-dates-and-indexing-nested-lists"><span style="color:green">Exercise: Dates and Indexing Nested Lists</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-dates-and-indexing-nested-lists"><span style="color:blue"> Solution: Dates and Indexing Nested Lists </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-loop"><span style="color:green">Exercise: Loop</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-loop"><span style="color:blue"> Solution: Loop </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops"><span style="color:green">Exercise: Nested Loops</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-nested-loops"><span style="color:blue"> Solution: Nested Loops </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-in-a-loop"><span style="color:green">Exercise: Indexing in a Loop</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-indexing-in-a-loop"><span style="color:blue"> Solution: Indexing in a Loop</span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-range"><span style="color:blue"> Solution: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range-when-indexing"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing </span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-range-when-indexing"><span style="color:blue"> Solution: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing  </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops-and-range"><span style="color:green"> Exercise: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-nested-loops-and-range"><span style="color:blue"> Solution: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="exercise-adding-elements-to-a-list">
+<h1><span style="color:green"> Exercise: Adding Elements to a List </span><a class="headerlink" href="#exercise-adding-elements-to-a-list" title="Link to this heading">#</a></h1>
+<p>The list <code class="docutils literal notranslate"><span class="pre">days</span></code> below contains the weekdays, but is missing the weekend. Your task will be to add <em>Saturday</em> and <em>Sunday</em> to the existing list <code class="docutils literal notranslate"><span class="pre">days</span></code>.</p>
+<p>Start by printing out the length of the list <code class="docutils literal notranslate"><span class="pre">days</span></code> using the function <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Then, add the two days of the weekend to <code class="docutils literal notranslate"><span class="pre">days</span></code>. Finish by printing out the new length of the list using the <code class="docutils literal notranslate"><span class="pre">len()</span></code>-function.</p>
+<p>An example of how your output could be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>There are 5 days!
+There are 7 days!
+</pre></div>
+</div>
+<p>The text is not strictly necessary, the numbers are the important part!</p>
+<section id="solution-adding-elements-to-a-list">
+<h2><span style="color:blue"> Solution: Adding Elements to a List </span><a class="headerlink" href="#solution-adding-elements-to-a-list" title="Link to this heading">#</a></h2>
+<p>Make sure to use <code class="docutils literal notranslate"><span class="pre">days.append(&quot;Saturday&quot;)</span></code>and NOT <code class="docutils literal notranslate"><span class="pre">days.append(Saturday)</span></code>. In the latter case, Python will attempt to find a variable called Saturday, which will invoke a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Monday&quot;</span><span class="p">,</span> <span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span> <span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span> <span class="s2">&quot;Thursday&quot;</span><span class="p">,</span> <span class="s2">&quot;Friday&quot;</span><span class="p">]</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">days</span><span class="p">),</span> <span class="s2">&quot;days!&quot;</span><span class="p">)</span>
+
+<span class="c1"># adding the weekend</span>
+<span class="n">days</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Saturday&quot;</span><span class="p">)</span>
+<span class="n">days</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Sunday&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">days</span><span class="p">),</span> <span class="s2">&quot;days!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 5 days!
+There are 7 days!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-indexing-lists">
+<h1><span style="color:green">Exercise: Indexing Lists</span><a class="headerlink" href="#exercise-indexing-lists" title="Link to this heading">#</a></h1>
+<p>Change the variable <code class="docutils literal notranslate"><span class="pre">index</span></code> in the code below such that the word <em>something</em> is printed when the code snippet is run.</p>
+<section id="solution-indexing-lists">
+<h2><span style="color:blue"> Solution: Indexing Lists </span><a class="headerlink" href="#solution-indexing-lists" title="Link to this heading">#</a></h2>
+<p>The word <em>something</em> is the fourth element in the list. Since lists start counting at 0 and not 1, the index needed is 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Margaret_Lanterman</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;has&#39;</span><span class="p">,</span> <span class="s1">&#39;something&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="s1">&#39;tell&#39;</span><span class="p">,</span> <span class="s1">&#39;you.&#39;</span><span class="p">]</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Margaret_Lanterman</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>something
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-dates-and-indexing-nested-lists">
+<h1><span style="color:green">Exercise: Dates and Indexing Nested Lists</span><a class="headerlink" href="#exercise-dates-and-indexing-nested-lists" title="Link to this heading">#</a></h1>
+<p>Change the indexes in the code below, so that the printed information is correct.</p>
+<section id="solution-dates-and-indexing-nested-lists">
+<h2><span style="color:blue"> Solution: Dates and Indexing Nested Lists </span><a class="headerlink" href="#solution-dates-and-indexing-nested-lists" title="Link to this heading">#</a></h2>
+<p>If you struggled with this exercise, then we hope that you will be able to print out your birthday after being guided through the Christmas example.</p>
+<p>Christmas (in Norway) is the 24’th of December. The <code class="docutils literal notranslate"><span class="pre">days</span></code> list is NOT a nested list. Since the numbers are listed in ascending order, we know that the number 24 is the 24’th element in the list <code class="docutils literal notranslate"><span class="pre">days</span></code>. Since indexing starts at 0, we get the the number 24 is found at <code class="docutils literal notranslate"><span class="pre">days[23]</span></code>.</p>
+<p>The months are put in nested lists.  The list <code class="docutils literal notranslate"><span class="pre">month</span></code> contains season-lists. December is in winter, so first thing is to access the list <code class="docutils literal notranslate"><span class="pre">winter</span></code> from <code class="docutils literal notranslate"><span class="pre">month</span></code>. The list <code class="docutils literal notranslate"><span class="pre">winter</span></code> can be found at <code class="docutils literal notranslate"><span class="pre">months[2]</span></code>. Now, <code class="docutils literal notranslate"><span class="pre">months[2]</span></code> and <code class="docutils literal notranslate"><span class="pre">winter</span></code> is the same list, so to get December, you index <code class="docutils literal notranslate"><span class="pre">months[2]</span></code> the same way you would index <code class="docutils literal notranslate"><span class="pre">winter</span></code>. Since December is found in <code class="docutils literal notranslate"><span class="pre">winter[0]</span></code>, the final answer to get December from <code class="docutils literal notranslate"><span class="pre">months</span></code> is <code class="docutils literal notranslate"><span class="pre">months[2][0]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">]</span>
+<span class="n">autum</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">]</span>
+<span class="n">winter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;December&quot;</span><span class="p">,</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">]</span>
+<span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="s2">&quot;May&quot;</span><span class="p">]</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="n">summer</span><span class="p">,</span> <span class="n">autum</span><span class="p">,</span> <span class="n">winter</span><span class="p">,</span> <span class="n">spring</span><span class="p">]</span>
+
+
+<span class="c1"># change the indices below</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My birthday is the 10th of </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">months</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Christmas is the 24th of </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">months</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My birthday is the 10th of August.
+Christmas is the 24th of December.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-loop">
+<h1><span style="color:green">Exercise: Loop</span><a class="headerlink" href="#exercise-loop" title="Link to this heading">#</a></h1>
+<p>We can also loop or iterate over lists of strings.
+Complete the following code, to loop (iterate) over the summer months:</p>
+<section id="solution-loop">
+<h2><span style="color:blue"> Solution: Loop </span><a class="headerlink" href="#solution-loop" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>June
+July
+August
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-nested-loops">
+<h1><span style="color:green">Exercise: Nested Loops</span><a class="headerlink" href="#exercise-nested-loops" title="Link to this heading">#</a></h1>
+<p>Next, we iterate over a nested list of strings:
+Complete the following code, to loop (iterate) over all the months.
+You will need two nested <code class="docutils literal notranslate"><span class="pre">for</span></code>-loops.</p>
+<section id="solution-nested-loops">
+<h2><span style="color:blue"> Solution: Nested Loops </span><a class="headerlink" href="#solution-nested-loops" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> <span class="s2">&quot;July&quot;</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">]</span>
+<span class="n">autum</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="s2">&quot;October&quot;</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">]</span>
+<span class="n">winter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;December&quot;</span><span class="p">,</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">]</span>
+<span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="s2">&quot;May&quot;</span><span class="p">]</span>
+
+<span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="n">summer</span><span class="p">,</span> <span class="n">autum</span><span class="p">,</span> <span class="n">winter</span><span class="p">,</span> <span class="n">spring</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">season</span> <span class="ow">in</span> <span class="n">seasons</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">season</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span> <span class="c1">#blank line to separate the seasons</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>June
+July
+August
+
+September
+October
+November
+
+December
+January
+February
+
+March
+April
+May
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-indexing-in-a-loop">
+<h1><span style="color:green">Exercise: Indexing in a Loop</span><a class="headerlink" href="#exercise-indexing-in-a-loop" title="Link to this heading">#</a></h1>
+<p>The list <code class="docutils literal notranslate"><span class="pre">names</span></code> contains a few names and the list <code class="docutils literal notranslate"><span class="pre">birth_years</span></code> contain their corresponding birth years. There is also a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop that should print out the names with their corresponding birth years. The print-statement is incomplete, such that only the name is printed.</p>
+<p>Your task is to add the correct birth year in the print-statement in the loop by indexing <code class="docutils literal notranslate"><span class="pre">birth_years</span></code>.</p>
+<section id="solution-indexing-in-a-loop">
+<h2><span style="color:blue"> Solution: Indexing in a Loop</span><a class="headerlink" href="#solution-indexing-in-a-loop" title="Link to this heading">#</a></h2>
+<p>The clue here is to look at how the names in the list <code class="docutils literal notranslate"><span class="pre">names</span></code> were indexed in the loop, and then do the same for the <code class="docutils literal notranslate"><span class="pre">brith_year</span></code> list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;John Cleese&quot;</span><span class="p">,</span> <span class="s2">&quot;Terry Gilliam&quot;</span><span class="p">,</span> <span class="s2">&quot;Eric Idle&quot;</span><span class="p">,</span> <span class="s2">&quot;Michael Palin&quot;</span><span class="p">,</span> <span class="s2">&quot;Graham Chapman&quot;</span><span class="p">,</span> <span class="s2">&quot;Terry Jones&quot;</span><span class="p">]</span>
+<span class="n">birth_years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1939</span><span class="p">,</span> <span class="mi">1940</span><span class="p">,</span> <span class="mi">1943</span><span class="p">,</span> <span class="mi">1943</span><span class="p">,</span> <span class="mi">1941</span><span class="p">,</span> <span class="mi">1942</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;was born in&quot;</span><span class="p">,</span> <span class="n">birth_years</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>John Cleese was born in 1939
+Terry Gilliam was born in 1940
+Eric Idle was born in 1943
+Michael Palin was born in 1943
+Graham Chapman was born in 1941
+Terry Jones was born in 1942
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-using-range">
+<h1><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span><a class="headerlink" href="#exercise-using-range" title="Link to this heading">#</a></h1>
+<p>Predict what will be printed when running the code snippet below:</p>
+<section id="solution-using-range">
+<h2><span style="color:blue"> Solution: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span><a class="headerlink" href="#solution-using-range" title="Link to this heading">#</a></h2>
+<p>The range starts at 0, and increments by 2. The range should not inculde the number 3 or higher. This gives 0, 2. The range stops here, as the next number (4) is too high.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-using-range-when-indexing">
+<h1><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing </span><a class="headerlink" href="#exercise-using-range-when-indexing" title="Link to this heading">#</a></h1>
+<p>Predict what will be printed when running the code snippet below:</p>
+<section id="solution-using-range-when-indexing">
+<h2><span style="color:blue"> Solution: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing  </span><a class="headerlink" href="#solution-using-range-when-indexing" title="Link to this heading">#</a></h2>
+<p>The range will yield {0, 2} as seen in the previous exercise. This means that the loop will index at 0 and at 2. We have that <code class="docutils literal notranslate"><span class="pre">message[0]</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;You&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">message[2]</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;understand!&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;You&quot;</span><span class="p">,</span> <span class="s2">&quot;don&#39;t&quot;</span><span class="p">,</span> <span class="s2">&quot;understand!&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You
+understand!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="exercise-nested-loops-and-range">
+<h1><span style="color:green"> Exercise: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span><a class="headerlink" href="#exercise-nested-loops-and-range" title="Link to this heading">#</a></h1>
+<p>We can also use nested loops with <code class="docutils literal notranslate"><span class="pre">range</span></code>. Explain the loop below.</p>
+<section id="solution-nested-loops-and-range">
+<h2><span style="color:blue"> Solution: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span><a class="headerlink" href="#solution-nested-loops-and-range" title="Link to this heading">#</a></h2>
+<p>This is usually challenging for a beginner in programming, so no need to despair if you struggle with this.</p>
+<p>Try to look at the output and convince yourself that it makes sense with how the nested loop is set up. An advice is to alter the number in the first range (e.g write <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> instead of <code class="docutils literal notranslate"><span class="pre">range(4)</span></code>) and see how the output changes.</p>
+<p>To convince yourself that you really understood; can you predict the output if you changed the inner range to <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">j</span> <span class="pre">in</span> <span class="pre">range(i)</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main loop i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Inner loop j =&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s2">&quot;  (i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Main loop i = 0
+	Inner loop j = 0   (i = 0 )
+Main loop i = 1
+	Inner loop j = 0   (i = 1 )
+	Inner loop j = 1   (i = 1 )
+Main loop i = 2
+	Inner loop j = 0   (i = 2 )
+	Inner loop j = 1   (i = 2 )
+	Inner loop j = 2   (i = 2 )
+Main loop i = 3
+	Inner loop j = 0   (i = 3 )
+	Inner loop j = 1   (i = 3 )
+	Inner loop j = 2   (i = 3 )
+	Inner loop j = 3   (i = 3 )
+</pre></div>
+</div>
+</div>
+</div>
+<p>All done!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><span style="color:green"> Exercise: Adding Elements to a List </span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-adding-elements-to-a-list"><span style="color:blue"> Solution: Adding Elements to a List </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-lists"><span style="color:green">Exercise: Indexing Lists</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-indexing-lists"><span style="color:blue"> Solution: Indexing Lists </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-dates-and-indexing-nested-lists"><span style="color:green">Exercise: Dates and Indexing Nested Lists</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-dates-and-indexing-nested-lists"><span style="color:blue"> Solution: Dates and Indexing Nested Lists </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-loop"><span style="color:green">Exercise: Loop</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-loop"><span style="color:blue"> Solution: Loop </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops"><span style="color:green">Exercise: Nested Loops</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-nested-loops"><span style="color:blue"> Solution: Nested Loops </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-indexing-in-a-loop"><span style="color:green">Exercise: Indexing in a Loop</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-indexing-in-a-loop"><span style="color:blue"> Solution: Indexing in a Loop</span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-range"><span style="color:blue"> Solution: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-using-range-when-indexing"><span style="color:green"> Exercise: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing </span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-range-when-indexing"><span style="color:blue"> Solution: Using <code class="docutils literal notranslate"><span class="pre">range</span></code> when Indexing  </span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-nested-loops-and-range"><span style="color:green"> Exercise: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-nested-loops-and-range"><span style="color:blue"> Solution: Nested Loops and <code class="docutils literal notranslate"><span class="pre">range()</span></code></span></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By University of Oslo, Erik Winge, Eirill Strand Hauge
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
