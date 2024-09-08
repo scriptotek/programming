@@ -87,13 +87,13 @@ private void drawFigure() {
   textbox("".equals(word) ? "" : "'"+word+"'", "word", width/2, wordPos);
   switch (count) {
     case 1:
-      arrow(width/2, wordPos, width/4+40, listPos+40);
+      arrow(width/4+40, listPos+40, width/2, wordPos-10);
       break;
     case 2:
-      arrow(width/2, wordPos, width/2, listPos+40);
+      arrow(width/2, listPos+40, width/2, wordPos-10);
       break;
     case 3:
-      arrow(width/2, wordPos, width-width/4-40, listPos+40);
+      arrow(width-width/4-40, listPos+40, width/2, wordPos-10);
       break;
   }
 }
